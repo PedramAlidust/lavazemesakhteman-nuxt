@@ -1,0 +1,21 @@
+{
+  "name": "شیرآلات، قهرمان، شودر، راسان، درخشان، شایان، کلار، کسری، اخوان، البرز، ارزان",
+  "version": "1.0.0",
+  "description": "جدید ترین شیرآلات و لوازم ساختمانی و صنعتی با برند های راسان قهرمان سام در فروشگاه لوازم ساختمان",
+  "author": "Pedram Alidoust",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --hostname 'localhost' --port '3001'",
+    "build": "nuxt build",
+    "start": "nuxt start --hostname 'localhost' --port '3001'",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "nuxt": "^1.0.0",
+    "woocommerce-api": "^1.5.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.1"
+  }
+}
