@@ -78,7 +78,7 @@
     </div>
 
     <!-- Call to Action -->
-    <div class="container-full cta_bg p-5">
+    <div id="weblog" class="container-full cta_bg p-5">
       <div class="container-full py-5">
         <div class="row">
           <div class="col-lg-6 col-md-6 text-start ps-2">
@@ -87,9 +87,9 @@
               فروشگاه لوازم ساختمانی خلاقیت و کارآیی را به همراه زیبایی و قیمت
               مناسب به ارمغان آورده است
             </p>
-            <button type="button" class="btn btn-info mt-3 text-white">
+            <a href="https://lavazemesakhteman.com/%D9%84%DB%8C%D8%B3%D8%AA-%D9%82%DB%8C%D9%85%D8%AA/" role="button" class="btn btn-info mt-3 text-white">
               مشاهده لیست قیمت
-            </button>
+            </a>
           </div>
           <div class="col-6 col-lg-3 col-md-3 text-start mt-5">
             <img
@@ -110,7 +110,7 @@
     </div>
 
     <!-- features section -->
-    <div class="container py-3 py-md-5 py-lg-5">
+    <div id="about-us" class="container py-3 py-md-5 py-lg-5">
       <div class="row py-5">
         <div class="col-lg-4 col-md-4 text-center text-lg-start text-md-start">
           <i class="bi-box2 display-4"></i>
@@ -152,7 +152,7 @@
       </div>
     </div>
     <!-- second cta section -->
-    <div class="container-full cta2_bg py-5">
+    <div id="app" class="container-full cta2_bg py-5">
       <div class="container py-5">
         <div class="row">
           <div class="col-12 text-center">

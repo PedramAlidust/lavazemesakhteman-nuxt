@@ -1,6 +1,6 @@
 <template>
   <!-- Footer Section -->
-  <footer>
+  <footer id="contact-us">
     <div class="container-full bg-dark py-md-5 py-lg-5">
       <div class="container px-5">
         <div class="row">

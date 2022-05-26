@@ -13,26 +13,26 @@
     "bacdeed4630d6fb918b02a2343ae4d34.webp",
     "fonts/IRANSansWebFaNum.e9908f0.ttf",
     "img/product-6-300x300.ffef3ab.jpg",
-    "pages/index.30b76a10a0609156c643.js",
-    "pages/categories/_categorie/index.cef54cbd6c4d982f611f.js",
-    "pages/categories/index.cb293a28b8523222018d.js",
+    "pages/index.7a07506ca0dc18534a90.js",
+    "pages/categories/_categorie/index.c7c3ee73a5ae0e1bf078.js",
+    "pages/categories/index.0cd0dd288968da535ca3.js",
     "layouts/default.6935b82264ea28a2e343.js",
     "vendor.a2afd5dd51bdeb52e73f.js",
     "app.aa5211eb6b59ec2bacd8.js",
-    "manifest.b15c510318f57d8e7be2.js",
+    "manifest.dc89175da93611177e86.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.b15c510318f57d8e7be2.js",
+    "manifest.dc89175da93611177e86.js",
     "vendor.a2afd5dd51bdeb52e73f.js",
     "app.aa5211eb6b59ec2bacd8.js"
   ],
   "async": [
-    "pages/index.30b76a10a0609156c643.js",
-    "pages/categories/_categorie/index.cef54cbd6c4d982f611f.js",
-    "pages/categories/index.cb293a28b8523222018d.js",
+    "pages/index.7a07506ca0dc18534a90.js",
+    "pages/categories/_categorie/index.c7c3ee73a5ae0e1bf078.js",
+    "pages/categories/index.0cd0dd288968da535ca3.js",
     "layouts/default.6935b82264ea28a2e343.js"
   ],
   "modules": {

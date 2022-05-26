@@ -74,5 +74,5 @@ module.exports = {
   router: {
     base: '/2022/'
   }
-
+ 
 }

@@ -37,7 +37,7 @@
             <a href="#about-us" class="nav-link px-lg-3 text-dark">درباره ما</a>
           </li>
           <li class="nav-item">
-            <a href="#about-us" class="nav-link px-lg-3 text-dark"
+            <a href="#app" class="nav-link px-lg-3 text-dark"
               >دانلود اپلیکیشن</a
             >
           </li>
