@@ -52,17 +52,7 @@
                 src="https://via.placeholder.com/150"
                 alt="shiralat"
               />
-              <p
-                class="
-                  txt-justify
-                  text-center
-                  fw-bold
-                  text-white
-                  bg-info
-                  p-2
-                  rounded
-                "
-              >
+              <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
                 {{ product_categorie.name }}
               </p>
             </nuxt-link>
@@ -99,5 +89,17 @@ export default {
       })
       .catch((e) => context.error(e));
   },
+      head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Home page description'
+          }
+        ]
+      }
+    }
 };
 </script>
