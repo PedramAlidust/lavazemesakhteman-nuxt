@@ -7,7 +7,7 @@
           <div class="col-lg-4 text-start pt-4 pt-md-0 pt-lg-0">
             <p class="fw-bold text-white">درباره ما</p>
             <p class="text-white text-justify">
-              فروشگاه لوازم ساختمانی و بهداشتی محمد با بیش از بیست سال تجربه
+              مجموعه لوازم ساختمان با بیش از بیست سال تجربه
               مفتخر است با ارايه خدمات به شرکت ها و مراکز خصوصی دولتی و اماکن
               مسکونی شیرآلات و دیگر لوازم ساختمانی را عرضه می کند.
             </p>
@@ -17,9 +17,21 @@
             <p class="text-white text-justify">
               ما را در فضای مجازی دنبال کنید.
             </p>
+            <a href="https://instagram.com/lavazemesakhteman">
             <i class="bi-instagram h4 text-white px-1"></i>
+            </a>
+            <a href="https://t.me/pipesystem301">
             <i class="bi-telegram h4 text-white px-1"></i>
+            </a>
+            <a href="https://wa.me/09365833005">
             <i class="bi-whatsapp h4 text-white px-1"></i>
+            </a>
+            <a href="https://Twitter.com/pipesystem301">
+            <i class="bi-twitter h4 text-white px-1"></i>
+            </a>
+            <a href="https://youtube.com/channel/UCtE62u-O1OjQ-CFjfCnjJTw">
+            <i class="bi-youtube h4 text-white px-1"></i>
+            </a>
           </div>
           <div class="col-lg-4 text-start py-4 py-md-0 py-lg-0">
             <p class="fw-bold text-white">اطلاعات تماس</p>

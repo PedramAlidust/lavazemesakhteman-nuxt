@@ -35,11 +35,7 @@
     <section class="main" style="direction: rtl">
       <div class="container py-3">
         <div class="row">
-          <div
-            v-for="product_item in CategoryData"
-            :key="product_item.id"
-            class="col-md-3 col-lg-3 p-2"
-          >
+          <div v-for="product_item in CategoryData" :key="product_item.id" class="col-md-3 col-lg-3 p-2">
             <img
               v-if="product_item.images[0]"
               class="w-100 border"

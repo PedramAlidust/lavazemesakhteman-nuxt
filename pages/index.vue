@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-4">
           <div class="service_background_one pt-5 ps-4 text-start">
-            <p class="fw-bold h4 pt-4">بیشترین کیفیت</p>
+            <p class="fw-bold h4 pt-4 text-white">بیشترین کیفیت</p>
             <button type="button" class="btn btn-primary btn-sm mt-3">
               مطالعه بیشتر
             </button>
