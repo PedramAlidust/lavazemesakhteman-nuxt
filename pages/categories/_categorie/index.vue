@@ -34,7 +34,7 @@
       </div>
     </div>
     <!-- main section -->
-    <section class="main">
+    <section class="main" style="direction: rtl">
       <div class="container py-3">
         <div class="row">
           <div
@@ -54,7 +54,17 @@
               src="https://via.placeholder.com/150"
               alt="shiralat"
             />
-            <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
+            <p
+              class="
+                txt-justify
+                text-center
+                fw-bold
+                text-white
+                bg-info
+                p-2
+                rounded
+              "
+            >
               {{ product_item.name }}
             </p>
           </div>
@@ -89,7 +99,12 @@ export default {
         return axios
           .get(
             "https://lavazemesakhteman.com/wp-json/wc/v3/products?category=" +
-              res.data[0].id
+              res.data[0].id,
+            {
+              params: {
+                per_page: 100,
+              },
+            }
           )
           .then((res) => {
             return {

@@ -47,7 +47,7 @@
     </div>
 
     <!-- categorie section -->
-    <div class="container py-5">
+    <div class="container py-5" style="direction: rtl;">
       <div class="row">
         <div class="col-12 text-center">
           <p class="text-dark fw-bold h4">

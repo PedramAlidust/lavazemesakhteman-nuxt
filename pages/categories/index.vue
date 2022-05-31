@@ -31,7 +31,7 @@
     </div>
 
     <!-- main section -->
-    <section class="main">
+    <section class="main" style="direction: rtl;">
       <div class="container py-3">
         <div class="row">
           <div
