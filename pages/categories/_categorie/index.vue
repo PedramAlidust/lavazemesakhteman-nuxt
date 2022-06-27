@@ -3,7 +3,9 @@
     <!--- navigation section -->
     <TheHeader />
     <!-- slider section -->
-    <div class="container-full category_background d-flex justify-content-center">
+    <div
+      class="container-full category_background d-flex justify-content-center"
+    >
       <div class="row align-items-center">
         <div class="col-12 text-center">
           <p class="fw-bold text-white display-6">
@@ -35,7 +37,11 @@
     <section class="main" style="direction: rtl">
       <div class="container py-3">
         <div class="row">
-          <div v-for="product_item in CategoryData" :key="product_item.id" class="col-md-3 col-lg-3 p-2">
+          <div
+            v-for="product_item in CategoryData"
+            :key="product_item.id"
+            class="col-md-3 col-lg-3 p-2"
+          >
             <img
               v-if="product_item.images[0]"
               class="w-100 border"
@@ -48,10 +54,21 @@
               src="https://via.placeholder.com/150"
               alt="shiralat"
             />
-            <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
+            <p
+              class="
+                txt-justify
+                text-center
+                fw-bold
+                text-white
+                bg-info
+                p-2
+                rounded
+              "
+            >
               {{ product_item.name }}
             </p>
           </div>
+          <p v-html="CategoryData[0].description"></p>
         </div>
       </div>
     </section>
@@ -65,6 +82,13 @@ import axios from "axios";
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
 export default {
+  /*
+  data() {
+    return {
+      CategoryData: null,
+    };
+  },
+  */
   components: {
     TheHeader,
     TheFooter,
@@ -100,6 +124,18 @@ export default {
         /*return first request error*/
       })
       .catch((e) => context.error(e));
+  },
+  head() {
+    return {
+      title: this.CategoryData[0].meta_data[2].value,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.CategoryData[0].meta_data[3].value,
+        },
+      ],
+    };
   },
 };
 </script>

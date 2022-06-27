@@ -31,7 +31,7 @@
     </div>
 
     <!-- main section -->
-    <section class="main" style="direction: rtl;">
+    <section class="main" style="direction: rtl">
       <div class="container py-3">
         <div class="row">
           <div
@@ -52,7 +52,17 @@
                 src="https://via.placeholder.com/150"
                 alt="shiralat"
               />
-              <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
+              <p
+                class="
+                  txt-justify
+                  text-center
+                  fw-bold
+                  text-white
+                  bg-info
+                  p-2
+                  rounded
+                "
+              >
                 {{ product_categorie.name }}
               </p>
             </nuxt-link>
@@ -89,17 +99,17 @@ export default {
       })
       .catch((e) => context.error(e));
   },
-      head() {
-      return {
-        title: this.title,
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: 'Home page description'
-          }
-        ]
-      }
-    }
+  head() {
+    return {
+      title: "دسته بندی ها",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "در این قسمت دسته بندی لوازم ساختمان قرار دارد",
+        },
+      ],
+    };
+  },
 };
 </script>

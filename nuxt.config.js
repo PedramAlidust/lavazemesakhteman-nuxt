@@ -71,8 +71,8 @@ module.exports = {
   },
 
   /* run app in subdirectory */ 
-  router: {
-    base: '/2022/'
+  router: {    
+    base: '/2022/'   
   }
  
 }
