@@ -2,11 +2,7 @@
   <!-- navigation section -->
   <nav class="navbar navbar-expand-lg bg-white">
     <div class="container pe-5 pe-lg-0">
-      <img
-        class="d-lg-none"
-        src="~/assets/pictures/logo-new-min.png"
-        alt="lavazemsakhteman"
-      />
+      <img class="d-lg-none" src="~/assets/pictures/logo-new-min.png" alt="lavazemsakhteman"/>
       <button
         class="navbar-toggler p-0"
         type="button"
@@ -18,10 +14,7 @@
       <div class="collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <nuxt-link
-              :to="'/'"
-              class="nav-link active-item text-dark"
-            >
+            <nuxt-link :to="'/'" class="nav-link active-item text-dark">
             صفحه اصلی
             </nuxt-link>
           </li>
