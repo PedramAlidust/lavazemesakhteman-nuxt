@@ -3,9 +3,7 @@
     <!--- navigation section -->
     <TheHeader />
     <!-- slider section -->
-    <div
-      class="container-full category_background d-flex justify-content-center"
-    >
+    <div class="container-full category_background d-flex justify-content-center">
       <div class="row align-items-center">
         <div class="col-12 text-center">
           <p class="fw-bold text-white display-6">
@@ -48,23 +46,8 @@
               :src="product_item.images[0].src"
               alt="shiralat"
             />
-            <img
-              v-else
-              class="w-100 border"
-              src="https://via.placeholder.com/150"
-              alt="shiralat"
-            />
-            <p
-              class="
-                txt-justify
-                text-center
-                fw-bold
-                text-white
-                bg-info
-                p-2
-                rounded
-              "
-            >
+            <img v-else class="w-100 border" src="https://via.placeholder.com/150" alt="shiralat"/>
+            <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
               {{ product_item.name }}
             </p>
           </div>
