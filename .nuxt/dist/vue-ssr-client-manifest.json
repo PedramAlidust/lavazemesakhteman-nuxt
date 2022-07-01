@@ -13,24 +13,24 @@
     "bacdeed4630d6fb918b02a2343ae4d34.webp",
     "fonts/IRANSansWebFaNum.e9908f0.ttf",
     "img/product-6-300x300.ffef3ab.jpg",
-    "pages/index.26928d4caefbfbd73e70.js",
+    "pages/index.38ed7e59631b6b12d315.js",
     "pages/categories/_categorie/index.8e0e5051adaa0601f4ef.js",
     "pages/categories/index.57fa041189284fc13dcb.js",
     "layouts/default.6935b82264ea28a2e343.js",
     "vendor.a2afd5dd51bdeb52e73f.js",
     "app.aa5211eb6b59ec2bacd8.js",
-    "manifest.5893debffee7f19bb9ea.js",
+    "manifest.0a61ece50cdf1294999b.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.5893debffee7f19bb9ea.js",
+    "manifest.0a61ece50cdf1294999b.js",
     "vendor.a2afd5dd51bdeb52e73f.js",
     "app.aa5211eb6b59ec2bacd8.js"
   ],
   "async": [
-    "pages/index.26928d4caefbfbd73e70.js",
+    "pages/index.38ed7e59631b6b12d315.js",
     "pages/categories/_categorie/index.8e0e5051adaa0601f4ef.js",
     "pages/categories/index.57fa041189284fc13dcb.js",
     "layouts/default.6935b82264ea28a2e343.js"
