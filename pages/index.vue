@@ -178,7 +178,7 @@
         </div>
       </div>
     </div>
-    <!-- footer -->
+    <!-- footer section -->
     <TheFooter />
   </div>
 </template>
