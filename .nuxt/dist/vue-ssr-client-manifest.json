@@ -1,5 +1,5 @@
 {
-  "publicPath": "/_nuxt/",
+  "publicPath": "/2022/_nuxt/",
   "all": [
     "img/category_background.fbcb139.jpg",
     "5d22770ae258e8dc841b2a1b87dfc23d.webp",
@@ -18,16 +18,16 @@
     "pages/categories/index.57fa041189284fc13dcb.js",
     "layouts/default.6935b82264ea28a2e343.js",
     "vendor.a2afd5dd51bdeb52e73f.js",
-    "app.245d6427ccae0d666083.js",
-    "manifest.c875c29e72272479a043.js",
+    "app.aa5211eb6b59ec2bacd8.js",
+    "manifest.5893debffee7f19bb9ea.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.c875c29e72272479a043.js",
+    "manifest.5893debffee7f19bb9ea.js",
     "vendor.a2afd5dd51bdeb52e73f.js",
-    "app.245d6427ccae0d666083.js"
+    "app.aa5211eb6b59ec2bacd8.js"
   ],
   "async": [
     "pages/index.26928d4caefbfbd73e70.js",
