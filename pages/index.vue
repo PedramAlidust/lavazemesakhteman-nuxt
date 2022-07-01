@@ -2,10 +2,15 @@
   <div>
     <!--- navigation section -->
     <TheHeader />
-
     <!-- slider section -->
     <div
-      class="container-full bg-dark slider_background d-flex justify-content-center"
+      class="
+        container-full
+        bg-dark
+        slider_background
+        d-flex
+        justify-content-center
+      "
     >
       <div class="row align-items-center">
         <div class="col-12 text-center">
@@ -47,7 +52,7 @@
     </div>
 
     <!-- categorie section -->
-    <div class="container py-5" style="direction: rtl;">
+    <div class="container py-5" style="direction: rtl">
       <div class="row">
         <div class="col-12 text-center">
           <p class="text-dark fw-bold h4">
@@ -56,24 +61,41 @@
           <p class="text-muted">هر آنچه از لوازم ساختمانی و صنعتی نیاز دارید</p>
         </div>
       </div>
+      <!-- display cetegories loop -->
       <div class="row">
-        <div v-for="product in ApiData" :key="product.id" class="col-lg-2 col-md-2 text-center">
-          <nuxt-link :to="'/categories/' + product.slug" class="post-preview">
-          <img
-            class="res-img"
-            v-if="product.image"
-            :src="product.image.src"
-            alt=""
-          />
-          <img
-            class="res-img"
-            v-else
-            src="https://via.placeholder.com/150"
-            alt=""
-          />
-          <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">{{product.name}}</p>
+        <div
+          v-for="categorie in FltCat"
+          :key="categorie.id"
+          class="col-lg-2 col-md-2 text-center"
+        >
+          <nuxt-link :to="'/categories/' + categorie.slug" class="post-preview">
+            <img
+              class="res-img"
+              v-if="categorie.image"
+              :src="categorie.image.src"
+              alt=""
+            />
+            <img
+              class="res-img"
+              v-else
+              src="https://via.placeholder.com/150"
+              alt=""
+            />
+            <p
+              class="
+                txt-justify
+                text-center
+                fw-bold
+                text-white
+                bg-info
+                p-2
+                rounded
+              "
+            >
+              {{ categorie.name }}
+            </p>
           </nuxt-link>
-        </div>     
+        </div>
       </div>
     </div>
 
@@ -87,7 +109,11 @@
               فروشگاه لوازم ساختمانی خلاقیت و کارآیی را به همراه زیبایی و قیمت
               مناسب به ارمغان آورده است
             </p>
-            <a href="https://lavazemesakhteman.com/%D9%84%DB%8C%D8%B3%D8%AA-%D9%82%DB%8C%D9%85%D8%AA/" role="button" class="btn btn-info mt-3 text-white">
+            <a
+              href="https://lavazemesakhteman.com/%D9%84%DB%8C%D8%B3%D8%AA-%D9%82%DB%8C%D9%85%D8%AA/"
+              role="button"
+              class="btn btn-info mt-3 text-white"
+            >
               مشاهده لیست قیمت
             </a>
           </div>
@@ -124,7 +150,12 @@
           </button>
         </div>
         <div
-          class="col-lg-4 col-md-4 text-center text-lg-start text-md-start pt-5 pt-lg-0 pt-md-0 mt-4 mt-lg-0 mt-md-0"
+          class="
+            col-lg-4 col-md-4
+            text-center text-lg-start text-md-start
+            pt-5 pt-lg-0 pt-md-0
+            mt-4 mt-lg-0 mt-md-0
+          "
         >
           <i class="bi-tags display-4"></i>
           <p class="fw-bold text-info">تخفیف های ویژه</p>
@@ -137,7 +168,12 @@
           </button>
         </div>
         <div
-          class="col-lg-4 col-md-4 text-center text-lg-start text-md-start pt-5 pt-lg-0 pt-md-0 mt-4 mt-lg-0 mt-md-0"
+          class="
+            col-lg-4 col-md-4
+            text-center text-lg-start text-md-start
+            pt-5 pt-lg-0 pt-md-0
+            mt-4 mt-lg-0 mt-md-0
+          "
         >
           <i class="bi-truck display-4"></i>
           <p class="fw-bold text-info">ارسال سریع</p>
@@ -159,7 +195,9 @@
             <p class="text-center text-white fw-bold h3">
               دانلود اپلیکیشن لوازم ساختمان
             </p>
-            <p class="text-center text-white h5 mt-5 mt-md-3 mt-lg-3 line-height">
+            <p
+              class="text-center text-white h5 mt-5 mt-md-3 mt-lg-3 line-height"
+            >
               جهت اطلاع از آخرین قیمت ها و تخفیف های ویژه اپلیکیشن لوازم ساختمان
               را دانلود کنید
             </p>
@@ -184,6 +222,14 @@ export default {
     TheHeader,
     TheFooter,
   },
+  computed: {
+    FltCat: function () {
+      return this.categories.filter(
+        (item) =>
+          item.name !== "سایر محصولات" && item.name !== "فلکه سیم ایتالیا"
+      );
+    },
+  },
   asyncData(context) {
     return axios
       .get("https://lavazemesakhteman.com/wp-json/wc/v3/products/categories", {
@@ -194,7 +240,7 @@ export default {
       })
       .then((res) => {
         return {
-          ApiData: res.data,
+          categories: res.data,
         };
       })
       .catch((e) => context.error(e));
