@@ -3,15 +3,7 @@
     <!--- navigation section -->
     <TheHeader />
     <!-- slider section -->
-    <div
-      class="
-        container-full
-        bg-dark
-        slider_background
-        d-flex
-        justify-content-center
-      "
-    >
+    <div class="container-full bg-dark slider_background d-flex justify-content-center">
       <div class="row align-items-center">
         <div class="col-12 text-center">
           <p class="fw-bold text-white display-6">فروشگاه لوازم ساختمان</p>
@@ -81,17 +73,7 @@
               src="https://via.placeholder.com/150"
               alt=""
             />
-            <p
-              class="
-                txt-justify
-                text-center
-                fw-bold
-                text-white
-                bg-info
-                p-2
-                rounded
-              "
-            >
+            <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
               {{ categorie.name }}
             </p>
           </nuxt-link>
@@ -150,13 +132,7 @@
           </button>
         </div>
         <div
-          class="
-            col-lg-4 col-md-4
-            text-center text-lg-start text-md-start
-            pt-5 pt-lg-0 pt-md-0
-            mt-4 mt-lg-0 mt-md-0
-          "
-        >
+          class="col-lg-4 col-md-4 text-center text-lg-start text-md-start pt-5 pt-lg-0 pt-md-0 mt-4 mt-lg-0 mt-md-0">
           <i class="bi-tags display-4"></i>
           <p class="fw-bold text-info">تخفیف های ویژه</p>
           <p class="text-muted h6 pt-md-2 pt-lg-2">
@@ -168,13 +144,7 @@
           </button>
         </div>
         <div
-          class="
-            col-lg-4 col-md-4
-            text-center text-lg-start text-md-start
-            pt-5 pt-lg-0 pt-md-0
-            mt-4 mt-lg-0 mt-md-0
-          "
-        >
+          class="col-lg-4 col-md-4 text-center text-lg-start text-md-start pt-5 pt-lg-0 pt-md-0 mt-4 mt-lg-0 mt-md-0">
           <i class="bi-truck display-4"></i>
           <p class="fw-bold text-info">ارسال سریع</p>
           <p class="text-muted h6 pt-md-2 pt-lg-2">
