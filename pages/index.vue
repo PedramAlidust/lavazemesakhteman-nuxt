@@ -196,7 +196,7 @@ export default {
     FltCat: function () {
       return this.categories.filter(
         (item) =>
-          item.name !== "سایر محصولات" && item.name !== "فلکه سیم ایتالیا"
+          item.name !== "سایر محصولات" && item.name !== "فلکه سیم ایتالیا" && item.name !== "شیرآلات لوکس ایتالیایی"
       );
     },
   },

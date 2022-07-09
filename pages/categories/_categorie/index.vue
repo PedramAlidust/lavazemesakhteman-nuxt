@@ -3,7 +3,9 @@
     <!--- navigation section -->
     <TheHeader />
     <!-- slider section -->
-    <div class="container-full category_background d-flex justify-content-center">
+    <div
+      class="container-full category_background d-flex justify-content-center"
+    >
       <div class="row align-items-center">
         <div class="col-12 text-center">
           <p class="fw-bold text-white display-6">
@@ -15,7 +17,6 @@
         </div>
       </div>
     </div>
-
     <!-- broad crump -->
     <div class="container-full category_broadcrumps">
       <div class="container ps-4">
@@ -32,29 +33,34 @@
       </div>
     </div>
     <!-- main section -->
+
     <section class="main" style="direction: rtl">
       <div class="container py-3">
         <div class="row">
           <div
             v-for="product_item in CategoryData"
             :key="product_item.id"
-            class="col-md-3 col-lg-3 p-2"
-          >
-            <img
-              v-if="product_item.images[0]"
+            class="col-md-3 col-lg-3 p-2">
+            <img v-if="product_item.images[0]"
               class="w-100 border"
               :src="product_item.images[0].src"
               alt="shiralat"
             />
-            <img v-else class="w-100 border" src="https://via.placeholder.com/150" alt="shiralat"/>
+            <img
+              v-else
+              class="w-100 border"
+              src="https://via.placeholder.com/150"
+              alt="shiralat"
+            />
             <p class="txt-justify text-center fw-bold text-white bg-info p-2 rounded">
               {{ product_item.name }}
             </p>
           </div>
-          <p v-html="CategoryData[0].description"></p>
+          <div v-html="CategoryData[0].description"></div>
         </div>
       </div>
     </section>
+
     <!-- footer -->
     <TheFooter />
   </div>
