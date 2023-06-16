@@ -1,0 +1,84 @@
+<template>
+  <!-- Footer Section -->
+  <footer id="contact-us">
+    <div class="container-full bkg-color py-md-5 py-lg-5">
+      <div class="container px-5">
+        <div class="row">
+          <div class="col-lg-4 text-start pt-4 pt-md-0 pt-lg-0">
+            <p class="fw-bold text-black">درباره ما</p>
+            <p class="text-black text-justify">
+              مجموعه لوازم ساختمان با بیش از بیست سال تجربه
+              مفتخر است با ارايه خدمات به شرکت ها و مراکز خصوصی دولتی و اماکن
+              مسکونی شیرآلات و دیگر لوازم ساختمانی را عرضه می کند.
+            </p>
+          </div>
+          <div class="col-lg-4 col-6 text-start py-4 py-lg-0">
+            <p class="fw-bold text-black">شبکه های مجازی</p>
+            <p class="text-black text-justify">
+              ما را در فضای مجازی دنبال کنید.
+            </p>
+            <a href="https://instagram.com/lavazemesakhteman">
+            <i class="bi-instagram h4 text-black px-1"></i>
+            </a>
+            <a href="https://t.me/pipesystem301">
+            <i class="bi-telegram h4 text-black px-1"></i>
+            </a>
+            <a href="https://wa.me/09365833005">
+            <i class="bi-whatsapp h4 text-black px-1"></i>
+            </a>
+            <a href="https://youtube.com/channel/UCtE62u-O1OjQ-CFjfCnjJTw">
+            <i class="bi-youtube h4 text-black px-1"></i>
+            </a>
+          </div>
+          <div class="col-lg-4 col-6 text-start py-4 py-lg-0">
+            <p class="fw-bold text-black">اطلاعات تماس</p>
+            <p class="text-black">02155580447</p>
+            <p class="text-black small text-justify AddressWidth footer-margin">
+              خیابان خیام چهار راه گلوبندک کوچه حمام ملاباشی پاساژ 110 طبقه اول
+              پلاک 5
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright Footer -->
+    <div class="container-full bg-dark">
+      <div class="container text-center">
+        <div class="row align-items-center">
+          <div class="col-12 mt-3 text-white">
+            <p>تمامی حقوق این وب سایت متعلق به فروشگاه لوازم ساختمان می باشد</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<script>
+export default {
+  props: ["footer_data"],
+};
+</script>
+
+<style scoped>
+.footer-margin {
+  margin-left: auto;
+}
+
+.bkg-color {
+  background-color: #F5F5F5;
+}
+
+@media (max-width: 767px) { /* Mobile devices */
+  .AddressWidth {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) { /* Tablets and desktops */
+  .AddressWidth {
+    width: 50%;
+  }
+}
+
+</style>

@@ -1,0 +1,29 @@
+{
+  "entry": "server.js",
+  "files": {
+    "pages/ProductsPdf.js": "pages/ProductsPdf.js",
+    "pages/blog/_blog/index.js": "pages/blog/_blog/index.js",
+    "pages/blog/about.js": "pages/blog/about.js",
+    "pages/blog/index.js": "pages/blog/index.js",
+    "pages/categories/_categorie/index.js": "pages/categories/_categorie/index.js",
+    "pages/categories/index.js": "pages/categories/index.js",
+    "pages/index.js": "pages/index.js",
+    "pages/order/index.js": "pages/order/index.js",
+    "pages/products/_product/index.js": "pages/products/_product/index.js",
+    "pages/products/index.js": "pages/products/index.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "pages/ProductsPdf.js": "pages/ProductsPdf.js.map",
+    "pages/blog/_blog/index.js": "pages/blog/_blog/index.js.map",
+    "pages/blog/about.js": "pages/blog/about.js.map",
+    "pages/blog/index.js": "pages/blog/index.js.map",
+    "pages/categories/_categorie/index.js": "pages/categories/_categorie/index.js.map",
+    "pages/categories/index.js": "pages/categories/index.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/order/index.js": "pages/order/index.js.map",
+    "pages/products/_product/index.js": "pages/products/_product/index.js.map",
+    "pages/products/index.js": "pages/products/index.js.map",
+    "server.js": "server.js.map"
+  }
+}
