@@ -5,11 +5,9 @@
       <div class="row align-items-center">
         <div class="col-lg-3 mb-3 mb-lg-0">
           <div class="d-flex align-items-center justify-content-between">
-            <a href="/2022/apk/lavazem.apk">
-              <button type="button" class="DownloadBtn btn text-white">
+              <button @click="showdDownloadPopup" type="button" class="DownloadBtn btn text-white">
                 دانلود اپلیکیشن
               </button>
-            </a>
             <img src="~/assets/svg/Line.svg" alt="devider" class="d-none d-lg-block">
             <div class="image-container">
               <img @click="showPopup" src="~/assets/svg/buycart.svg" alt="buycart">
@@ -69,7 +67,40 @@
       </nuxt-link>
       <button @click="hidePopup" class="btn btn-success btn-sm mx-2">بستن سبد خرید</button>
       <button @click="emptyCard" class="btn btn-success btn-sm mx-2">خالی کردن سبد خرید</button>
-
+    </div>
+    <!-- dowload app toast -->
+    <div class="popup" v-if="isDownloadVisible">
+      <!--android -->
+      <div class="container ">
+        <div class="row text-start align-items-center justify-content-center">
+          <div class="col-10 px-0">
+            <p class="android-txt mt-3">.جهت دانلود نسخه اندروید روی آیکن سمت راست بزنید</p>
+          </div>
+          <div class="col-2">
+              <a href="/2022/apk/lavazem.apk">
+                <img class="w-100" src="~/assets/pictures/android.png" alt="android">
+              </a>
+          </div>
+        </div>
+      </div>
+      <!-- ios -->
+      <div class="container mt-4">
+        <div class="row text-start align-items-center justify-content-center">
+          <div class="col-10 px-0">
+            <p dir="rtl" class="android-txt mt-3">
+              جهت نصب نسخه ios روی آیکن
+              <span>
+                <img class="ios_icon" src="~/assets/pictures/iosshare.png" alt="download-ios">
+              </span>
+           و سپس گزینه Add to HomeScreen بزنید.
+            </p>
+          </div>
+          <div class="col-2">
+            <img class="w-100" src="~/assets/pictures/apple.png" alt="android">
+          </div>
+        </div>
+      </div>
+      <button @click="hideDownloadPopup" class="btn btn-danger btn-sm mx-2">بستن</button>
     </div>
   </section>
 </template>
@@ -80,7 +111,8 @@ import { mapGetters, mapActions } from "vuex"
 export default {
   data() {
     return {
-        isPopupVisible: false
+        isPopupVisible: false, 
+        isDownloadVisible: false
     }
   }, 
   methods: {
@@ -93,6 +125,12 @@ export default {
     hidePopup() {
       this.isPopupVisible = false;
     }, 
+    showdDownloadPopup() {
+      this.isDownloadVisible = true
+    }, 
+    hideDownloadPopup() {
+      this.isDownloadVisible = false
+    },
     emptyCard() {
       this.EmptyCart()
     }, 
@@ -191,5 +229,13 @@ export default {
   .popup {
     width: 60%;
   }
+}
+
+.android-txt {
+  font-size: 11pt;
+}
+
+.ios_icon {
+  width: 16px;
 }
 </style>

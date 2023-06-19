@@ -7,7 +7,7 @@
                    <!-- search in products -->
                     <div class="container bg-white Content mt-5 rounded py-4">
                           <div dir="rtl" class="row px-4 content">
-                                 <input @input="search" v-model="SeProduct" type="text" class="form-control" placeholder="جستجو در محصولات">
+                                 <input @input="search" v-model="SeProduct" type="text" class="form-control" placeholder="محصول مورد نظر خود را سرچ کنید">
                           </div>
                     </div>
                   <!-- products section -->
