@@ -3,20 +3,20 @@
             <TheHeader />
             <!-- page container -->
                 <main class="pb-5 mb-5">
-                  <h1 class="PrdPrcTitle text-center pt-5 fw-bold">لیست قیمت محصولات</h1>
+                  <h1 class="PrdPrcTitle text-center pt-5 fw-bold">کاتالوگ محصولات</h1>
                   <div class="container bg-white Content mt-5 rounded py-5">
-                    <div v-if="DspPriceList" class="row px-4">
-                        <div v-for="price in DspPriceList" :key="price.id" class="col-lg-3 py-3">
+                    <div v-if="DspCatalogues" class="row px-4">
+                        <div v-for="catalogue in DspCatalogues" :key="catalogue.id" class="col-lg-3 py-3">
                             <!-- pdf card -->
                             <div class="ListCardLook text-center">
                               <div>
-                                  <img class="w-100" :src="price.acf.pdfimage" alt="CatJpg">
+                                  <img class="w-100" :src="catalogue.acf.catalouge_image" alt="CatJpg">
                               </div>
                               <div class="py-3">
-                                 <p class="PdfTitle fw-bold text-center me-2">{{ price.acf.pdftitle }}</p>
-                                  <a target="_blank" :href="price.acf.thepdf">
+                                 <p class="PdfTitle fw-bold text-center me-2">{{ catalogue.acf.catalouge_title }}</p>
+                                  <a target="_blank" :href="catalogue.acf.thecatalouge">
                                       <button type="button" class="DownloadBtn btn-sm btn text-white">
-                                        دانلود لیست قیمت
+                                        دانلود کاتالوگ
                                       </button>
                                   </a>
                               </div>
@@ -111,10 +111,10 @@ export default {
     TheFooter,
   },
   computed: {
-    ...mapGetters(["DspPriceList", "DspPosts", "DspSubCategory"])
+    ...mapGetters(["DspCatalogues", "DspPosts", "DspSubCategory"])
   }, 
   methods: {
-    ...mapActions(["GetpriceList", "GetPosts", "GetSubCategory"])
+    ...mapActions(["GetCatalogues", "GetPosts", "GetSubCategory"])
   },
   mounted() {
     /* load posts */
@@ -127,11 +127,13 @@ export default {
      })
   }, 
   created() {
-    this.GetpriceList()
+    this.GetCatalogues({
+        count: 3
+    })
   },
     head() {
     return {
-      title: "لیست قیمت محصولات و لوازم بهداشتی ساختمان",
+      title: "کاتالوگ محصولات و لوازم بهداشتی ساختمان",
       meta: [
         {
           hid: "description",

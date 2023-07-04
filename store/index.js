@@ -4,6 +4,7 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       ProductList: {},
+      Catalogues: {},
       FltProduct: {},
       Categories: {},
       SubCategory: {},
@@ -25,6 +26,22 @@ const createStore = () => {
         await this.$axios(ReqConfig)
           .then((response) => {
             state.ProductList = response.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      },
+      /* catalogues */
+      async catalogues(state) {
+        /* request config */
+        var ReqConfig = {
+          method: "get",
+          url: `${process.env.UrlApi}/wp-json/wp/v2/catalogue`,
+        };
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.Catalogues = response.data;
           })
           .catch((error) => {
             console.log(error);
@@ -184,6 +201,10 @@ const createStore = () => {
       GetProducts({ commit }, payload) {
         commit("Products", payload)
       },
+      /* Get Catalogues */
+      GetCatalogues({ commit }, payload) {
+        commit("catalogues", payload)
+      },
       /* Get Categories */
       GetCategories({ commit }, payload) {
         commit("Categories", payload)
@@ -236,6 +257,10 @@ const createStore = () => {
       /* Dsp priceList */
       DspPriceList(state) {
         return state.ProductList;
+      },
+      /* Dsp priceList */
+       DspCatalogues(state) {
+        return state.Catalogues;
       },
       /* Dsp Products */
       DspProducts(state) {

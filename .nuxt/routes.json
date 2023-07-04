@@ -7,6 +7,13 @@
     "_name": "_316d800b"
   },
   {
+    "name": "CataloguePdf",
+    "path": "/CataloguePdf",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/CataloguePdf.vue",
+    "chunkName": "pages/CataloguePdf",
+    "_name": "_74c43b62"
+  },
+  {
     "name": "categories",
     "path": "/categories",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/index.vue",

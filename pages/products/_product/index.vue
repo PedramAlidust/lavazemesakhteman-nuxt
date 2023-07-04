@@ -33,27 +33,37 @@
                      </div>
                    <!-- product table -->  
                   <table dir="rtl" class="table table-bordered table-striped mt-4 mb-4">
-                    <thead>
+                    <thead v-if="DspProduct.acf">
                       <tr>
-                        <th scope="col">مدل</th>
-                        <th scope="col">سایز</th>
-                        <th scope="col">عکس</th>
-                        <th scope="col">قیمت</th>
-                        <th scope="col">خرید</th>
+                         <th v-if="DspProduct.acf.productdetails[0].themodel" scope="col">مدل</th>
+                         <th v-if="DspProduct.acf.productdetails[0].size" scope="col">سایز</th>
+                         <th scope="col">عکس</th>
+                         <th v-if="DspProduct.acf.productdetails[0].price" scope="col">قیمت</th>
+                         <th v-if="DspProduct.acf.productdetails[0].color" scope="col">رنگ</th>
+                         <th v-if="DspProduct.acf.productdetails[0].material" scope="col">جنس</th>
+                         <th v-if="DspProduct.acf.productdetails[0].pn" scope="col">پی ان</th>
+                         <th v-if="DspProduct.acf.productdetails[0].debi" scope="col">دبی</th>
+                         <th v-if="DspProduct.acf.productdetails[0].tul" scope="col">طول</th>
+                         <th scope="col">خرید</th>
                       </tr>
                     </thead>
                     <tbody v-if="DspProduct.acf">
                       <tr v-for="info in DspProduct.acf.productdetails" :key="info.id">
-                        <td style="width: 30%;">{{ info.themodel }}</td>
-                        <td style="width: 10%;">{{ info.size }}</td>
-                        <td v-if="info.modelpicture" style="width: 40%;">
+                        <td v-if="info.themodel">{{ info.themodel }}</td>
+                        <td v-if="info.size">{{ info.size }}</td>
+                         <td v-if="info.modelpicture">
                           <img class="w-25" :src="info.modelpicture" alt="TheProduct">
                         </td>
-                         <td v-if="!info.modelpicture" style="width: 40%;">
+                         <td v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
                         </td>
-                        <td style="width: 30%;">{{ info.price }}</td>
-                        <td style="width: 30%;">
+                        <td v-if="info.price">{{ info.price }}</td>
+                        <td v-if="info.color">{{ info.color }}</td>
+                        <td v-if="info.material">{{ info.material }}</td>
+                        <td v-if="info.pn">{{ info.pn }}</td>
+                        <td v-if="info.debi">{{ info.debi }}</td>
+                        <td v-if="info.tul">{{ info.tul }}</td>
+                        <td>
                           <button @click="AddCart(info.themodel, info.price)" type="button" class="btn btn-sm btn-success">
                             افزودن
                           </button>

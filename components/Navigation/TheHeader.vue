@@ -26,6 +26,9 @@
             <nuxt-link to="/productspdf">
               <p class="MenuStyle">لیست قیمت</p>
             </nuxt-link>
+              <nuxt-link to="/cataloguepdf">
+              <p class="MenuStyle">کاتالوگ</p>
+            </nuxt-link>
             <nuxt-link to="/">
               <p class="MenuStyle">صفحه اصلی</p>
             </nuxt-link>

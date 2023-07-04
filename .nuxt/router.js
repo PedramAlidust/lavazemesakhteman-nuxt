@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _316d800b = () => interopDefault(import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */))
+const _74c43b62 = () => interopDefault(import('../pages/CataloguePdf.vue' /* webpackChunkName: "pages/CataloguePdf" */))
 const _246fb385 = () => interopDefault(import('../pages/categories/index.vue' /* webpackChunkName: "pages/categories/index" */))
 const _003cda4a = () => interopDefault(import('../pages/order/index.vue' /* webpackChunkName: "pages/order/index" */))
 const _573ec04d = () => interopDefault(import('../pages/products/index.vue' /* webpackChunkName: "pages/products/index" */))
@@ -21,7 +22,7 @@ Vue.use(Router)
 
 export const routerOptions = {
   mode: 'history',
-  base: '/',
+  base: '/2022/',
   linkActiveClass: 'nuxt-link-active',
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior,
@@ -30,6 +31,10 @@ export const routerOptions = {
     path: "/blog",
     component: _316d800b,
     name: "blog"
+  }, {
+    path: "/CataloguePdf",
+    component: _74c43b62,
+    name: "CataloguePdf"
   }, {
     path: "/categories",
     component: _246fb385,
