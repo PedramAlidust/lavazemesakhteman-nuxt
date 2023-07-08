@@ -35,22 +35,24 @@
                   <table dir="rtl" class="table table-bordered table-striped mt-4 mb-4">
                     <thead v-if="DspProduct.acf">
                       <tr>
-                         <th v-if="DspProduct.acf.productdetails[0].themodel" scope="col">مدل</th>
-                         <th v-if="DspProduct.acf.productdetails[0].size" scope="col">سایز</th>
+                         <th scope="col">مدل</th>
+                         <th scope="col">سایز</th>
                          <th scope="col">عکس</th>
-                         <th v-if="DspProduct.acf.productdetails[0].price" scope="col">قیمت</th>
-                         <th v-if="DspProduct.acf.productdetails[0].color" scope="col">رنگ</th>
-                         <th v-if="DspProduct.acf.productdetails[0].material" scope="col">جنس</th>
-                         <th v-if="DspProduct.acf.productdetails[0].pn" scope="col">پی ان</th>
-                         <th v-if="DspProduct.acf.productdetails[0].debi" scope="col">دبی</th>
-                         <th v-if="DspProduct.acf.productdetails[0].tul" scope="col">طول</th>
+                         <th scope="col">قیمت</th>
+                         <th scope="col">رنگ</th>
+                         <th scope="col">جنس</th>
+                         <th scope="col">پی ان</th>
+                         <th scope="col">دبی</th>
+                         <th scope="col">طول</th>
                          <th scope="col">خرید</th>
                       </tr>
                     </thead>
                     <tbody v-if="DspProduct.acf">
                       <tr v-for="info in DspProduct.acf.productdetails" :key="info.id">
                         <td v-if="info.themodel">{{ info.themodel }}</td>
+                        <td v-if="!info.themodel">-</td>
                         <td v-if="info.size">{{ info.size }}</td>
+                        <td v-if="!info.size">-</td>
                          <td v-if="info.modelpicture">
                           <img class="w-25" :src="info.modelpicture" alt="TheProduct">
                         </td>
@@ -58,11 +60,17 @@
                            <p>تصویر موجود نیست</p>
                         </td>
                         <td v-if="info.price">{{ info.price }}</td>
+                        <td v-if="!info.price">-</td>
                         <td v-if="info.color">{{ info.color }}</td>
+                        <td v-if="!info.color">-</td>
                         <td v-if="info.material">{{ info.material }}</td>
+                        <td v-if="!info.material">-</td>
                         <td v-if="info.pn">{{ info.pn }}</td>
+                        <td v-if="!info.pn">-</td>
                         <td v-if="info.debi">{{ info.debi }}</td>
+                        <td v-if="!info.debi">-</td>
                         <td v-if="info.tul">{{ info.tul }}</td>
+                        <td v-if="!info.tul">-</td>
                         <td>
                           <button @click="AddCart(info.themodel, info.price)" type="button" class="btn btn-sm btn-success">
                             افزودن
