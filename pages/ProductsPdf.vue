@@ -3,10 +3,10 @@
             <TheHeader />
             <!-- page container -->
                 <main class="pb-5 mb-5">
-                  <h1 class="PrdPrcTitle text-center pt-5 fw-bold">لیست قیمت محصولات</h1>
+                  <h1 class="PrdPrcTitle text-center pt-5 fw-bold"> لیست قیمت محصولات لوازم ساختمان و صنعتی</h1>
                   <div class="container bg-white Content mt-5 rounded py-5">
-                    <div v-if="DspPriceList" class="row px-4">
-                        <div v-for="price in DspPriceList" :key="price.id" class="col-lg-3 py-3">
+                    <div v-if="pdfs" class="row px-4">
+                        <div v-for="price in pdfs" :key="price.id" class="col-lg-3 py-3">
                             <!-- pdf card -->
                             <div class="ListCardLook text-center">
                               <div>
@@ -38,11 +38,12 @@
             <section>
                 <div class="container py-5 text-center">
                   <div class="row">
-                      <div v-for="subcategory in DspSubCategory" :key="subcategory.id" class="col-lg-3">
+                      <div v-for="subcategory in zirdaste" :key="subcategory.id" class="col-lg-3">
                         <div class="CardLook">
                             <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
                               <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
                               <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                              <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
                             </nuxt-link>                  
                         </div>
                       </div>
@@ -65,7 +66,7 @@
                           <div class="col-lg-8">
                             <div class="container-full">
                               <div class="row gx-3">
-                                  <div v-for="post in DspPosts" :key="post.id" class="col-lg-4">
+                                  <div v-for="post in Posts" :key="post.id" class="col-lg-4">
                                       <!-- post item one -->
                                         <div class="bg-image">
                                           <img v-if="post.acf.postpic" :src="post.acf.postpic" class="bgbanerimg w-100" alt="bgbaner"/>
@@ -102,7 +103,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import axios from "axios";
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
 export default {
@@ -110,33 +111,48 @@ export default {
     TheHeader,    
     TheFooter,
   },
-  computed: {
-    ...mapGetters(["DspPriceList", "DspPosts", "DspSubCategory"])
-  }, 
-  methods: {
-    ...mapActions(["GetpriceList", "GetPosts", "GetSubCategory"])
+
+  asyncData(context) {
+    const zirdaste = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/zirdaste/?per_page=4`
+    );
+    const pdfs = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/pdf/?per_page=100`
+    );
+    const Posts = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=100`
+    );
+    return axios
+      .all([
+        zirdaste,
+        pdfs,
+        Posts
+      ])
+      .then(
+        axios.spread((...responses) => {
+          const zirdaste = responses[0];
+          const pdfs = responses[1];
+          const Posts = responses[2];
+
+          return {
+            zirdaste: zirdaste.data,
+            pdfs: pdfs.data,
+            Posts: Posts.data,
+          };
+        })
+      )
+      .catch((e) => {
+        context.error(e);
+      });
   },
-  mounted() {
-    /* load posts */
-    this.GetPosts({
-        count: 3
-      })
-    /* load subcategories */
-     this.GetSubCategory({
-      count: 4
-     })
-  }, 
-  created() {
-    this.GetpriceList()
-  },
-    head() {
+  head() {
     return {
-      title: "لیست قیمت محصولات و لوازم بهداشتی ساختمان",
+      title: "لیست قیمت محصولات لوازم بهداشتی ساختمان",
       meta: [
         {
           hid: "description",
           name: "description",
-          content: "جدید ترین قیمت ها و محصولات لوازم بهداشتی ساختمان را مشاهده و دانلود کنید",
+          content: "جدید ترین قیمت های محصولات لوازم بهداشتی ساختمان را مشاهده و دانلود کنید",
         },
       ],
     };
@@ -146,6 +162,10 @@ export default {
 
 
 <style scoped>
+
+.ProductTitle {
+  color: black;
+}
 
 .bgbanerimg {
   border-radius: 12px;

@@ -77,7 +77,7 @@ module.exports = {
   
   pwa: {
     manifest: {
-      name: 'Lavazemesakhteman Application',
+      name: 'لوازم ساختمان',
     },
   },
   

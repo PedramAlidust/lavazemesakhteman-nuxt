@@ -34,7 +34,7 @@
                           <div class="col-lg-8">
                             <div class="container-full">
                               <div class="row gx-3">
-                                  <div v-for="post in DspPosts" :key="post.id" class="col-lg-4">
+                                  <div v-for="post in Posts" :key="post.id" class="col-lg-4">
                                       <!-- post item one -->
                                         <div class="bg-image">
                                           <img v-if="post.acf.postpic" :src="post.acf.postpic" class="bgbanerimg w-100" alt="bgbaner"/>
@@ -78,13 +78,14 @@
                   <section>
                       <div class="container py-5 text-center">
                         <div class="row">
-                          <VueSlickCarousel v-if="DspSubCategory[0]" :slidesPerRow="4" :arrows="true" :dots="true">
-                            <div v-for="subcategory in DspSubCategory" :key="subcategory.id" class="col-lg-3">
+                          <VueSlickCarousel v-if="zirdaste[0]" :slidesPerRow="4" :arrows="true" :dots="true">
+                            <div v-for="subcategory in zirdaste" :key="subcategory.id" class="col-lg-3">
                               <div class="CardLook">
                                 <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
                                 <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                                 <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
-                                    <button role="button" class="btn btn-sm btn-success mt-3">مشاهده</button>
+                                    <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
+                                    <button role="button" class="btn btn-sm btn-success">مشاهده</button>
                                 </nuxt-link>                  
                               </div>
                             </div>
@@ -98,7 +99,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import axios from "axios";
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
 import VueSlickCarousel from 'vue-slick-carousel'
@@ -108,30 +109,56 @@ export default {
     TheFooter,
     VueSlickCarousel
   },
-    computed: {
-    ...mapGetters(["DspPosts", "DspSubCategory"])
-  }, 
-   methods: {
-    ...mapActions(["GetPosts", "GetSubCategory"]),
-  },  
-  mounted() {
+  
+  asyncData(context) {
+    const zirdaste = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/zirdaste/?per_page=4`
+    );
+    const Posts = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=3`
+    );
+    return axios
+      .all([
+        zirdaste,
+        Posts
+      ])
+      .then(
+        axios.spread((...responses) => {
+          const zirdaste = responses[0];
+          const Posts = responses[1];
 
-    /* load posts */
-    this.GetPosts({
-      count: 3
-    })
+          return {
+            zirdaste: zirdaste.data,
+            Posts: Posts.data,
+          };
+        })
+      )
+      .catch((e) => {
+        context.error(e);
+      });
+  },
 
-    /* load subcategory */
-    this.GetSubCategory({
-      count: 4
-    })
-
-  }
+ head() {
+    return {
+      title: "درباره فروشگاه آنلاین لوازم ساختمان بیشتر بدانید",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "مجموعه لوازم ساختمان با بیش از بیست سال تجربه مفتخر است با ارايه خدمات به شرکت ها و مراکز خصوصی دولتی و اماکن مسکونی شیرآلات و دیگر لوازم ساختمانی را عرضه می کند",
+        },
+      ],
+    };
+  },
 }
 </script>
 
 
 <style scoped>
+
+.ProductTitle {
+  color: black;
+}
 
 .content {
   min-height: 25vh;

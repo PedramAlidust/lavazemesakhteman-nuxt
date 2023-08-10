@@ -6,7 +6,7 @@
 <!-- single product broad crumb -->
 <div class="container BroadBg py-2 mt-5 mb-4">
     <div class="d-flex align-items-center justify-content-end">
-        <p v-if="DspProduct.acf" class="text-success">{{DspProduct.acf.productname}}</p>
+        <p v-if="Product.acf" class="text-success">{{Product.acf.productname}}</p>
         <img class="px-2" src="~/assets/svg/leftarrow.svg" alt="home">
         <img src="~/assets/svg/home.svg" alt="home">
     </div>
@@ -15,9 +15,9 @@
 <!-- product datails -->
 <div class="container pb-5 px-0">
     <div class="row">
-            <p v-if="DspProduct.acf" class="product_title text-start">
-              {{ DspProduct.acf.productname }}
-            </p>
+            <h1 v-if="Product.acf" class="product_title text-start">
+              {{ Product.acf.productname }}
+            </h1>
             <div class="container-full">
                   <!-- comments and star count -->
                     <div class="d-flex justify-content-end">
@@ -33,7 +33,7 @@
                      </div>
                    <!-- product table -->  
                   <table dir="rtl" class="table table-bordered table-striped mt-4 mb-4">
-                    <thead v-if="DspProduct.acf">
+                    <thead v-if="Product.acf">
                       <tr>
                          <th scope="col">مدل</th>
                          <th scope="col">سایز</th>
@@ -47,8 +47,8 @@
                          <th scope="col">خرید</th>
                       </tr>
                     </thead>
-                    <tbody v-if="DspProduct.acf">
-                      <tr v-for="info in DspProduct.acf.productdetails" :key="info.id">
+                    <tbody v-if="Product.acf">
+                      <tr v-for="info in Product.acf.productdetails" :key="info.id">
                         <td v-if="info.themodel">{{ info.themodel }}</td>
                         <td v-if="!info.themodel">-</td>
                         <td v-if="info.size">{{ info.size }}</td>
@@ -89,6 +89,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { mapGetters, mapActions } from "vuex"
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
@@ -115,15 +116,39 @@ export default {
       
     }
   },
-   mounted() {
-        /* save id parameter  */
-        this.ProductId = this.$route.query.id
-        /* get product details */
-        this.GetProduct({
-          id: this.ProductId
-        })
-  }, 
 
+  asyncData(context) {
+    const Product = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/products/${context.query.id}`
+    );
+    return axios
+      .all([
+        Product
+      ])
+      .then(
+        axios.spread((...responses) => {
+          const Product = responses[0];
+          return {
+            Product: Product.data
+          };
+        })
+      )
+      .catch((e) => {
+        context.error(e);
+      });
+   }, 
+  head() {
+    return {
+      title: this.Product.yoast_meta.yoast_wpseo_title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.Product.yoast_meta.yoast_wpseo_metadesc,
+        }
+      ]
+    }
+  }
 }
 </script>
 

@@ -24,7 +24,7 @@
                           <div class="col-lg-8">
                             <div class="container-full">
                               <div class="row gx-3">
-                                  <div v-for="post in DspPosts" :key="post.id" class="col-lg-4">
+                                  <div v-for="post in Posts" :key="post.id" class="col-lg-4">
                                       <!-- post item one -->
                                         <div class="bg-image">     
                                           <img v-if="post.acf.postpic" :src="post.acf.postpic" class="bgbanerimg w-100" alt="bgbaner"/>
@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import axios from "axios";
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
 export default {
@@ -69,20 +69,41 @@ export default {
     TheHeader,    
     TheFooter,
   },
-  computed: {
-    ...mapGetters(["DspPosts"])
-  }, 
-    methods: {
-    ...mapActions(["GetPosts"]),
-  },  
-  mounted() {
+  
+  asyncData(context) {
+    const Posts = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=3`
+    );
+    return axios
+      .all([
+        Posts
+      ])
+      .then(
+        axios.spread((...responses) => {
+          const Posts = responses[0];
+          
+          return {
+            Posts: Posts.data
+          };
+        })
+      )
+      .catch((e) => {
+        context.error(e);
+      });
+  },
 
-    /* load posts */
-    this.GetPosts({
-      count: 3
-    })
-
-  }
+ head() {
+    return {
+      title: "وبلاگ و مقالات فروشگاه لوازم ساختمان",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "با مطالعه مقالات در خصوص لوازم ساختمانی و صنعتی اطلاعات جامع تری جهت خرید کسب خواهید کرد",
+        },
+      ],
+    };
+  },
 }
 </script>
 

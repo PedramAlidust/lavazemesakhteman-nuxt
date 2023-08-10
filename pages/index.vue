@@ -69,11 +69,12 @@
         </div>
       </section>
      <!-- Products Ctaegirie -->
+ 
      <section>
         <div class="container py-5 text-center">
             <div class="row">
-              <VueSlickCarousel v-if="DspCategories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
-              <div v-for="categorie in DspCategories" :key="categorie.id"  class="col-lg-3">
+              <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
+              <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
                 <div class="SubCatCardLook">
                   <img width="300" height="250" class="w-100" v-if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
                   <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
@@ -101,13 +102,14 @@
      <section>
         <div class="container py-5 text-center">
           <div class="row">
-            <VueSlickCarousel v-if="DspSubCategory[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
-              <div v-for="subcategory in DspSubCategory" :key="subcategory.id" class="col-lg-3">
+            <VueSlickCarousel v-if="products[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
+              <div v-for="subcategory in products" :key="subcategory.id" class="col-lg-3">
                 <div class="CardLook">
                   <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
                   <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                   <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
-                      <button role="button" class="btn btn-sm btn-success mt-3">مشاهده</button>
+                     <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
+                     <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
+                     <button role="button" class="btn btn-sm btn-success mt-3">مشاهده</button>
                    </nuxt-link>                  
                  </div>
               </div>
@@ -232,7 +234,7 @@
               <div class="col-lg-8">
                 <div class="container-full">
                   <div class="row gx-3">
-                      <div v-for="post in DspPosts" :key="post.id" class="col-lg-4">
+                      <div v-for="post in Posts" :key="post.id" class="col-lg-4">
                           <!-- post item one -->
                             <div class="bg-image p-5 p-lg-0 text-center">
                               <img v-if="post.acf.postpic" :src="post.acf.postpic" class="bgbanerimg img-fluid" alt="bgbaner"/>
@@ -325,7 +327,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import axios from "axios";
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
 import VueSlickCarousel from 'vue-slick-carousel'
@@ -336,10 +338,57 @@ export default {
     TheFooter,
     VueSlickCarousel
   },
+
+
+  asyncData(context) {
+    const categories = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/daste/?per_page=100`
+    );
+    const products = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/zirdaste/?per_page=100`
+    );
+    const Posts = axios.get(
+      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=100`
+    );
+    return axios
+      .all([
+        categories,
+        products,
+        Posts
+      ])
+      .then(
+        axios.spread((...responses) => {
+          const categories = responses[0];
+          const products = responses[1];
+          const Posts = responses[2];
+
+          return {
+            categories: categories.data,
+            products: products.data,
+            Posts: Posts.data,
+          };
+        })
+      )
+      .catch((e) => {
+        context.error(e);
+      });
+  },
+
+    head() {
+    return {
+      title: "فروشگاه آنلاین لوازم ساختمانی و صنعتی - لوازم ساختمان",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "تمامی لوازم ساختمانی و صنعتی از جمله شیرآلات , لوله و اتصالات , محصولات پلاستیکی با برند های نسیم , ترمه , شیبه , کاس و ... عرضه می گردد",
+        },
+      ],
+    };
+  },
+
   data() {
     return {
-      categories: '', 
-      products: '', 
       slickResponsive: [
         {
           breakpoint: 768, // mobile breakpoint
@@ -388,31 +437,7 @@ export default {
       ]
     }
   }, 
-  computed: {
-    ...mapGetters(["DspCategories", "DspPosts", "DspSubCategory"])
-  }, 
-   methods: {
-    ...mapActions(["GetCategories", "GetPosts", "GetSubCategory"]),
-  },  
-  async mounted() {
-
-   /* load categories */ 
-     this.GetCategories({
-      count: 20
-    })
-
-    /* load subcategory */
-    this.GetSubCategory({
-      count: 20
-    })
-
-   /* load posts */
-   this.GetPosts({
-    count: 3
-   })
-
-  },
-
+ 
 };
 </script>
 
