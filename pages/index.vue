@@ -69,20 +69,19 @@
         </div>
       </section>
      <!-- Products Ctaegirie -->
- 
      <section>
         <div class="container py-5 text-center">
             <div class="row">
               <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
-              <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
-                <div class="SubCatCardLook">
-                  <img width="300" height="250" class="w-100" v-if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
-                  <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                  <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
-                  <p class="ProdTitle text-start me-2 py-3">{{ categorie.title.rendered }}</p>
-                  </nuxt-link>
-                 </div>
-              </div>
+                  <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
+                    <div class="SubCatCardLook mb-5">
+                      <img width="300" height="250" class="w-100" v-if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
+                      <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                      <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
+                      <p class="ProdTitle text-start me-2 py-3">{{ categorie.title.rendered }}</p>
+                      </nuxt-link>
+                    </div>
+                  </div>
                </VueSlickCarousel>
           </div>        
         </div>
@@ -104,7 +103,7 @@
           <div class="row">
             <VueSlickCarousel v-if="products[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
               <div v-for="subcategory in products" :key="subcategory.id" class="col-lg-3">
-                <div class="CardLook">
+                <div class="CardLook mb-5 mb-5">
                   <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
                   <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                      <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
@@ -152,7 +151,7 @@
      <section class="pb-5">
         <div class="container">
             <VueSlickCarousel :arrows="true" :dots="true" :responsive="CommentResponsive">
-          <div class="CardLook testimosialBorder">
+          <div class="CardLook testimosialBorder mb-5">
             <img class="TesimonialImg" src="~/assets/pictures/PersonThree.png" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
@@ -167,7 +166,7 @@
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">بعد از مدت زیادی گشت و گزار بین فروشگاه های مختلف فقط فروشگاه لوازم ساختمانی بود که تونست در خرید محصول به من کمک کنه</p>
+                <p class="mb-2 pt-2 testiText text-muted text-start">بعد از مدت زیادی گشت و گزار بین فروشگاه هافقط فروشگاه لوازم ساختمانی بود که تونست در خرید محصول به من کمک کنه</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
@@ -271,9 +270,9 @@
       </section>
       <!-- brands section -->
       <section>
-        <div class="container pb-5">
+        <div class="container pb-4">
           <div class="row py-4">
-            <div class="col-lg-9">
+            <div class="col-lg-9 order-2 order-md-1 order-lg-1 pt-2 pt-md-0 pt-lg-0">
                 <!-- brands slides -->
                <VueSlickCarousel :arrows="true" :dots="true" :responsive="slickResponsive">
                 <div>
@@ -314,12 +313,12 @@
                 </div>
               </VueSlickCarousel>
             </div>
-            <div class="col-lg-3">
-              <p class="brandtxt text-start">برند های ما</p>
-              <p class="text-start text-muted">!افتخار ما همکاری با بهترین برند هاست</p>
+             <div class="col-lg-3 order-1 order-md-2 order-lg-2">
+               <p class="brandtxt text-start">برند های ما</p>
+               <p class="text-start text-muted pb-3 pb-md-0 pb-lg-0">!افتخار ما همکاری با بهترین برند هاست</p>
+             </div>
             </div>
-          </div>
-        </div>    
+          </div>    
       </section>
   </main>
       <TheFooter />
@@ -374,7 +373,7 @@ export default {
       });
   },
 
-    head() {
+  head() {
     return {
       title: "فروشگاه آنلاین لوازم ساختمانی و صنعتی - لوازم ساختمان",
       meta: [
@@ -395,6 +394,7 @@ export default {
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
+            arrows: false
           },
         },
         {
@@ -418,6 +418,7 @@ export default {
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
+            arrows: false
           },
         },
         {

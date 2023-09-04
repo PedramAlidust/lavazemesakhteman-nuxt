@@ -4,7 +4,7 @@
 <div class="wrapper">
 
 <!-- single product broad crumb -->
-<div class="container BroadBg py-2 mt-5 mb-4">
+<div class="container BroadBg py-2 mt-5">
     <div class="d-flex align-items-center justify-content-end">
         <p v-if="Product.acf" class="text-success">{{Product.acf.productname}}</p>
         <img class="px-2" src="~/assets/svg/leftarrow.svg" alt="home">
@@ -12,8 +12,8 @@
     </div>
 </div>
 
-<!-- product datails -->
-<div class="container pb-5 px-0">
+<!-- product datails for desktop -->
+<div class="d-none d-md-block d-lg-block container px-0 mt-4">
     <div class="row">
             <h1 v-if="Product.acf" class="product_title text-start">
               {{ Product.acf.productname }}
@@ -54,7 +54,7 @@
                         <td v-if="info.size">{{ info.size }}</td>
                         <td v-if="!info.size">-</td>
                          <td v-if="info.modelpicture">
-                          <img class="w-25" :src="info.modelpicture" alt="TheProduct">
+                          <img class="w-100" width="300" height="300" :src="info.modelpicture" alt="TheProduct">
                         </td>
                          <td v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
@@ -83,6 +83,255 @@
             </div>
      </div>
 </div>
+
+<!-- product details for tablet and mobile -->
+<div class="container px-5">
+  <div class="row">
+        <table class="d-md-none d-lg-none table ">
+            <tbody v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id">
+                <!-- image -->
+                <tr>
+                    <th class="ProdTitle text-start py-4">{{TheProduct.themodel}}</th>
+                </tr>
+                <tr>
+                    <td class="text-center" v-if="TheProduct.modelpicture">
+                        <img class="Product_Img" :src="TheProduct.modelpicture" alt="TheProduct">
+                    </td>
+                    <td v-if="!TheProduct.modelpicture">
+                        <p>تصویر موجود نیست</p>
+                    </td>
+                </tr>
+                <!-- price -->
+                  <tr>
+                    <td v-if="TheProduct.price">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="text-dark fs-6" dir="rtl">{{ TheProduct.price }} تومان</p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="price fw-bold fs-6">:قیمت</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                  <!-- if there is no price -->
+                    <td v-if="!TheProduct.price">
+                         <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="price fw-bold fs-6">:قیمت</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- size -->
+                  <tr>
+                    <td v-if="TheProduct.size">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">{{ TheProduct.size }}</p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="text-dark fw-bold fs-6">:سایز</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                <!-- if there is no size -->
+                    <td v-if="!TheProduct.size">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start fw-bold fs-6">
+                                    <p class="text-dark fw-bold fs-6">:سایز</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                  <!-- color -->
+                  <tr>
+                    <td v-if="TheProduct.color">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="text-dark fs-6" dir="rtl">{{ TheProduct.color }}</p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="price fw-bold fs-6">:رنگ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                <!-- if there is no color -->
+                    <td v-if="!TheProduct.color">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start fw-bold fs-6">
+                                    <p class="price fs-6">:رنگ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                  <!-- material -->
+                  <tr>
+                    <td v-if="TheProduct.material">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-end" dir="rtl">
+                                      {{ TheProduct.material }}
+                                    </p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="text-dark fw-bold fs-6">:جنس</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                <!-- if there is no material -->
+                    <td v-if="!TheProduct.material">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start fw-bold fs-6">
+                                    <p class="text-dark fw-bold fs-6">:جنس</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                  <!-- PN -->
+                  <tr>
+                    <td v-if="TheProduct.pn">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-end" dir="rtl">
+                                      {{ TheProduct.pn }}
+                                    </p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="text-dark fw-bold fs-6">:پی ان</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                <!-- If there is no PN -->
+                    <td v-if="!TheProduct.pn">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start fw-bold fs-6">
+                                    <p class="text-dark fw-bold fs-6">:پی ان</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                 <!-- DEBI -->
+                  <tr>
+                    <td v-if="TheProduct.debi">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-end" dir="rtl">
+                                      {{ TheProduct.debi }}
+                                    </p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="text-dark fw-bold fs-6">:دبی</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                <!-- If there is no DEBI -->
+                    <td v-if="!TheProduct.debi">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start fw-bold fs-6">
+                                    <p class="text-dark fw-bold fs-6">:دبی</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- TUL -->
+                 <tr>
+                    <td v-if="TheProduct.tul">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-end" dir="rtl">
+                                      {{ TheProduct.tul }}
+                                    </p>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="text-dark fw-bold fs-6">:طول</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                <!-- If there is no TUL -->
+                    <td v-if="!TheProduct.tul">
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6 text-end">
+                                    <p class="price-number" dir="rtl">-</p>
+                                </div>
+                                <div class="col-6 text-start fw-bold fs-6">
+                                    <p class="text-dark fw-bold fs-6">:طول</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- buy botton -->
+                  <tr>
+                    <td>
+                        <div class="container"> 
+                            <div class="row">
+                                <div class="col-6">
+                                    <button @click="AddCart(TheProduct.themodel, TheProduct.price)" type="button" class="btn btn-sm btn-success">
+                                       افزودن        
+                                    </button>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <p class="text-dark fw-bold fs-6">:خرید</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+</div>
+
+<!-- product introduction -->
+<div class="container bg-white Content rounded pb-5 pt-3">
+    <div dir="rtl" class="row px-4 content" v-html="Product.acf.productcontent" />
+</div>
+
 
 <TheFooter />
 </section>
@@ -157,7 +406,13 @@ export default {
 /* product page height */
 
 .wrapper {
-  min-height: 70vh;
+  min-height: 0;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    min-height: 70vh;
+  }
 }
 
 /* product txt */
@@ -171,9 +426,34 @@ export default {
   margin: 10px 10px;
 }
 
-/* new product */
+/* Mobile Title */
 .ProdTitle {
   font-weight: bold;
+  font-size: 16pt;
+}
+
+/* Mobile Price */
+.price {
+  font-weight: bold;
+  font-size: 14pt;
+  color: #22944d;
+}
+
+/* Other Mobile Info */
+.OtherInfo {
+  font-weight: bold;
+  font-size: 14pt;
+  color: #22944d;
+}
+
+
+.price-number {
+   font-weight: bold;
+  font-size: 12pt;
+}
+
+.Product_Img {
+  width: 70%;
 }
 
 .CardLook {
