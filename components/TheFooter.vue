@@ -18,16 +18,16 @@
               ما را در فضای مجازی دنبال کنید.
             </p>
             <a href="https://instagram.com/lavazemesakhteman">
-            <i class="bi-instagram h4 text-black px-1"></i>
+              <img height="31" width="31" src="~/assets/pictures/instagram.png" alt="instagram">
             </a>
             <a href="https://t.me/pipesystem301">
-            <i class="bi-telegram h4 text-black px-1"></i>
+              <img height="31" width="31" src="~/assets/pictures/telegram.png" alt="telegram">
             </a>
             <a href="https://wa.me/09365833005">
-            <i class="bi-whatsapp h4 text-black px-1"></i>
+              <img height="31" width="31" src="~/assets/pictures/whatsapp.png" alt="whatsapp">
             </a>
             <a href="https://youtube.com/channel/UCtE62u-O1OjQ-CFjfCnjJTw">
-            <i class="bi-youtube h4 text-black px-1"></i>
+              <img height="31" width="31" src="~/assets/pictures/youtube.png" alt="youtube">
             </a>
           </div>
           <div class="col-lg-4 col-6 text-start py-4 py-lg-0">

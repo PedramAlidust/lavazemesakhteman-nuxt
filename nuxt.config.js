@@ -16,7 +16,6 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/2022/css/bootstrap-icons.css' },
       { rel: 'stylesheet', href: '/2022/css/mdb-min.css' }   
     ],
     script: [
