@@ -16,14 +16,13 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css' },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' }
+      { rel: 'stylesheet', href: '/2022/css/bootstrap-icons.css' },
+      { rel: 'stylesheet', href: '/2022/css/mdb-min.css' }   
     ],
     script: [
       { src: '/2022/js/bootstrap/bootstrap.bundle.min.js', body: true },
-      { src: ' https://code.jquery.com/jquery-3.6.0.min.js', body: true },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js', body: true },
+      { src: '/2022/js/jquery/jquery-3-6-0-min.js', body: true },
+      { src: '/2022/js/bootstrap/mdb-min.js', body: true },
     ]
   },
 
@@ -36,10 +35,10 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/css/style.css',
+    '~/assets/css/general_style.css',
+    '~/assets/css/custome_slick.css',
     '~/assets/css/slick.css',
-    '~/assets/bootstrap/css/bootstrap.min.css',
-    '~/assets/bootstrap/css/bootstrap.rtl.min.css',
+    '~/assets/bootstrap/bootstrap.rtl.min.css',
   ],
 
   /*

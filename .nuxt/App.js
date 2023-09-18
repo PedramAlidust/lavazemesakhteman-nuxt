@@ -6,13 +6,13 @@ import NuxtError from '../layouts/error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '../assets/css/style.css'
+import '../assets/css/general_style.css'
+
+import '../assets/css/custome_slick.css'
 
 import '../assets/css/slick.css'
 
-import '../assets/bootstrap/css/bootstrap.min.css'
-
-import '../assets/bootstrap/css/bootstrap.rtl.min.css'
+import '../assets/bootstrap/bootstrap.rtl.min.css'
 
 import _6f6c098b from '../layouts/default.vue'
 
