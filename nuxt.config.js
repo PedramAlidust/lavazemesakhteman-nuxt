@@ -15,7 +15,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/2022/favicon.png' },
       { rel: 'stylesheet', href: '/2022/css/mdb-min.css' }   
     ],
     script: [
