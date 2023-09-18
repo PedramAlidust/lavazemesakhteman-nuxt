@@ -86,7 +86,7 @@ export default {
   },
   asyncData(context) {
     return axios
-      .get("https://lavazemesakhteman.com/wp-json/wc/v3/products/categories", {
+      .get(`${process.env.UrlApi}/wp-json/wc/v3/products/categories`, {
         params: {
           per_page: 100,
           page: 1,

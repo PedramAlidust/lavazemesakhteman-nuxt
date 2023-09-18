@@ -21,7 +21,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' }
     ],
     script: [
-      { src: '/js/bootstrap/bootstrap.bundle.min.js', body: true },
+      { src: '/2022/js/bootstrap/bootstrap.bundle.min.js', body: true },
       { src: ' https://code.jquery.com/jquery-3.6.0.min.js', body: true },
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js', body: true },
     ]
