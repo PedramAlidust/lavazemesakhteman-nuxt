@@ -393,8 +393,7 @@ export default {
           breakpoint: 768, // mobile breakpoint
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false
+            slidesToScroll: 1
           },
         },
         {
@@ -417,8 +416,7 @@ export default {
           breakpoint: 768, // mobile breakpoint
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false
+            slidesToScroll: 1
           },
         },
         {
