@@ -29,66 +29,9 @@
         </div>
       </div>
     </section>
-    <!-- features section -->
-    <section  class="py-5 pb-lg-5 mb-lg-4 mt-lg-5 pt-lg-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="FeatureBox text-center text-lg-start p-4">
-            <img src="~/assets/svg/truck.svg" alt="truck">
-             <p class="FeatureTxt  pt-4">ارسال سریع</p>
-             <p class="text-muted mt-3 mb-5">تمامی محصولات با سرعت بالا و در کمترین زمان ممکن به دست شما عزیزان خواهند رسید</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-             <div class="FeatureBox text-center text-lg-start p-4">
-            <img src="~/assets/svg/shop.svg" alt="shop">
-             <p class="FeatureTxt pt-4">محصولات جدید</p>
-             <p class="text-muted mt-3 mb-5">جدید ترین محصولات با کیفیتی باورنکردنی به دست شما مشتریان عزیز خواهند رسید</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-             <div class="FeatureBox text-center text-lg-start p-4">
-            <img src="~/assets/svg/discount.svg" alt="truck">
-             <p class="FeatureTxt pt-4">تخفیف های ویژه</p>
-             <p class="text-muted mt-3 mb-5">باتخفیف ویژه هزینه خرید را کاهش دهید و از خرید سریع و آسان بهره مند شوید</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Products categories section -->
+      <!-- Products categories section -->
       <section>
-        <div class="container">
-          <div class="d-flex align-items-center justify-content-between">
-            <nuxt-link to='/products/'>
-            <button role="button" class="CatBtn">مشاهده همه</button>
-            </nuxt-link>
-            <p class="CatTxt">دسته بندی محصولات</p>
-          </div>
-        </div>
-      </section>
-     <!-- Products Ctaegirie -->
-     <section>
-        <div class="container py-5 text-center">
-            <div class="row">
-              <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
-                  <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
-                    <div class="SubCatCardLook mb-5">
-                      <img width="300" height="250" class="w-100" v-if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
-                      <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                      <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
-                      <p class="ProdTitle text-start me-2 py-3">{{ categorie.title.rendered }}</p>
-                      </nuxt-link>
-                    </div>
-                  </div>
-               </VueSlickCarousel>
-          </div>        
-        </div>
-     </section>
-    <!-- Products categories section -->
-      <section>
-        <div class="container">
+        <div class="container pt-5 pt-lg-0">
           <div class="d-flex align-items-center justify-content-between">
             <nuxt-link to='/products/'>
             <button role="button" class="CatBtn">مشاهده همه</button>
@@ -116,8 +59,65 @@
           </div>    
         </div>
      </section>
+        <!-- Products categories section -->
+        <section>
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between">
+            <nuxt-link to='/products/'>
+            <button role="button" class="CatBtn">مشاهده همه</button>
+            </nuxt-link>
+            <p class="CatTxt">دسته بندی محصولات</p>
+          </div>
+        </div>
+      </section>
+     <!-- Products Ctaegirie -->
+     <section>
+        <div class="container py-5 text-center">
+            <div class="row">
+              <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
+                  <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
+                    <div class="SubCatCardLook mb-5">
+                      <img width="300" height="250" class="w-100" v-if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
+                      <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                      <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
+                      <p class="ProdTitle text-start me-2 py-3">{{ categorie.title.rendered }}</p>
+                      </nuxt-link>
+                    </div>
+                  </div>
+               </VueSlickCarousel>
+          </div>        
+        </div>
+     </section>
+    <!-- features section -->
+    <section  class="pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="FeatureBox text-center text-lg-start p-4">
+            <img src="~/assets/svg/truck.svg" alt="truck">
+             <p class="FeatureTxt  pt-4">ارسال سریع</p>
+             <p class="text-muted mt-3 mb-5">تمامی محصولات با سرعت بالا و در کمترین زمان ممکن به دست شما عزیزان خواهند رسید</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+             <div class="FeatureBox text-center text-lg-start p-4">
+            <img src="~/assets/svg/shop.svg" alt="shop">
+             <p class="FeatureTxt pt-4">محصولات جدید</p>
+             <p class="text-muted mt-3 mb-5">جدید ترین محصولات با کیفیتی باورنکردنی به دست شما مشتریان عزیز خواهند رسید</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+             <div class="FeatureBox text-center text-lg-start p-4">
+            <img src="~/assets/svg/discount.svg" alt="truck">
+             <p class="FeatureTxt pt-4">تخفیف های ویژه</p>
+             <p class="text-muted mt-3 mb-5">باتخفیف ویژه هزینه خرید را کاهش دهید و از خرید سریع و آسان بهره مند شوید</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
      <!-- call to action section -->
-     <section class="CtaBg">
+     <section class="CtaBg mt-lg-5">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 py-lg-5">
@@ -151,42 +151,12 @@
      <section class="pb-5">
         <div class="container">
             <VueSlickCarousel :arrows="true" :dots="true" :responsive="CommentResponsive">
-          <div class="CardLook testimosialBorder mb-5">
-            <img class="TesimonialImg" src="~/assets/pictures/PersonThree.png" alt="CatJpg">
-             <!-- testimonial details -->
-              <div class="pb-3 px-2">
-                <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">بهترین تجربه خریدی که داشتم فروشگاه لوازم ساختمانی بود توصیه میکنم حتما از این فروشگاه خرید کنید</p>
-                <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
-              </div> 
-             <!-- end testimonial details -->
-          </div>
-           <div class="CardLook testimosialBorder">
-            <img class="TesimonialImg" src="~/assets/pictures/PersonOne.png" alt="CatJpg">
-             <!-- testimonial details -->
-              <div class="pb-3 px-2">
-                <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">بعد از مدت زیادی گشت و گزار بین فروشگاه هافقط فروشگاه لوازم ساختمانی بود که تونست در خرید محصول به من کمک کنه</p>
-                <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
-              </div> 
-             <!-- end testimonial details -->
-          </div>
            <div class="CardLook testimosialBorder">
             <img class="TesimonialImg" src="~/assets/pictures/PedrsonTwo.png" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
                 <p class="mb-2 pt-2 testiText text-muted text-start">کیفیت محصولات عالی بود و همچنین از مدیریت محترم تشکر ویژه دارم که با صبوری هرچه تمام تر من را راهنمایی کردند</p>
-                <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
-              </div> 
-             <!-- end testimonial details -->
-          </div>   
-           <div class="CardLook testimosialBorder">
-            <img class="TesimonialImg" src="~/assets/pictures/PersonThree.png" alt="CatJpg">
-             <!-- testimonial details -->
-              <div class="pb-3 px-2">
-                <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">برای دفعه پنجم بود که از فروشگاه لوازم ساختمانی خرید میکردم و میتونم بگم از خرید خودم بسیار راضی هستم</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
