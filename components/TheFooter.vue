@@ -17,9 +17,6 @@
             <p class="text-black text-justify">
               ما را در فضای مجازی دنبال کنید.
             </p>
-            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
-            <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic' alt='enamad' style='cursor:pointer' Code='TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
-            </a>
             <a href="https://instagram.com/lavazemesakhteman">
               <img height="31" width="31" src="~/assets/pictures/instagram.png" alt="instagram">
             </a>
@@ -41,6 +38,9 @@
               پلاک 5
             </p>
           </div>
+          <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
+            <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic' alt='enamad' style='cursor:pointer' Code='TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
+            </a>
         </div>
       </div>
     </div>
