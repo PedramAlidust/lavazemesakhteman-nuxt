@@ -161,6 +161,16 @@
               </div> 
              <!-- end testimonial details -->
           </div>   
+          <div class="CardLook testimosialBorder">
+            <img class="TesimonialImg" src="~/assets/pictures/PedrsonTwo.png" alt="CatJpg">
+             <!-- testimonial details -->
+              <div class="pb-3 px-2">
+                <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
+                <p class="mb-2 pt-2 testiText text-muted text-start">کیفیت محصولات عالی بود و همچنین از مدیریت محترم تشکر ویژه دارم که با صبوری هرچه تمام تر من را راهنمایی کردند</p>
+                <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
+              </div> 
+             <!-- end testimonial details -->
+          </div>   
            <div class="CardLook testimosialBorder">
             <img class="TesimonialImg" src="~/assets/pictures/PersonOne.png" alt="CatJpg">
              <!-- testimonial details -->
