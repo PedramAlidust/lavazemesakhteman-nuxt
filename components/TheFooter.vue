@@ -5,7 +5,7 @@
       <div class="container px-5">
         <div class="row">
           <div class="col-lg-3 text-center d-none d-lg-block">
-            <p class="fw-bold text-start">نماد اعتبار</p>
+            <p class="fw-bold">نماد اعتبار</p>
             <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
             <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic' alt='enamad' style='cursor:pointer' Code='TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
             </a>
