@@ -4,7 +4,7 @@
     <div class="container-full bkg-color py-md-5 py-lg-5">
       <div class="container px-5">
         <div class="row">
-          <div class="col-lg-4 text-start pt-4 pt-md-0 pt-lg-0">
+          <div class="col-lg-3 text-start pt-4 pt-md-0 pt-lg-0">
             <p class="fw-bold text-black">درباره ما</p>
             <p class="text-black text-justify">
               مجموعه لوازم ساختمان با بیش از بیست سال تجربه
@@ -12,7 +12,7 @@
               مسکونی شیرآلات و دیگر لوازم ساختمانی را عرضه می کند.
             </p>
           </div>
-          <div class="col-lg-4 col-6 text-start py-4 py-lg-0">
+          <div class="col-lg-3 col-6 text-start py-4 py-lg-0">
             <p class="fw-bold text-black">شبکه های مجازی</p>
             <p class="text-black text-justify">
               ما را در فضای مجازی دنبال کنید.
@@ -30,7 +30,7 @@
               <img height="31" width="31" src="~/assets/pictures/youtube.png" alt="youtube">
             </a>
           </div>
-          <div class="col-lg-4 col-6 text-start py-4 py-lg-0">
+          <div class="col-lg-3 col-6 text-start py-4 py-lg-0">
             <p class="fw-bold text-black">اطلاعات تماس</p>
             <p class="text-black">02155580447</p>
             <p class="text-black small text-justify AddressWidth footer-margin">
@@ -38,9 +38,11 @@
               پلاک 5
             </p>
           </div>
-          <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
+          <div class="col-lg-3 text-start">
+            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
             <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic' alt='enamad' style='cursor:pointer' Code='TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
             </a>
+          </div>
         </div>
       </div>
     </div>
