@@ -11,9 +11,9 @@
               مفتخر است با ارايه خدمات به شرکت ها و مراکز خصوصی دولتی و اماکن
               مسکونی شیرآلات و دیگر لوازم ساختمانی را عرضه می کند.
             </p>
-            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
+            <!-- <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
             <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=419237&Code=TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic' alt='enamad' style='cursor:pointer' Code='TcLrCuoIR3UjxnlOXdjAzmGT2ptSJgic'>
-            </a>
+            </a> -->
           </div>
           <div class="col-lg-4 col-6 text-start py-4 py-lg-0">
             <p class="fw-bold text-black">شبکه های مجازی</p>
