@@ -49,29 +49,29 @@
                     </thead>
                     <tbody v-if="Product.acf">
                       <tr v-for="info in Product.acf.productdetails" :key="info.id">
-                        <td v-if="info.themodel">{{ info.themodel }}</td>
-                        <td v-if="!info.themodel">-</td>
-                        <td v-if="info.size">{{ info.size }}</td>
-                        <td v-if="!info.size">-</td>
-                        <td v-if="info.modelpicture">
+                        <td class="align-middle" v-if="info.themodel">{{ info.themodel }}</td>
+                        <td class="align-middle" v-if="!info.themodel">-</td>
+                        <td class="align-middle" v-if="info.size">{{ info.size }}</td>
+                        <td class="align-middle" v-if="!info.size">-</td>
+                        <td class="align-middle" v-if="info.modelpicture">
                           <img class="w-100" :src="info.modelpicture" alt="TheProduct">
                         </td>
-                         <td v-if="!info.modelpicture">
+                         <td class="align-middle" v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
                         </td>
-                        <td v-if="info.price">{{ info.price }} تومان</td>
-                        <td v-if="!info.price">-</td>
-                        <td v-if="info.color">{{ info.color }}</td>
-                        <td v-if="!info.color">-</td>
-                        <td v-if="info.material">{{ info.material }}</td>
-                        <td v-if="!info.material">-</td>
-                        <td v-if="info.pn">{{ info.pn }}</td>
-                        <td v-if="!info.pn">-</td>
-                        <td v-if="info.debi">{{ info.debi }}</td>
-                        <td v-if="!info.debi">-</td>
-                        <td v-if="info.tul">{{ info.tul }}</td>
-                        <td v-if="!info.tul">-</td>
-                        <td>
+                        <td class="align-middle" v-if="info.price">{{ info.price }} تومان</td>
+                        <td class="align-middle" v-if="!info.price">-</td>
+                        <td class="align-middle" v-if="info.color">{{ info.color }}</td>
+                        <td class="align-middle" v-if="!info.color">-</td>
+                        <td class="align-middle" v-if="info.material">{{ info.material }}</td>
+                        <td class="align-middle" v-if="!info.material">-</td>
+                        <td class="align-middle" v-if="info.pn">{{ info.pn }}</td>
+                        <td class="align-middle" v-if="!info.pn">-</td>
+                        <td class="align-middle" v-if="info.debi">{{ info.debi }}</td>
+                        <td class="align-middle" v-if="!info.debi">-</td>
+                        <td class="align-middle" v-if="info.tul">{{ info.tul }}</td>
+                        <td class="align-middle" v-if="!info.tul">-</td>
+                        <td class="align-middle">
                           <button @click="AddCart(info.themodel, info.price)" type="button" class="btn btn-sm btn-success">
                             افزودن
                           </button>
