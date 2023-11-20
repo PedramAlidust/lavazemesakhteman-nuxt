@@ -37,7 +37,7 @@
                       <tr>
                          <th scope="col">مدل</th>
                          <th scope="col">سایز</th>
-                         <th scope="col">عکس</th>
+                         <th scope="col" style="width: 280px;">عکس</th>
                          <th scope="col">قیمت</th>
                          <th scope="col">رنگ</th>
                          <th scope="col">جنس</th>
@@ -53,7 +53,7 @@
                         <td v-if="!info.themodel">-</td>
                         <td v-if="info.size">{{ info.size }}</td>
                         <td v-if="!info.size">-</td>
-                         <td v-if="info.modelpicture">
+                        <td v-if="info.modelpicture">
                           <img class="w-100" :src="info.modelpicture" alt="TheProduct">
                         </td>
                          <td v-if="!info.modelpicture">
