@@ -152,11 +152,11 @@
         <div class="container">
             <VueSlickCarousel :arrows="true" :dots="true" :responsive="CommentResponsive">
            <div class="CardLook testimosialBorder">
-            <img class="TesimonialImg" src="~/assets/pictures/PedrsonTwo.png" alt="CatJpg">
+            <img class="TesimonialImg" src="~/assets/pictures/PersonFour.jpg" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">کیفیت محصولات عالی بود و همچنین از مدیریت محترم تشکر ویژه دارم که با صبوری هرچه تمام تر من را راهنمایی کردند</p>
+                <p class="mb-2 pt-2 testiText text-muted text-start">از جناب امینی و مجموعه لوازم ساختمان تشکر ویژه دارم و باعث افتخارم بود که چندین سال با این مجموعه همکاری کردم</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->

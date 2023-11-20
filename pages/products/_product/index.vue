@@ -32,7 +32,7 @@
                           </div>
                      </div>
                    <!-- product table -->  
-                  <table dir="rtl" class="table table-bordered table-striped mt-4 mb-4">
+                  <table dir="rtl" class="table equal-width-cols table-bordered table-striped mt-4 mb-4 text-center">
                     <thead v-if="Product.acf">
                       <tr>
                          <th scope="col">مدل</th>
@@ -41,8 +41,8 @@
                          <th scope="col">قیمت</th>
                          <th scope="col">رنگ</th>
                          <th scope="col">جنس</th>
-                         <th scope="col">پی ان</th>
-                         <th scope="col">دبی</th>
+                         <th scope="col">PN</th>
+                         <th scope="col">DN</th>
                          <th scope="col">طول</th>
                          <th scope="col">خرید</th>
                       </tr>
@@ -54,12 +54,12 @@
                         <td v-if="info.size">{{ info.size }}</td>
                         <td v-if="!info.size">-</td>
                          <td v-if="info.modelpicture">
-                          <img class="w-100" width="300" height="300" :src="info.modelpicture" alt="TheProduct">
+                          <img class="w-100" :src="info.modelpicture" alt="TheProduct">
                         </td>
                          <td v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
                         </td>
-                        <td v-if="info.price">{{ info.price }}</td>
+                        <td v-if="info.price">{{ info.price }} تومان</td>
                         <td v-if="!info.price">-</td>
                         <td v-if="info.color">{{ info.color }}</td>
                         <td v-if="!info.color">-</td>
@@ -402,6 +402,12 @@ export default {
 </script>
 
 <style scoped>
+
+    /* Add custom styles if needed */
+    .equal-width-cols {
+      table-layout: fixed;
+      width: 100%;
+    }
 
 /* product page height */
 
