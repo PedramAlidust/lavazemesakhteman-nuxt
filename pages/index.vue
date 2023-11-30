@@ -6,9 +6,18 @@
     <section  class="py-lg-5 my-lg-4">
       <div class="container">
         <div class="row">
+          <!-- <VueSlickCarousel :responsive="heroResponsive"> -->
+            <!-- slide one -->
           <div class="col-lg-6 mt-5 mt-lg-0">
-            <img class="img-fluid" src="~/assets/pictures/slider.png" alt="slider">
+            <img class="HeroBorder w-100 img-fluid" src="~/assets/pictures/slider1.jpg" alt="slider">
           </div>
+          <!-- <div class="col-lg-6 mt-5 mt-lg-0">
+            <img class="w-25 img-fluid rounded" src="~/assets/pictures/slider2.jpg" alt="slider2">
+          </div>
+          <div class="col-lg-6 mt-5 mt-lg-0">
+            <img class="w-25 img-fluid rounded" src="~/assets/pictures/slider2.jpg" alt="slider2">
+          </div> -->
+        <!-- </VueSlickCarousel> -->
           <div class="col-lg-1"></div>
           <div class="col-lg-5 text-start">
             <p class="SlideTitle mt-4 pt-5 pt-lg-0"><span class="SliderTitle">فروشگاه</span> لوازم ساختمان </p>
@@ -46,7 +55,7 @@
           <div class="row">
             <VueSlickCarousel v-if="products[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
               <div v-for="subcategory in products" :key="subcategory.id" class="col-lg-3">
-                <div class="CardLook mb-5 mb-5">
+                <div class="CardLook mb-5 mb-5 mx-2">
                   <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
                   <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                      <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
@@ -76,7 +85,7 @@
             <div class="row">
               <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
                   <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
-                    <div class="SubCatCardLook mb-5">
+                    <div class="SubCatCardLook mb-5 mx-2">
                       <img width="300" height="250" class="w-100" v-if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
                       <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                       <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
@@ -120,13 +129,20 @@
      <section class="CtaBg mt-lg-5">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6 py-lg-5">
+            <div class="col-lg-4 py-lg-5">
               <div class="d-none d-lg-block  d-flex align-items-center justify-content-start">
-                <img src="~/assets/pictures/LeftPic.png" alt="LeftImg">
-                <img class="pe-lg-2" src="~/assets/pictures/zarfshuee.png" alt="LeftImg">
+                <img class="CtgBkg pe-2" src="~/assets/pictures/TermeCta.jpg" alt="star">
+                <img class="CtgBkg pe-lg-2" src="~/assets/pictures/TermeCta2.jpg" alt="LeftImg">
               </div>
             </div>
-            <div class="col-lg-6 pe-5 text-start  py-5">
+            <div class="col-lg-4 py-lg-5">
+              <div class="d-none d-lg-block  d-flex align-items-center justify-content-start">
+                <img class="CtgBkg2" src="~/assets/pictures/TermeCta3.jpg" alt="star">
+                <img class="CtgBkg2 pe-2" src="~/assets/pictures/TermeCta4.jpg" alt="LeftImg">
+                <img class="CtgBkg2 pe-lg-2 mt-3" src="~/assets/pictures/TermeCta5.jpg" alt="LeftImg">
+              </div>
+            </div>
+            <div class="col-lg-4 pe-5 text-start  py-5">
               <div class="d-flex align-items-center justify-content-end pb-4">
                 <img class="pe-2" src="~/assets/svg/stars.svg" alt="star">
                 <p class="CtaTitle">خلاقیت و زیبایی</p>
@@ -151,42 +167,42 @@
      <section class="pb-5">
         <div class="container">
             <VueSlickCarousel :arrows="true" :dots="true" :responsive="CommentResponsive">
-           <div class="CardLook testimosialBorder">
+           <div class="CardLook testimosialBorder mx-3">
             <img class="TesimonialImg" src="~/assets/pictures/PersonFour.jpg" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">از جناب امینی و مجموعه لوازم ساختمان تشکر ویژه دارم و باعث افتخارم بود که چندین سال با این مجموعه همکاری کردم</p>
+                <p class="mb-2 pt-2 testiText text-start">از جناب امینی و مجموعه لوازم ساختمان تشکر ویژه دارم و باعث افتخارم بود که چندین سال با این مجموعه همکاری کردم</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
           </div>   
-          <div class="CardLook testimosialBorder">
+          <div class="CardLook testimosialBorder mx-3">
             <img class="TesimonialImg" src="~/assets/pictures/PedrsonTwo.png" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">کیفیت محصولات عالی بود و همچنین از مدیریت محترم تشکر ویژه دارم که با صبوری هرچه تمام تر من را راهنمایی کردند</p>
+                <p class="mb-2 pt-2 testiText text-start">کیفیت محصولات عالی بود و همچنین از مدیریت محترم تشکر ویژه دارم که با صبوری هرچه تمام تر من را راهنمایی کردند</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
           </div>   
-           <div class="CardLook testimosialBorder">
+           <div class="CardLook testimosialBorder mx-3">
             <img class="TesimonialImg" src="~/assets/pictures/PersonOne.png" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">با تشکر فراوان از جناب امینی راهنمایی و تجربه ایشان باعث شد چیزی رو که میخوام با قیمت مناسبپیدا کنم پیروز و موفق باشید</p>
+                <p class="mb-2 pt-2 testiText text-start">با تشکر فراوان از جناب امینی راهنمایی و تجربه ایشان باعث شد چیزی رو که میخوام با قیمت مناسبپیدا کنم پیروز و موفق باشید</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
           </div>   
-          <div class="CardLook testimosialBorder">
+          <div class="CardLook testimosialBorder mx-3">
             <img class="TesimonialImg" src="~/assets/pictures/PersonThree.png" alt="CatJpg">
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-muted text-start">برای دفعه پنجم بود که از فروشگاه لوازم ساختمانی خرید میکردم و میتونم بگم از خرید خودم بسیار راضی هستم</p>
+                <p class="mb-2 pt-2 testiText text-start">برای دفعه پنجم بود که از فروشگاه لوازم ساختمانی خرید میکردم و میتونم بگم از خرید خودم بسیار راضی هستم و به تمامی مشتریان نیز این مجموعه را پیش نهاد میکنم</p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
@@ -368,6 +384,29 @@ export default {
 
   data() {
     return {
+      heroResponsive: [
+        {
+          breakpoint: 768, // mobile breakpoint
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          },
+        },
+        {
+          breakpoint: 992, // tablet breakpoint
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+           {
+          breakpoint: 2024, // tablet breakpoint
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
       slickResponsive: [
         {
           breakpoint: 768, // mobile breakpoint
@@ -423,6 +462,23 @@ export default {
 
 <style scoped>
 
+
+.HeroBorder {
+  border-radius: 20px;
+}
+
+.CtgBkg {
+  width: 40%;
+  height: 340px;
+  border-radius: 20px;
+}
+
+.CtgBkg2 {
+  width: 40%;
+  border-radius: 20px;
+  height: 150px;;
+}
+
 p {
   padding: 0;
   margin: 0;
@@ -469,6 +525,7 @@ a {
 .testiText {
   text-align-last: right !important;
   text-align: justify !important;
+  color: #000000;
 }
 
 .testimosialBorder {
@@ -549,14 +606,14 @@ a {
 
 .CardLook {
   padding: 15px !important;
-  background-color: #fff;
+  background-color: #dddddd;
   box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.06);
   border-radius: 8px;
 }
 
 .SubCatCardLook {
   padding: 15px 15px 0px 15px !important;
-  background-color: #fff;
+  background-color: #dddddd;
   box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.06);
   border-radius: 8px;
 }

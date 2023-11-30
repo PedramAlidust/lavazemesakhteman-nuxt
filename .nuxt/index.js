@@ -5,7 +5,7 @@ import ClientOnly from 'vue-client-only'
 import NoSsr from 'vue-no-ssr'
 import { createRouter } from './router.js'
 import NuxtChild from './components/nuxt-child.js'
-import NuxtError from '../layouts/error.vue'
+import NuxtError from '..\\layouts\\error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
 import { setContext, getLocation, getRouteData, normalizeError } from './utils'
@@ -13,11 +13,11 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_cookieuniversalnuxt_3a7c45ea from 'nuxt_plugin_cookieuniversalnuxt_3a7c45ea' // Source: ./cookie-universal-nuxt.js (mode: 'all')
-import nuxt_plugin_axios_cc692b7c from 'nuxt_plugin_axios_cc692b7c' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_workbox_532b5244 from 'nuxt_plugin_workbox_532b5244' // Source: ./workbox.js (mode: 'client')
-import nuxt_plugin_metaplugin_1e65dff1 from 'nuxt_plugin_metaplugin_1e65dff1' // Source: ./pwa/meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_230d8565 from 'nuxt_plugin_iconplugin_230d8565' // Source: ./pwa/icon.plugin.js (mode: 'all')
+import nuxt_plugin_cookieuniversalnuxt_418f8adf from 'nuxt_plugin_cookieuniversalnuxt_418f8adf' // Source: .\\cookie-universal-nuxt.js (mode: 'all')
+import nuxt_plugin_axios_17a93937 from 'nuxt_plugin_axios_17a93937' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_workbox_54103c93 from 'nuxt_plugin_workbox_54103c93' // Source: .\\workbox.js (mode: 'client')
+import nuxt_plugin_metaplugin_036a23da from 'nuxt_plugin_metaplugin_036a23da' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
+import nuxt_plugin_iconplugin_02f29387 from 'nuxt_plugin_iconplugin_02f29387' // Source: .\\pwa\\icon.plugin.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -214,24 +214,24 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_cookieuniversalnuxt_3a7c45ea === 'function') {
-    await nuxt_plugin_cookieuniversalnuxt_3a7c45ea(app.context, inject)
+  if (typeof nuxt_plugin_cookieuniversalnuxt_418f8adf === 'function') {
+    await nuxt_plugin_cookieuniversalnuxt_418f8adf(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_cc692b7c === 'function') {
-    await nuxt_plugin_axios_cc692b7c(app.context, inject)
+  if (typeof nuxt_plugin_axios_17a93937 === 'function') {
+    await nuxt_plugin_axios_17a93937(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_workbox_532b5244 === 'function') {
-    await nuxt_plugin_workbox_532b5244(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_54103c93 === 'function') {
+    await nuxt_plugin_workbox_54103c93(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_metaplugin_1e65dff1 === 'function') {
-    await nuxt_plugin_metaplugin_1e65dff1(app.context, inject)
+  if (typeof nuxt_plugin_metaplugin_036a23da === 'function') {
+    await nuxt_plugin_metaplugin_036a23da(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_iconplugin_230d8565 === 'function') {
-    await nuxt_plugin_iconplugin_230d8565(app.context, inject)
+  if (typeof nuxt_plugin_iconplugin_02f29387 === 'function') {
+    await nuxt_plugin_iconplugin_02f29387(app.context, inject)
   }
 
   // Lock enablePreview in context
