@@ -6,21 +6,29 @@
     <section  class="py-lg-5 my-lg-4">
       <div class="container">
         <div class="row">
-          <!-- <VueSlickCarousel :responsive="heroResponsive"> -->
+          <div class="col-lg-6 mt-5 mt-lg-0 order-2 order-lg-1">
+            <VueSlickCarousel :arrows="true" :dots="true" :responsive="heroResponsive">
             <!-- slide one -->
-          <div class="col-lg-6 mt-5 mt-lg-0">
-            <img class="HeroBorder w-100 img-fluid" src="~/assets/pictures/slider1.jpg" alt="slider">
+            <div class="HeroContainer">
+              <img class="HeroImg" src="~/assets/pictures/slider1.jpg" alt="slider">
+            </div>
+            <div class="HeroContainer">
+              <img class="HeroImg" src="~/assets/pictures/slider2.jpg" alt="slider2">
+            </div>
+            <div class="HeroContainer">
+              <img class="HeroImg" src="~/assets/pictures/slider3.jpg" alt="slider3">
+            </div>
+            <div class="HeroContainer">
+              <img class="HeroImg" src="~/assets/pictures/slider4.jpg" alt="slider4">
+            </div>
+            <div class="HeroContainer">
+              <img class="HeroImg" src="~/assets/pictures/slider5.jpg" alt="slider5">
+            </div>
+        </VueSlickCarousel>
           </div>
-          <!-- <div class="col-lg-6 mt-5 mt-lg-0">
-            <img class="w-25 img-fluid rounded" src="~/assets/pictures/slider2.jpg" alt="slider2">
-          </div>
-          <div class="col-lg-6 mt-5 mt-lg-0">
-            <img class="w-25 img-fluid rounded" src="~/assets/pictures/slider2.jpg" alt="slider2">
-          </div> -->
-        <!-- </VueSlickCarousel> -->
-          <div class="col-lg-1"></div>
-          <div class="col-lg-5 text-start">
-            <p class="SlideTitle mt-4 pt-5 pt-lg-0"><span class="SliderTitle">فروشگاه</span> لوازم ساختمان </p>
+          <div class="col-lg-1 order-lg-2 d-none d-lg-block"></div>
+          <div class="col-lg-5 text-start order-lg-3">
+            <p class="SlideTitle pt-5 pt-lg-0"><span class="SliderTitle">فروشگاه</span> لوازم ساختمان </p>
             <p class="text-muted">بزرگ ترین عرضه کننده لوازم ساختمانی و صنعتی</p>
             <p class="sliderDesc pt-4">
               هر آنچه از لوازم ساختمانی و صنعتی نیاز دارید تنها کافیست در فروشگاه آنلاین لوازم ساختمان جستجو کنید.کیفیت و کارایی همراه با قیمت مناسب تنها بخشی از خدمات ما می باشد
@@ -462,9 +470,33 @@ export default {
 
 <style scoped>
 
+.HeroContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
-.HeroBorder {
+/* Media query for desktop devices with a minimum width of 768 pixels */
+@media (min-width: 768px) {
+  .HeroContainer {
+    height: 500px; /* Set the height for desktop */
+  }
+}
+
+/* Media query for mobile devices with a maximum width of 767 pixels */
+@media (max-width: 767px) {
+  .HeroContainer {
+    height: 350px; /* Set the height for mobile */
+  }
+}
+
+.HeroImg {
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .CtgBkg {

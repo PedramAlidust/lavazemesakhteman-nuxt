@@ -2,78 +2,78 @@
   {
     "name": "blog",
     "path": "/blog",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\blog\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/index.vue",
     "chunkName": "pages/blog/index",
-    "_name": "_0932cc7d"
+    "_name": "_316d800b"
   },
   {
     "name": "CataloguePdf",
     "path": "/CataloguePdf",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\CataloguePdf.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/CataloguePdf.vue",
     "chunkName": "pages/CataloguePdf",
-    "_name": "_6183b22c"
+    "_name": "_74c43b62"
   },
   {
     "name": "categories",
     "path": "/categories",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\categories\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/index.vue",
     "chunkName": "pages/categories/index",
-    "_name": "_74d14bfa"
+    "_name": "_246fb385"
   },
   {
     "name": "order",
     "path": "/order",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\order\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/order/index.vue",
     "chunkName": "pages/order/index",
-    "_name": "_34c4a307"
+    "_name": "_003cda4a"
   },
   {
     "name": "products",
     "path": "/products",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\products\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/index.vue",
     "chunkName": "pages/products/index",
-    "_name": "_299f9afb"
+    "_name": "_573ec04d"
   },
   {
     "name": "ProductsPdf",
     "path": "/ProductsPdf",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\ProductsPdf.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/ProductsPdf.vue",
     "chunkName": "pages/ProductsPdf",
-    "_name": "_65e22edb"
+    "_name": "_15002350"
   },
   {
     "name": "blog-about",
     "path": "/blog/about",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\blog\\\\about.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/about.vue",
     "chunkName": "pages/blog/about",
-    "_name": "_2d0a1c90"
+    "_name": "_11b5a546"
   },
   {
     "name": "blog-blog",
     "path": "/blog/:blog",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\blog\\\\_blog\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/_blog/index.vue",
     "chunkName": "pages/blog/_blog/index",
-    "_name": "_c64c4354"
+    "_name": "_30407986"
   },
   {
     "name": "categories-categorie",
     "path": "/categories/:categorie",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\categories\\\\_categorie\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/_categorie/index.vue",
     "chunkName": "pages/categories/_categorie/index",
-    "_name": "_bb5a7b6a"
+    "_name": "_bd228650"
   },
   {
     "name": "products-product",
     "path": "/products/:product",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\products\\\\_product\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/_product/index.vue",
     "chunkName": "pages/products/_product/index",
-    "_name": "_7a361c8b"
+    "_name": "_28485f70"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Master tech\\\\Desktop\\\\lavazem_project\\\\pages\\\\index.vue",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_0ef20c9f"
+    "_name": "_cc7f2448"
   }
 ]

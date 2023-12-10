@@ -4,17 +4,17 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _0932cc7d = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
-const _6183b22c = () => interopDefault(import('..\\pages\\CataloguePdf.vue' /* webpackChunkName: "pages/CataloguePdf" */))
-const _74d14bfa = () => interopDefault(import('..\\pages\\categories\\index.vue' /* webpackChunkName: "pages/categories/index" */))
-const _34c4a307 = () => interopDefault(import('..\\pages\\order\\index.vue' /* webpackChunkName: "pages/order/index" */))
-const _299f9afb = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages/products/index" */))
-const _65e22edb = () => interopDefault(import('..\\pages\\ProductsPdf.vue' /* webpackChunkName: "pages/ProductsPdf" */))
-const _2d0a1c90 = () => interopDefault(import('..\\pages\\blog\\about.vue' /* webpackChunkName: "pages/blog/about" */))
-const _c64c4354 = () => interopDefault(import('..\\pages\\blog\\_blog\\index.vue' /* webpackChunkName: "pages/blog/_blog/index" */))
-const _bb5a7b6a = () => interopDefault(import('..\\pages\\categories\\_categorie\\index.vue' /* webpackChunkName: "pages/categories/_categorie/index" */))
-const _7a361c8b = () => interopDefault(import('..\\pages\\products\\_product\\index.vue' /* webpackChunkName: "pages/products/_product/index" */))
-const _0ef20c9f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _316d800b = () => interopDefault(import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */))
+const _74c43b62 = () => interopDefault(import('../pages/CataloguePdf.vue' /* webpackChunkName: "pages/CataloguePdf" */))
+const _246fb385 = () => interopDefault(import('../pages/categories/index.vue' /* webpackChunkName: "pages/categories/index" */))
+const _003cda4a = () => interopDefault(import('../pages/order/index.vue' /* webpackChunkName: "pages/order/index" */))
+const _573ec04d = () => interopDefault(import('../pages/products/index.vue' /* webpackChunkName: "pages/products/index" */))
+const _15002350 = () => interopDefault(import('../pages/ProductsPdf.vue' /* webpackChunkName: "pages/ProductsPdf" */))
+const _11b5a546 = () => interopDefault(import('../pages/blog/about.vue' /* webpackChunkName: "pages/blog/about" */))
+const _30407986 = () => interopDefault(import('../pages/blog/_blog/index.vue' /* webpackChunkName: "pages/blog/_blog/index" */))
+const _bd228650 = () => interopDefault(import('../pages/categories/_categorie/index.vue' /* webpackChunkName: "pages/categories/_categorie/index" */))
+const _28485f70 = () => interopDefault(import('../pages/products/_product/index.vue' /* webpackChunkName: "pages/products/_product/index" */))
+const _cc7f2448 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -29,47 +29,47 @@ export const routerOptions = {
 
   routes: [{
     path: "/blog",
-    component: _0932cc7d,
+    component: _316d800b,
     name: "blog"
   }, {
     path: "/CataloguePdf",
-    component: _6183b22c,
+    component: _74c43b62,
     name: "CataloguePdf"
   }, {
     path: "/categories",
-    component: _74d14bfa,
+    component: _246fb385,
     name: "categories"
   }, {
     path: "/order",
-    component: _34c4a307,
+    component: _003cda4a,
     name: "order"
   }, {
     path: "/products",
-    component: _299f9afb,
+    component: _573ec04d,
     name: "products"
   }, {
     path: "/ProductsPdf",
-    component: _65e22edb,
+    component: _15002350,
     name: "ProductsPdf"
   }, {
     path: "/blog/about",
-    component: _2d0a1c90,
+    component: _11b5a546,
     name: "blog-about"
   }, {
     path: "/blog/:blog",
-    component: _c64c4354,
+    component: _30407986,
     name: "blog-blog"
   }, {
     path: "/categories/:categorie",
-    component: _bb5a7b6a,
+    component: _bd228650,
     name: "categories-categorie"
   }, {
     path: "/products/:product",
-    component: _7a361c8b,
+    component: _28485f70,
     name: "products-product"
   }, {
     path: "/",
-    component: _0ef20c9f,
+    component: _cc7f2448,
     name: "index"
   }],
 
