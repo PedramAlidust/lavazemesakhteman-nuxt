@@ -8,9 +8,12 @@ const _316d800b = () => interopDefault(import('../pages/blog/index.vue' /* webpa
 const _74c43b62 = () => interopDefault(import('../pages/CataloguePdf.vue' /* webpackChunkName: "pages/CataloguePdf" */))
 const _246fb385 = () => interopDefault(import('../pages/categories/index.vue' /* webpackChunkName: "pages/categories/index" */))
 const _003cda4a = () => interopDefault(import('../pages/order/index.vue' /* webpackChunkName: "pages/order/index" */))
+const _2dc4aa11 = () => interopDefault(import('../pages/panel/index.vue' /* webpackChunkName: "pages/panel/index" */))
 const _573ec04d = () => interopDefault(import('../pages/products/index.vue' /* webpackChunkName: "pages/products/index" */))
 const _15002350 = () => interopDefault(import('../pages/ProductsPdf.vue' /* webpackChunkName: "pages/ProductsPdf" */))
 const _11b5a546 = () => interopDefault(import('../pages/blog/about.vue' /* webpackChunkName: "pages/blog/about" */))
+const _112765b0 = () => interopDefault(import('../pages/panel/login.vue' /* webpackChunkName: "pages/panel/login" */))
+const _98d7e586 = () => interopDefault(import('../pages/panel/subcategory.vue' /* webpackChunkName: "pages/panel/subcategory" */))
 const _30407986 = () => interopDefault(import('../pages/blog/_blog/index.vue' /* webpackChunkName: "pages/blog/_blog/index" */))
 const _bd228650 = () => interopDefault(import('../pages/categories/_categorie/index.vue' /* webpackChunkName: "pages/categories/_categorie/index" */))
 const _28485f70 = () => interopDefault(import('../pages/products/_product/index.vue' /* webpackChunkName: "pages/products/_product/index" */))
@@ -44,6 +47,10 @@ export const routerOptions = {
     component: _003cda4a,
     name: "order"
   }, {
+    path: "/panel",
+    component: _2dc4aa11,
+    name: "panel"
+  }, {
     path: "/products",
     component: _573ec04d,
     name: "products"
@@ -55,6 +62,14 @@ export const routerOptions = {
     path: "/blog/about",
     component: _11b5a546,
     name: "blog-about"
+  }, {
+    path: "/panel/login",
+    component: _112765b0,
+    name: "panel-login"
+  }, {
+    path: "/panel/subcategory",
+    component: _98d7e586,
+    name: "panel-subcategory"
   }, {
     path: "/blog/:blog",
     component: _30407986,

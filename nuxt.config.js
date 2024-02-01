@@ -71,6 +71,7 @@ module.exports = {
   /* Set envirement variable */
   env: {
     UrlApi: "https://lavazemesakhteman.com",
+    PanelUrlApi : "http://localhost:8000"
   },
   
   pwa: {

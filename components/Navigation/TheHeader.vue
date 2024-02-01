@@ -36,7 +36,7 @@
         </div>
         <div class="col-lg-2 mt-lg-1 text-start d-none d-lg-block">
           <nuxt-link to="/">
-            <img src="~/assets/pictures/logo.png" alt="lavazemesakhtemanlogo" class="img-fluid">
+            <img src="~/assets/pictures/logo.png" alt="lavazemesakhtemanlogo" class="logo img-fluid">
           </nuxt-link>
         </div>
       </div>
@@ -159,6 +159,13 @@ export default {
 
 
 <style scoped>
+
+
+.logo {
+  width: 80px;
+  height: 90px;
+}
+
 /* header */
 .Headerstyle {
   box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.095);
@@ -171,13 +178,13 @@ export default {
 }
 
 .MenuStyle:hover {
-  color: #23A455;
+  color: #0E3746;
 }
 
 .DownloadBtn {
   border-radius: 5px;
   padding: 10px 20px;
-  background-color: #23A455;
+  background-color: #0E3746;
   box-shadow: none;
   font-size: 14px;
 }

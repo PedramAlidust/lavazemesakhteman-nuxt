@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mt-5 mt-lg-0 order-2 order-lg-1">
-            <VueSlickCarousel :arrows="true" :dots="true" :responsive="heroResponsive">
+            <VueSlickCarousel :arrows="false" :dots="true" :responsive="heroResponsive">
             <!-- slide one -->
             <div class="HeroContainer">
               <img class="HeroImg" src="~/assets/pictures/slider1.jpg" alt="slider">
@@ -68,7 +68,7 @@
                   <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                      <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
                      <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
-                     <button role="button" class="btn btn-sm btn-success mt-3">مشاهده</button>
+                     <button role="button" class="ProductBtn  mt-3">مشاهده</button>
                    </nuxt-link>                  
                  </div>
               </div>
@@ -157,7 +157,7 @@
              </div>
              <p class="CtaDesc">فروشگاه لوازم ساختمانی خلاقیت و کارایی را به همراه زیبایی و قیمت مناسب را به ارمغان آورده است</p>
              <nuxt-link to='/products/'>
-             <button class="ProdBtn bg-white mt-5">محصولات ما</button>
+             <button class="ProdBtn mt-5">محصولات ما</button>
              </nuxt-link>
             </div>
           </div>
@@ -587,7 +587,7 @@ a {
 }
 
 .toptextback {
-  background-color: #fff;
+  background-color: #F4F2EC;
   padding: 15px 25px;
   margin: 0 auto;
   font-weight: bold;
@@ -603,10 +603,10 @@ a {
 
 /* Call to action */
 .CtaBg {
-  background:url('~/assets/pictures/thebanner.jpg');
-  background-size: cover;
+  background-color: #0E3746;
+  /* background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   min-height: 30vh;
 }
 
@@ -623,8 +623,8 @@ a {
 }
 
 .ProdBtn {
-  background-color: #fff;
-  color: #007F61;
+  background-color: #BE2623;
+  color: #fff;
   border: none;
   padding: 9px 22px;
   border-radius: 5px;
@@ -663,11 +663,22 @@ a {
 
 /* categorie */
 .CatBtn {
-  background-color: #23A455;
+  background-color: #0E3746;
   color: #ffff;
   border-radius: 8px;
   box-shadow: none;
   padding: 8px 24px;
+  border: none;
+}
+
+/* product btn */
+.ProductBtn{
+  background-color: #0E3746;
+  color: #ffff;
+  border-radius: 8px;
+  font-size: 10pt;
+  box-shadow: none;
+  padding: 5px 8px;
   border: none;
 }
 
@@ -700,7 +711,7 @@ border-radius: 12px;
 /* end */
 
 .AboutStyle {
-  background-color: #23A455;
+  background-color: #0E3746;
   color: #ffff;
   border-radius: 8px;
   box-shadow: none;
@@ -708,11 +719,11 @@ border-radius: 12px;
 }
 
 .ProductStyle {
-  color: #23A455;
+  color: #0E3746;
   background-color: transparent;
   border-radius: 8px;
   box-shadow: none;
-  border: 1.5px solid #23A455;
+  border: 1.5px solid #0E3746;
   padding: 5px 10px;
 }
 
@@ -723,7 +734,7 @@ border-radius: 12px;
 }
 
 .SlideTitle {
-  color: #23A455;
+  color: #0E3746;
   font-weight: 900;
   font-size: 38px;
 }

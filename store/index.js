@@ -9,10 +9,14 @@ const createStore = () => {
       Categories: {},
       SubCategory: {},
       Product: {},
-      Posts: {}, 
-      Post: {}, 
-      Cart: [], 
-      CompareCart: []
+      Posts: {},
+      Post: {},
+      Cart: [],
+      CompareCart: [],
+      PanelCategorySucRes: {},
+      PanelCategoryErrRes: {},
+      LoginSucRes: {},
+      LoginErrRes: {}
     },
     mutations: {
       /* priceList */
@@ -163,9 +167,9 @@ const createStore = () => {
       /* Categorysearch */
       CategorySearch(state, payload) {
         state.FltProduct = Object.values(state.FltProduct).filter((item) => {
-          return item.acf.productname.includes(payload.SeProduct) 
+          return item.acf.productname.includes(payload.SeProduct)
         })
-      }, 
+      },
       /* Cart */
       AddCart(state, payload) {
         state.Cart.push(payload.product)
@@ -173,24 +177,101 @@ const createStore = () => {
       /* CompareCart */
       CompareCart(state, payload) {
         state.CompareCart.push(payload.product)
-      }, 
+      },
       /* Clear Cart */
       ClearCart(state) {
         state.Cart = []
-      }, 
+      },
       /* Delete Item from cart */
       DeleteCartItem(state, payload) {
         state.Cart = state.Cart.filter(obj => obj.id !== payload.id)
-      }, 
+      },
 
       /* Delete Item form CompareCart */
       DeleteCompareCart(state, payload) {
         state.CompareCart = state.CompareCart.filter(obj => obj.id !== payload.id)
-      }, 
+      },
 
       FilterFltProducts(state, payload) {
         state.FltProduct = {}
-      }
+      },
+
+      async PanelPostCategory(state, payload) {
+
+        const formData = new FormData()
+        formData.append('categorie_title', payload.categorie_title)
+        formData.append('categorie_picture', payload.categorie_picture)
+
+        var ReqConfig = {
+          method: "post",
+          url: `${process.env.PanelUrlApi}/api/categories`,
+          data: formData,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+            'Content-Type': 'multipart/form-data',
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.PanelCategorySucRes = response.data;
+          })
+          .catch((error) => {
+            state.PanelCategoryErrRes = error.response
+          });
+
+      },
+      /* Login to panel */
+      async Login(state, payload) {
+        /* request config */
+        var ReqConfig = {
+          method: "post",
+          url: `${process.env.PanelUrlApi}/api/login/`,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: {
+            email: payload.email,
+            password: payload.password,
+          }
+        };
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.LoginSucRes = response.data
+            /* clear error response */
+            state.LoginErrRes = null
+
+            /* store token in cookie and push to user profile */
+            if (response.status == 200) {
+
+              /* remove old cookie */
+              this.$cookiz.remove("jwt-token");
+              /* set cookie */
+              this.$cookiz.set("jwt-token", response.data.token, { maxAge: 60 * 60 * 24 * 30, path: '/' })
+
+              /* push to profile */
+              this.$router.push({
+                path: '/panel/',
+              })
+
+            }
+          })
+          .catch((error) => {
+            state.LoginErrRes = error.response
+            /* clear sucess response */
+            state.LoginSucRes = null
+          });
+      }, 
+        /* Sign Out the panel */
+        SignOut() {
+          this.$cookiz.remove("jwt-token", { maxAge: 1 });
+          this.$cookiz.remove("jwt-token");
+
+        /* Push to login page */
+          this.$router.push('/panel/login')
+        },
     },
     actions: {
       /* Get ProductList */
@@ -226,32 +307,44 @@ const createStore = () => {
         commit("Posts", payload)
       },
       /* Set CategorySearch */
-      SetCategorySearch({commit}, payload) {
+      SetCategorySearch({ commit }, payload) {
         commit("CategorySearch", payload)
-      }, 
+      },
       /* Set Cart */
-      SetCart({commit}, payload) {
+      SetCart({ commit }, payload) {
         commit("AddCart", payload)
-      }, 
-      SetFilterFltProducts({commit}, payload) {
+      },
+      SetFilterFltProducts({ commit }, payload) {
         commit("FilterFltProducts", payload)
-      }, 
+      },
       /* SetCompareCart */
-      SetCompareCart({commit}, payload) {
+      SetCompareCart({ commit }, payload) {
         commit("CompareCart", payload)
       },
       /* Empty Cart */
-      EmptyCart({commit}, payload) {
+      EmptyCart({ commit }, payload) {
         commit("ClearCart", payload)
-      }, 
+      },
       /* Delete cart item */
-      DeleteCart({commit}, payload) {
+      DeleteCart({ commit }, payload) {
         commit("DeleteCartItem", payload)
-      }, 
+      },
       /* Delete Compare Cart Item */
-      SetDeleteCompareCart({commit}, payload) {
+      SetDeleteCompareCart({ commit }, payload) {
         commit("DeleteCompareCart", payload)
+      },
+      /* Set Post Categorie */
+      SetPanelPostCategory({ commit }, payload) {
+        commit("PanelPostCategory", payload)
+      },
+      /* SetLogin */
+      SetLogin({ commit }, payload) {
+        commit("Login", payload)
       }, 
+      /* Set Sign Out */
+      SetSignOut({ commit }, payload) {
+        commit("SignOut", payload)
+      }
     },
     getters: {
       /* Dsp priceList */
@@ -259,7 +352,7 @@ const createStore = () => {
         return state.ProductList;
       },
       /* Dsp priceList */
-       DspCatalogues(state) {
+      DspCatalogues(state) {
         return state.Catalogues;
       },
       /* Dsp Products */
@@ -289,15 +382,31 @@ const createStore = () => {
       /* Dsp SubCategory */
       DspSubCategory(state) {
         return state.SubCategory
-      }, 
+      },
       /* Dsp Cart */
       DspCart(state) {
         return state.Cart
-      }, 
+      },
       /* Dsp CpmpareCart */
       DspCpmpareCart(state) {
         return state.CompareCart
-      }
+      },
+      /* Dsp PanelCategorySucRes */
+      DspPanelCategorySucRes(state) {
+        return state.PanelCategorySucRes
+      },
+      /* Dsp PanelCategoryErrRes */
+      DspPanelCategoryErrRes(state) {
+        return state.PanelCategoryErrRes
+      },
+      /* Dsp Login Succes Response */
+      DspLoginSucRes(state) {
+        return state.LoginSucRes;
+      },
+      /* Dsp Login Error Response */
+      DspLoginErrRes(state) {
+        return state.LoginErrRes;
+      },
     }
   });
 };

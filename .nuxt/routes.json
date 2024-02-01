@@ -28,6 +28,13 @@
     "_name": "_003cda4a"
   },
   {
+    "name": "panel",
+    "path": "/panel",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/index.vue",
+    "chunkName": "pages/panel/index",
+    "_name": "_2dc4aa11"
+  },
+  {
     "name": "products",
     "path": "/products",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/index.vue",
@@ -47,6 +54,20 @@
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/about.vue",
     "chunkName": "pages/blog/about",
     "_name": "_11b5a546"
+  },
+  {
+    "name": "panel-login",
+    "path": "/panel/login",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/login.vue",
+    "chunkName": "pages/panel/login",
+    "_name": "_112765b0"
+  },
+  {
+    "name": "panel-subcategory",
+    "path": "/panel/subcategory",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/subcategory.vue",
+    "chunkName": "pages/panel/subcategory",
+    "_name": "_98d7e586"
   },
   {
     "name": "blog-blog",

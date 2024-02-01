@@ -6,6 +6,7 @@
 
 body {
   font-family: iransanse !important;
+  background-color: #F4F2EC !important;
 }
 
 .text-justify {
@@ -179,6 +180,5 @@ min-height: 30vh;
   background-size: cover;
   min-height: 30vh;
 }
-
 
 

@@ -200,7 +200,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"UrlApi":"https://lavazemesakhteman.com"}
+      env: {"UrlApi":"https://lavazemesakhteman.com","PanelUrlApi":"http://localhost:8000"}
     }
     // Only set once
 

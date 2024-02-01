@@ -77,7 +77,7 @@ export default {
 }
 
 .bkg-color {
-  background-color: #F5F5F5;
+  background-color: #fff;
 }
 
 @media (max-width: 767px) { /* Mobile devices */
