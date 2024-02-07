@@ -12,7 +12,7 @@ body {
 /* style for wordpress blog */
 
 .aligncenter {
-  -webkit-center: center;
+  text-align-last:  center;
 }
 
 
