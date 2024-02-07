@@ -152,9 +152,9 @@ export default {
 
 <style scoped>
 
-figure img {
-  width: 100%;
-  height: 100%;
+img {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .ProductTitle {
