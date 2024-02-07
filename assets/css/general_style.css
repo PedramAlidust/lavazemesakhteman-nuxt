@@ -10,9 +10,16 @@ body {
 }
 
 /* style for wordpress blog */
-
 .aligncenter {
   text-align-last:  center;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 768px) {
+  figure img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 
