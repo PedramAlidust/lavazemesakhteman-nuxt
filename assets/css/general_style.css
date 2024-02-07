@@ -9,6 +9,12 @@ body {
   background-color: #F4F2EC !important;
 }
 
+/* style for wordpress blog */
+
+.aligncenter {
+  -webkit-center: center;
+}
+
 
 .text-justify {
   text-align: justify;
