@@ -152,6 +152,10 @@ export default {
 
 <style scoped>
 
+figure img {
+  width: 100%;
+  height: 100%;
+}
 
 .ProductTitle {
   color: black;
