@@ -3,7 +3,7 @@
             <TheHeader />
             <!-- page container -->
                 <main class="pb-5 mb-5">
-                  <h1 class="PrdPrcTitle text-center pt-5 fw-bold">درباره ما</h1>
+                  <h1 class="PrdPrcTitle text-center pt-5 fw-bold">درباره </h1>
                   <div class="container Content mt-5 rounded py-5">
                     <div dir="rtl" class="row px-4 content">
                       <p> 
