@@ -328,7 +328,7 @@
 </div>
 
 <!-- product introduction -->
-<div class="container bg-white Content rounded pb-5 pt-3">
+<div class="container Content rounded pb-5 pt-3">
     <div dir="rtl" class="row px-4 content" v-html="Product.acf.productcontent" />
 </div>
 

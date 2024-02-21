@@ -4,7 +4,7 @@
             <!-- page container -->
                 <main class="pb-5 mb-5">
                   <h1 class="PrdPrcTitle text-center pt-5 fw-bold">کاتالوگ محصولات</h1>
-                  <div class="container bg-white Content mt-5 rounded py-5">
+                  <div class="container Content mt-5 rounded py-5">
                     <div v-if="catalogues" class="row px-4">
                         <div v-for="catalogue in catalogues" :key="catalogue.id" class="col-lg-3 py-3">
                             <!-- pdf card -->
@@ -75,7 +75,7 @@
                                         </div>
                                          <nuxt-link :to="`/blog/${post.title.rendered}/?id=${post.id}`">
                                         <p class="PostItemTitle text-start pt-2 my-2">{{post.title.rendered}}</p>
-                                        <div class="PostItemDesc text-start text-muted" v-html="post.excerpt.rendered" />
+                                        <div class="PostItemDesc text-start" v-html="post.excerpt.rendered" />
                                         </nuxt-link>
                                   </div>
                               </div>
@@ -164,132 +164,135 @@ export default {
 <style scoped>
 
 .ProductTitle {
-  color: black;
+color: black;
 }
 
-
 .bgbanerimg {
-  border-radius: 12px;
+border-radius: 12px;
 }
 
 .bigimgtxtdesc {
-  font-size: 12pt;
+font-size: 12pt;
 }
 
- .bigimgtxt {
-  font-weight: bold;
-  font-size: 16pt;
- }
+.bigimgtxt {
+font-weight: bold;
+font-size: 16pt;
+}
 
 
 .PostItemDesc {
-  font-size: 11pt;
+font-size: 11pt;
+color: #ebe9e2;
+
 }
 
 .bigimgtxtdesc {
-  font-size: 12pt;
+font-size: 12pt;
 }
 
 .PostItemTitle {
-  font-weight: bold;
+font-weight: bold;
 }
 
 /* categorie */
 .CatBtn {
-  background-color: #23A455;
-  color: #ffff;
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 8px 24px;
-  border: none;
+background-color: #23A455;
+color: #ffff;
+border-radius: 8px;
+box-shadow: none;
+padding: 8px 24px;
+border: none;
 }
 
 .BlogTxt {
-  font-weight: bold;
-  font-size: 18pt;
- }
+color: #fff;
+font-weight: bold;
+font-size: 18pt;
+}
 
 /* categorie */
 .CatBtn {
-  background-color: #23A455;
-  color: #ffff;
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 8px 24px;
-  border: none;
+background-color: #BE2623;
+color: #ffff;
+border-radius: 8px;
+box-shadow: none;
+padding: 8px 24px;
+border: none;
 }
 
 .BlogTxt {
-  font-weight: bold;
-  font-size: 18pt;
- }
+font-weight: bold;
+font-size: 18pt;
+}
 
 /* new product */
 .ProdTitle {
-  font-weight: bold;
+font-weight: bold;
 }
 
 /* FeatureBox */
 .CatTxt {
-  color: #000000;
-  font-weight: bold;
-  font-size: 23px;
-  margin: 0;
-  padding: 0;
+color: #fff;
+font-weight: bold;
+font-size: 23px;
+margin: 0;
+padding: 0;
 }
 
 
 /* general slick style for items space */
 .slick-slide {
-  margin: 10px 10px;
+margin: 10px 10px;
 }
 
 .PdfTitle {
-  font-size: 14pt;
+font-size: 14pt;
 }
 
 .DownloadBtn {
-    border-radius: 5px;
-    padding: 8px 20px;
-    background-color: #23A455;
-    box-shadow: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  background-color: #BE2623;
+  box-shadow: none;
 }
 
 .CardLook {
-  padding: 15px !important;
-  background-color: #fff;
-  box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.06);
-  border-radius: 8px;
+padding: 15px !important;
+background-color: #fff;
+box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.06);
+border-radius: 8px;
 }
 
 .ListCardLook {
-  padding: 15px 15px 0px 15px !important;
-  background-color: #fff;
-  box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.06);
-  border-radius: 8px;
+padding: 15px 15px 0px 15px !important;
+background-color: #fff;
+box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.06);
+border-radius: 8px;
 }
 
 
 /* product section */
 
 .PrdPrcTitle {
-  font-size: 20pt;
-  color: #fff;
+font-size: 20pt;
+color: #fff;
 }
 
 .ProductPriceBkg {
-  background-image: url("~assets/pictures/pfdlistbkg.jpg");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
+background-color: #0E3746;
+background-position: top;
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 /* Content container */
 .Content {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+background-color: #F4F2EC;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .PostItemTitle {
-  color: black;
+color: #ffff;
 }
 </style>

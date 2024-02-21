@@ -273,11 +273,10 @@
           </div>
       </section>
       <!-- brands section -->
-      <section>
+      <!-- <section>
         <div class="container pb-4">
           <div class="row py-4">
             <div class="col-lg-9 order-2 order-md-1 order-lg-1 pt-2 pt-md-0 pt-lg-0">
-                <!-- brands slides -->
                <VueSlickCarousel :arrows="true" :dots="true" :responsive="slickResponsive">
                 <div>
                   <img width="150" height="60" class="w-100" src="~/assets/pictures/shibe.png" alt="shibe">
@@ -323,7 +322,7 @@
              </div>
             </div>
           </div>    
-      </section>
+      </section> -->
   </main>
       <TheFooter />
   </div>

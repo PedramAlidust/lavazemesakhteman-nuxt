@@ -213,7 +213,7 @@ font-size: 18pt;
 
 /* categorie */
 .CatBtn {
-background-color: #23A455;
+background-color: #BE2623;
 color: #ffff;
 border-radius: 8px;
 box-shadow: none;

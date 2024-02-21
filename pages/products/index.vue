@@ -39,7 +39,7 @@
                         <nuxt-link to="/blog">
                         <button role="button" class="mt-5 CatBtn">مشاهده همه</button>
                         </nuxt-link>
-                        <p class="BlogTxt mt-5">وبلاگ</p>
+                        <p class="BlogTxt mt-5 text-white">وبلاگ</p>
                       </div>
                     </div>
                   </section>
@@ -58,8 +58,8 @@
                                             <div class="mask" style="border-radius: 12px; background: linear-gradient(359.73deg, #000000 -30.17%, rgba(217, 217, 217, 0) 12.75%);"></div>
                                           </div>
                                           <nuxt-link :to="`/blog/${post.title.rendered}/?id=${post.id}`">
-                                          <p class="PostItemTitle text-start pt-2 my-2">{{post.title.rendered}}</p>
-                                          <div class="PostItemDesc text-start text-muted" v-html="post.excerpt.rendered" />
+                                          <p class="PostItemTitle text-start pt-2 my-2 text-white">{{post.title.rendered}}</p>
+                                          <div class="PostItemDesc text-start text-white" v-html="post.excerpt.rendered" />
                                           </nuxt-link>
                                     </div>
                                 </div>
@@ -288,16 +288,6 @@ export default {
   font-weight: bold;
 }
 
-/* categorie */
-.CatBtn {
-  background-color: #23A455;
-  color: #ffff;
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 8px 24px;
-  border: none;
-}
-
 .BlogTxt {
   font-weight: bold;
   font-size: 18pt;
@@ -305,7 +295,7 @@ export default {
 
 /* categorie */
 .CatBtn {
-  background-color: #23A455;
+  background-color: #BE2623;
   color: #ffff;
   border-radius: 8px;
   box-shadow: none;
@@ -365,10 +355,7 @@ export default {
 }
 
 .ProductPriceBkg {
-  background-image: url("~assets/pictures/pfdlistbkg.jpg");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #0E3746;
 }
 
 /* Content container */
