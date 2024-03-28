@@ -27,20 +27,36 @@
         <button @click="Login" class="btn btn-success btn-md">ورود</button>
       </div>
     </div>
+
+    <!-- response message -->
+    <message ref="messageRef"></message>
   </section>
 </template>
       
   <script>
 import { mapGetters, mapActions } from "vuex";
+import Message from "~/components/panel/Message.vue";
+
 export default {
+  components: {
+    Message,
+  },
   data() {
     return {
       email: "",
       password: "",
     };
   },
+  watch: {
+    DspLoginRes(newValue) {
+      if(newValue) {
+        this.$refs.messageRef.showMessage(this.DspLoginRes);
+        this.$refs.messageRef.theLoading(false);
+      } 
+    }
+  },
   computed: {
-    ...mapGetters(["DspLoginSucRes", "DspLoginErrRes"]),
+    ...mapGetters(["DspLoginRes"]),
   },
   methods: {
     ...mapActions(["SetLogin"]),
@@ -49,6 +65,7 @@ export default {
         email: this.email,
         password: this.password,
       });
+      this.$refs.messageRef.theLoading(true);
     },
   },
 };
@@ -67,7 +84,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
 }
 
 /* Custom styles for a Persian psychology website with RTL */

@@ -4,94 +4,109 @@
       <!-- Mobile menu -->
       <MobileMenu />
       <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-10 px-5">
           <h5 class="pt-lg-5 my-5 text-center text-white fw-bold">
-            به کمک فرم زیر دسته محصول ایجاد کنید
+            به کمک فرم زیر, دسته محصول ایجاد کنید
           </h5>
-          <div class="mx-4 px-5 py-5 custom-form">
-            <!-- display errors  -->
-            <form @submit.prevent class="px-lg-5">
-              <div class="form-group">
-                <input type="file" @change="handleFileChange" ref="fileInput" style="display: none">
-                <button
-                  @click="openFileInput"
-                  class="text-white btn btn-sm btn-secondary"
-                  type="button">
-                  انتخاب عکس دسته
-                </button>
-                <!-- Display selected picture -->
-                <div v-if="SelectedPicture">
-                  <img :src="SelectedPicture" alt="picture" class="pt-3 w-100">
-                </div>
-              </div>
-              <div class="form-group">
-                <input
-                  v-model="CategorieName"
-                  class="form-control"
-                  placeholder="نام دسته"
-                  type="text"
-                />
-              </div>
-            </form>
-            <div class="px-lg-5 pt-2">
-              <button @click="SaveFormData" class="btn btn-success btn-md">ایجاد دسته محصول</button>
-            </div>
-          </div>
+          <!-- create category -->
+          <PictureNameForm
+            :picChooseBtnName="'انتخاب عکس دسته'"
+            :InputPlaceholder="'نام دسته'"
+            :creatBtnName="'ایجاد دسته محصول'"
+            :vuexPayloadTitle="'categorie_title'"
+            :vuexPayloadPic="'categorie_picture'"
+            :cancelBtn="false"
+            @save="SaveFormData"
+          />
+          <!-- Table component -->
+          <Table
+            class="my-5"
+            :categories="PanelCategoryRes"
+            :loading="tableLoading"
+            :resTitleName="'categorie_title'"
+            :resPicName="'categorie_picture'"
+            :editEndPoint="'categories'"
+            :vuexPaloadPicId="'categorie_id'"
+            :vuexPayloadPic="'categorie_picture'"
+          />
+
+          <!-- END product categories -->
         </div>
         <!-- Desktop section sidebar -->
         <SideBarDesktop />
       </div>
     </div>
+
+    <!-- response message -->
+    <Message ref="messageRef" />
   </section>
 </template>
 
 <script>
-import MobileMenu from '~/components/panel/MobileMenu.vue';
-import SideBarDesktop from '~/components/panel/SideBarDesktop.vue';
-
+import MobileMenu from "~/components/panel/MobileMenu.vue";
+import SideBarDesktop from "~/components/panel/SideBarDesktop.vue";
+import Message from "~/components/panel/Message.vue";
+import Table from "~/components/panel/Table.vue";
+import PictureNameForm from "~/components/panel/PictureNameForm.vue";
 import { mapGetters, mapActions } from "vuex";
+
 export default {
   components: {
     MobileMenu,
-    SideBarDesktop
+    SideBarDesktop,
+    Message,
+    Table,
+    PictureNameForm,
   },
   data() {
     return {
       CategorieName: "",
       SelectedPicture: null,
-      SelectedPictureFile: null
+      SelectedPictureFile: null,
+      PanelCategoryRes: [],
+      tableLoading: false,
     };
   },
-    computed: {
-      ...mapGetters(["DspPanelCategorySucRes", "DspPanelCategoryErrRes"]),
-    },
-  methods: {
-    ...mapActions(["SetPanelPostCategory"]),
-    openFileInput() {
-      this.$refs.fileInput.click();
-    },
-    handleFileChange(event) {
-      const file = event.target.files[0]
-      if (file) {
-
-        //Store file object directly
-        this.SelectedPictureFile = file
-
-        //File Reader to read the selected picture as a data URL
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.SelectedPicture = e.target.result;
-        }
-        reader.readAsDataURL(file)
+  watch: {
+    DspPanelCategoryPostRes(newValue) {
+      if (newValue) {
+        this.$refs.messageRef.showMessage(this.DspPanelCategoryPostRes);
+        this.$refs.messageRef.theLoading(false);
+        /* Load table */
+        this.GetPanelCategories({
+          token: this.$cookiz.get("jwt-token"),
+        });
+        /* Set Loading */
+        this.tableLoading = true;
       }
-    }, 
-    SaveFormData() {
-      this.SetPanelPostCategory({ 
+    },
+    DspPanelCategoryRes(resValue) {
+      if (resValue) {
+        this.PanelCategoryRes = this.DspPanelCategoryRes.data;
+        this.tableLoading = false;
+      }
+    },
+  },
+  computed: {
+    ...mapGetters(["DspPanelCategoryPostRes", "DspPanelCategoryRes"]),
+  },
+  methods: {
+    ...mapActions(["SetPanelPostCategory", "GetPanelCategories"]),
+    SaveFormData(FormData) {
+      this.SetPanelPostCategory({
         token: this.$cookiz.get("jwt-token"),
-        categorie_title: this.CategorieName, 
-        categorie_picture: this.SelectedPictureFile, 
-      })
-    }
+        ...FormData,
+      });
+      this.$refs.messageRef.theLoading(true);
+    },
+  },
+  /* mounted */
+  mounted() {
+    this.GetPanelCategories({
+      token: this.$cookiz.get("jwt-token"),
+    });
+    /*load table */
+    this.tableLoading = true;
   },
   /* check if User is not authenticated */
   middleware({ redirect, app }) {

@@ -17,6 +17,11 @@
               ایجاد زیر دسته
               </p>
              </nuxt-link>
+             <nuxt-link to="/panel/model">
+               <p class="rounded p-2 bg-success pe-2 mt-2 text-white">
+                  ایجاد مدل
+                </p>
+             </nuxt-link>
             <p class="rounded p-2 bg-success pe-2 mt-2 text-white">
               ایجاد محصول
             </p>

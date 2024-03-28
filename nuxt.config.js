@@ -16,7 +16,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/2022/favicon.png' },
-      { rel: 'stylesheet', href: '/2022/css/mdb-min.css' }   
+      { rel: 'stylesheet', href: '/2022/css/mdb-min.css' }
     ],
     script: [
       { src: '/2022/js/bootstrap/bootstrap.bundle.min.js', body: true },
@@ -44,6 +44,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/http'
   ],
 
   /*
@@ -58,31 +59,34 @@ module.exports = {
 
     //pwa
     '@nuxtjs/pwa',
+
+    //UI COmponent buefy
+    'nuxt-buefy'
   ],
 
-   /*
-   ** Build configuration
-   */
-   buildModules: [
+  /*
+  ** Build configuration
+  */
+  buildModules: [
     '@nuxtjs/pwa',
   ],
 
 
   /* Set envirement variable */
   env: {
-    UrlApi: "https://lavazemesakhteman.com",
-    PanelUrlApi : "http://localhost:8000"
+    UrlApi: "https://www.ostadshabake.ir",
+    PanelUrlApi: "http://localhost:8000"
   },
-  
+
   pwa: {
     manifest: {
       name: 'لوازم ساختمان',
     },
   },
-  
-  /* run app in subdirectory */  
-  router: {      
+
+  /* run app in subdirectory */
+  router: {
     base: '/2022/'
   }
-  
+
 }

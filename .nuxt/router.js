@@ -13,6 +13,7 @@ const _573ec04d = () => interopDefault(import('../pages/products/index.vue' /* w
 const _15002350 = () => interopDefault(import('../pages/ProductsPdf.vue' /* webpackChunkName: "pages/ProductsPdf" */))
 const _11b5a546 = () => interopDefault(import('../pages/blog/about.vue' /* webpackChunkName: "pages/blog/about" */))
 const _112765b0 = () => interopDefault(import('../pages/panel/login.vue' /* webpackChunkName: "pages/panel/login" */))
+const _33e30e30 = () => interopDefault(import('../pages/panel/model.vue' /* webpackChunkName: "pages/panel/model" */))
 const _98d7e586 = () => interopDefault(import('../pages/panel/subcategory.vue' /* webpackChunkName: "pages/panel/subcategory" */))
 const _30407986 = () => interopDefault(import('../pages/blog/_blog/index.vue' /* webpackChunkName: "pages/blog/_blog/index" */))
 const _bd228650 = () => interopDefault(import('../pages/categories/_categorie/index.vue' /* webpackChunkName: "pages/categories/_categorie/index" */))
@@ -66,6 +67,10 @@ export const routerOptions = {
     path: "/panel/login",
     component: _112765b0,
     name: "panel-login"
+  }, {
+    path: "/panel/model",
+    component: _33e30e30,
+    name: "panel-model"
   }, {
     path: "/panel/subcategory",
     component: _98d7e586,

@@ -13,10 +13,15 @@ const createStore = () => {
       Post: {},
       Cart: [],
       CompareCart: [],
-      PanelCategorySucRes: {},
-      PanelCategoryErrRes: {},
-      LoginSucRes: {},
-      LoginErrRes: {}
+      PanelCategoryPostRes: null,
+      PanelSubCategoryPostRes: null,
+      PanelCategoryRes: null,
+      PanelSubCategoryRes: null,
+      EditPanelFormDataPicRes: null,
+      EditPanelFormDataTextFieldRes: null,
+      PostPanelModelRes: null,
+      PanelModelsRes: null,
+      LoginRes: {},
     },
     mutations: {
       /* priceList */
@@ -215,13 +220,185 @@ const createStore = () => {
         /* request section */
         await this.$axios(ReqConfig)
           .then((response) => {
-            state.PanelCategorySucRes = response.data;
+            state.PanelCategoryPostRes = response.data;
           })
           .catch((error) => {
-            state.PanelCategoryErrRes = error.response
+            state.PanelCategoryPostRes = error.response
           });
 
       },
+
+      /* Post Subcategorie */
+      async PanelPostSubCategory(state, payload) {
+
+        const formData = new FormData()
+        formData.append('subcategorie_title', payload.subCategorie_title)
+        formData.append('subcategorie_picture', payload.subCategorie_picture)
+
+        var ReqConfig = {
+          method: "post",
+          url: `${process.env.PanelUrlApi}/api/subcategories`,
+          data: formData,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+            'Content-Type': 'multipart/form-data',
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.PanelSubCategoryPostRes = response.data;
+          })
+          .catch((error) => {
+            state.PanelSubCategoryPostRes = error.response
+          });
+
+      },
+
+      /* Post Panel Model */
+      async PostPanelModel(state, payload) {
+
+        const formData = new FormData()
+        formData.append('model_picture', payload.model_picture)
+        formData.append('model_title', payload.model_title)
+
+        var ReqConfig = {
+          method: "post",
+          url: `${process.env.PanelUrlApi}/api/models`,
+          data: formData,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+            'Content-Type': 'multipart/form-data',
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.PostPanelModelRes = response.data;
+          })
+          .catch((error) => {
+            state.PostPanelModelRes = error.response
+          });
+
+      },
+
+      /* Edit Panel FormDataPic */
+      async EditPanelFormDataPic(state, payload) {
+
+        const formData = new FormData()
+        formData.append(payload.endPointTitle, payload.endPointTitleValue)
+        formData.append(payload.endPointPicture, payload.endPointPictureValue)
+
+        var ReqConfig = {
+          method: "post",
+          url: `${process.env.PanelUrlApi}/api/${payload.endpoint}`,
+          data: formData,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+            'Content-Type': 'multipart/form-data',
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.EditPanelFormDataPicRes = response.data;
+          })
+          .catch((error) => {
+            state.EditPanelFormDataPicRes = error.response
+          });
+
+      },
+
+      /* Edit Panel FormDataTextField */
+      async EditPanelFormDataTextField(state, payload) {
+
+        const data = {}
+
+        data[payload.endPointTitle] = payload.endPointTitleValue
+
+        var ReqConfig = {
+          method: "put",
+          url: `${process.env.PanelUrlApi}/api/${payload.endpoint}/${payload.endpointId}`,
+          data: data,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+            'Content-Type': 'application/json',
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.EditPanelFormDataTextFieldRes = response.data;
+          })
+          .catch((error) => {
+            state.EditPanelFormDataTextFieldRes = error.response
+          });
+      },
+
+      /* PanelCategories */
+      async PanelCategories(state, payload) {
+        var ReqConfig = {
+          method: "get",
+          url: `${process.env.PanelUrlApi}/api/categories`,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.PanelCategoryRes = response.data;
+          })
+          .catch((error) => {
+            state.PanelCategoryRes = error.response
+          });
+      },
+
+      /* PanelSubCategoryRes */
+      async PanelSubCategories(state, payload) {
+        var ReqConfig = {
+          method: "get",
+          url: `${process.env.PanelUrlApi}/api/subcategories`,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.PanelSubCategoryRes = response.data;
+          })
+          .catch((error) => {
+            state.PanelSubCategoryRes = error.response
+          });
+      },
+
+      /* Panel Models */
+      async PanelModels(state, payload) {
+        var ReqConfig = {
+          method: "get",
+          url: `${process.env.PanelUrlApi}/api/models`,
+          headers: {
+            Authorization: "Bearer " + payload.token,
+          }
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.PanelModelsRes = response.data;
+          })
+          .catch((error) => {
+            state.PanelModelsRes = error.response
+          });
+      },
+
       /* Login to panel */
       async Login(state, payload) {
         /* request config */
@@ -239,9 +416,7 @@ const createStore = () => {
         /* request section */
         await this.$axios(ReqConfig)
           .then((response) => {
-            state.LoginSucRes = response.data
-            /* clear error response */
-            state.LoginErrRes = null
+            state.LoginRes = response.data
 
             /* store token in cookie and push to user profile */
             if (response.status == 200) {
@@ -255,23 +430,20 @@ const createStore = () => {
               this.$router.push({
                 path: '/panel/',
               })
-
             }
           })
           .catch((error) => {
-            state.LoginErrRes = error.response
-            /* clear sucess response */
-            state.LoginSucRes = null
+            state.LoginRes = error.response
           });
-      }, 
-        /* Sign Out the panel */
-        SignOut() {
-          this.$cookiz.remove("jwt-token", { maxAge: 1 });
-          this.$cookiz.remove("jwt-token");
+      },
+      /* Sign Out the panel */
+      SignOut() {
+        this.$cookiz.remove("jwt-token", { maxAge: 1 });
+        this.$cookiz.remove("jwt-token");
 
         /* Push to login page */
-          this.$router.push('/panel/login')
-        },
+        this.$router.push('/panel/login')
+      },
     },
     actions: {
       /* Get ProductList */
@@ -337,14 +509,48 @@ const createStore = () => {
       SetPanelPostCategory({ commit }, payload) {
         commit("PanelPostCategory", payload)
       },
+
+      /* Panel Post SubCategory */
+      SetPanelPostSubCategory({ commit }, payload) {
+        commit("PanelPostSubCategory", payload)
+      },
+
       /* SetLogin */
       SetLogin({ commit }, payload) {
         commit("Login", payload)
-      }, 
+      },
       /* Set Sign Out */
       SetSignOut({ commit }, payload) {
         commit("SignOut", payload)
-      }
+      },
+      /* GetPanelCategories */
+      GetPanelCategories({ commit }, payload) {
+        commit("PanelCategories", payload)
+      },
+      /* GetPanelSubCategories */
+      GetPanelSubCategories({ commit }, payload) {
+        commit("PanelSubCategories", payload)
+      },
+
+      /* GetPanelModels */
+      GetPanelModels({ commit }, payload) {
+        commit("PanelModels", payload)
+      }, 
+      
+      /* EditPanelSubCategories */
+      SetEditPanelFormDataPic({ commit }, payload) {
+        commit("EditPanelFormDataPic", payload)
+      },
+
+      /* EditPanelFormDataTextField */
+      SetEditPanelFormDataTextField({ commit }, payload) {
+        commit("EditPanelFormDataTextField", payload)
+      },
+
+      /* PostPanelModelPic */
+      SetPostPanelModel({ commit }, payload) {
+        commit("PostPanelModel", payload)
+      },
     },
     getters: {
       /* Dsp priceList */
@@ -391,22 +597,38 @@ const createStore = () => {
       DspCpmpareCart(state) {
         return state.CompareCart
       },
-      /* Dsp PanelCategorySucRes */
-      DspPanelCategorySucRes(state) {
-        return state.PanelCategorySucRes
-      },
       /* Dsp PanelCategoryErrRes */
-      DspPanelCategoryErrRes(state) {
-        return state.PanelCategoryErrRes
+      DspPanelCategoryPostRes(state) {
+        return state.PanelCategoryPostRes
+      },
+      /* Dsp Panel SubCategory SucRes */
+      DspPanelSubCategoryPostRes(state) {
+        return state.PanelSubCategoryPostRes
       },
       /* Dsp Login Succes Response */
-      DspLoginSucRes(state) {
-        return state.LoginSucRes;
+      DspLoginRes(state) {
+        return state.LoginRes;
       },
-      /* Dsp Login Error Response */
-      DspLoginErrRes(state) {
-        return state.LoginErrRes;
+      /* display PanelCategoryRes */
+      DspPanelCategoryRes(state) {
+        return state.PanelCategoryRes;
       },
+      /* display PanelSubCategories */
+      DspPanelSubCategoriesRes(state) {
+        return state.PanelSubCategoryRes
+      },
+      DspEditPanelFormDataPicRes(state) {
+        return state.EditPanelFormDataPicRes
+      },
+      DspEditPanelFormDataTextFieldRes(state) {
+        return state.EditPanelFormDataTextFieldRes
+      }, 
+      DspPostPanelModel(state) {
+        return state.PostPanelModelRes
+      }, 
+      DspPanelModels(state) {
+        return state.PanelModelsRes
+      }
     }
   });
 };

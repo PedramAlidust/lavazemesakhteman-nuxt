@@ -13,11 +13,13 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
+import nuxt_plugin_buefy_5baa6993 from 'nuxt_plugin_buefy_5baa6993' // Source: ./buefy.js (mode: 'all')
 import nuxt_plugin_cookieuniversalnuxt_3a7c45ea from 'nuxt_plugin_cookieuniversalnuxt_3a7c45ea' // Source: ./cookie-universal-nuxt.js (mode: 'all')
 import nuxt_plugin_axios_cc692b7c from 'nuxt_plugin_axios_cc692b7c' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_workbox_532b5244 from 'nuxt_plugin_workbox_532b5244' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_1e65dff1 from 'nuxt_plugin_metaplugin_1e65dff1' // Source: ./pwa/meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_230d8565 from 'nuxt_plugin_iconplugin_230d8565' // Source: ./pwa/icon.plugin.js (mode: 'all')
+import nuxt_plugin_http_6a8178fe from 'nuxt_plugin_http_6a8178fe' // Source: ../plugins/http (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -85,7 +87,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"فروشگاه آنلاین لوازم ساختمانی و صنعتی - لوازم ساختمان","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"تمامی لوازم ساختمانی و صنعتی از جمله شیرآلات , لوله و اتصالات , محصولات پلاستیکی با برند های نسیم , ترمه , شیبه , کاس و ... عرضه می گردد"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002F2022\u002Ffavicon.png"},{"rel":"stylesheet","href":"\u002F2022\u002Fcss\u002Fmdb-min.css"}],"script":[{"src":"\u002F2022\u002Fjs\u002Fbootstrap\u002Fbootstrap.bundle.min.js","body":true},{"src":"\u002F2022\u002Fjs\u002Fjquery\u002Fjquery-3-6-0-min.js","body":true},{"src":"\u002F2022\u002Fjs\u002Fbootstrap\u002Fmdb-min.js","body":true}],"style":[]},
+    head: {"title":"فروشگاه آنلاین لوازم ساختمانی و صنعتی - لوازم ساختمان","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"تمامی لوازم ساختمانی و صنعتی از جمله شیرآلات , لوله و اتصالات , محصولات پلاستیکی با برند های نسیم , ترمه , شیبه , کاس و ... عرضه می گردد"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002F2022\u002Ffavicon.png"},{"rel":"stylesheet","href":"\u002F2022\u002Fcss\u002Fmdb-min.css"},{"type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@5.8.55\u002Fcss\u002Fmaterialdesignicons.min.css","rel":"preload","as":"style","onload":"this.rel='stylesheet'"}],"script":[{"src":"\u002F2022\u002Fjs\u002Fbootstrap\u002Fbootstrap.bundle.min.js","body":true},{"src":"\u002F2022\u002Fjs\u002Fjquery\u002Fjquery-3-6-0-min.js","body":true},{"src":"\u002F2022\u002Fjs\u002Fbootstrap\u002Fmdb-min.js","body":true}],"style":[]},
 
     store,
     router,
@@ -214,6 +216,10 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
+  if (typeof nuxt_plugin_buefy_5baa6993 === 'function') {
+    await nuxt_plugin_buefy_5baa6993(app.context, inject)
+  }
+
   if (typeof nuxt_plugin_cookieuniversalnuxt_3a7c45ea === 'function') {
     await nuxt_plugin_cookieuniversalnuxt_3a7c45ea(app.context, inject)
   }
@@ -232,6 +238,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_iconplugin_230d8565 === 'function') {
     await nuxt_plugin_iconplugin_230d8565(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_http_6a8178fe === 'function') {
+    await nuxt_plugin_http_6a8178fe(app.context, inject)
   }
 
   // Lock enablePreview in context
