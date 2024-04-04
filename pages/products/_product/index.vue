@@ -54,7 +54,7 @@
                         <td class="align-middle" v-if="info.size">{{ info.size }}</td>
                         <td class="align-middle" v-if="!info.size">-</td>
                         <td class="align-middle" v-if="info.modelpicture">
-                          <img class="w-100" :src="info.modelpicture" alt="TheProduct">
+                          <img class="w-100" :src="info.modelpicture" :alt="`تصویر یک  ${info.themodel}`">
                         </td>
                          <td class="align-middle" v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
@@ -95,7 +95,7 @@
                 </tr>
                 <tr>
                     <td class="text-center" v-if="TheProduct.modelpicture">
-                        <img class="Product_Img" :src="TheProduct.modelpicture" alt="TheProduct">
+                        <img class="Product_Img" :src="TheProduct.modelpicture" :alt="`تصویر یک  ${TheProduct.themodel}`">
                     </td>
                     <td v-if="!TheProduct.modelpicture">
                         <p>تصویر موجود نیست</p>
