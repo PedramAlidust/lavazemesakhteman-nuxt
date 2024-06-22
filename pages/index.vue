@@ -94,7 +94,7 @@
               <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
                   <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
                     <div class="SubCatCardLook mb-5 mx-2">
-                      <img class="w-100" width="300" height="250" if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
+                      <img class="ImgDimention" if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
                       <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                       <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
                       <p class="ProdTitle text-center me-2 py-3">{{ categorie.title.rendered }}</p>
@@ -210,7 +210,7 @@
              <!-- testimonial details -->
               <div class="pb-3 px-2">
                 <img class="quitoicon" src="~/assets/pictures/quitos.png" alt="quito">  
-                <p class="mb-2 pt-2 testiText text-start">برای دفعه پنجم بود که از فروشگاه لوازم ساختمانی خرید میکردم و میتونم بگم از خرید خودم بسیار راضی هستم و به تمامی مشتریان نیز این مجموعه را پیش نهاد میکنم</p>
+                <p class="mb-2 pt-2 testiText text-start">برای دفعه پنجم بود که از فروشگاه لوازم ساختمانی خرید میکردم و میتونم بگم از خرید خودم بسیار راضی هستم </p>
                 <img class="quitoiconLeft" src="~/assets/pictures/quitos.png" alt="quitotwo">  
               </div> 
              <!-- end testimonial details -->
@@ -450,6 +450,12 @@ export default {
 
 
 <style scoped>
+
+.ImgDimention {
+  width: 300px !important;
+  height: 250px !important;
+}
+
 
 .HeroContainer {
   width: 100%;
