@@ -17,6 +17,7 @@ const _33e30e30 = () => interopDefault(import('../pages/panel/model.vue' /* webp
 const _98d7e586 = () => interopDefault(import('../pages/panel/subcategory.vue' /* webpackChunkName: "pages/panel/subcategory" */))
 const _30407986 = () => interopDefault(import('../pages/blog/_blog/index.vue' /* webpackChunkName: "pages/blog/_blog/index" */))
 const _bd228650 = () => interopDefault(import('../pages/categories/_categorie/index.vue' /* webpackChunkName: "pages/categories/_categorie/index" */))
+const _5fb6ce14 = () => interopDefault(import('../pages/product/_single/index.vue' /* webpackChunkName: "pages/product/_single/index" */))
 const _28485f70 = () => interopDefault(import('../pages/products/_product/index.vue' /* webpackChunkName: "pages/products/_product/index" */))
 const _cc7f2448 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -83,6 +84,10 @@ export const routerOptions = {
     path: "/categories/:categorie",
     component: _bd228650,
     name: "categories-categorie"
+  }, {
+    path: "/product/:single",
+    component: _5fb6ce14,
+    name: "product-single"
   }, {
     path: "/products/:product",
     component: _28485f70,

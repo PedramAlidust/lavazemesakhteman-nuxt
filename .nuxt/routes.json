@@ -3,105 +3,96 @@
     "name": "blog",
     "path": "/blog",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/index.vue",
-    "chunkName": "pages/blog/index",
-    "_name": "_316d800b"
+    "chunkName": "pages/blog/index"
   },
   {
     "name": "CataloguePdf",
     "path": "/CataloguePdf",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/CataloguePdf.vue",
-    "chunkName": "pages/CataloguePdf",
-    "_name": "_74c43b62"
+    "chunkName": "pages/CataloguePdf"
   },
   {
     "name": "categories",
     "path": "/categories",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/index.vue",
-    "chunkName": "pages/categories/index",
-    "_name": "_246fb385"
+    "chunkName": "pages/categories/index"
   },
   {
     "name": "order",
     "path": "/order",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/order/index.vue",
-    "chunkName": "pages/order/index",
-    "_name": "_003cda4a"
+    "chunkName": "pages/order/index"
   },
   {
     "name": "panel",
     "path": "/panel",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/index.vue",
-    "chunkName": "pages/panel/index",
-    "_name": "_2dc4aa11"
+    "chunkName": "pages/panel/index"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/index.vue",
-    "chunkName": "pages/products/index",
-    "_name": "_573ec04d"
+    "chunkName": "pages/products/index"
   },
   {
     "name": "ProductsPdf",
     "path": "/ProductsPdf",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/ProductsPdf.vue",
-    "chunkName": "pages/ProductsPdf",
-    "_name": "_15002350"
+    "chunkName": "pages/ProductsPdf"
   },
   {
     "name": "blog-about",
     "path": "/blog/about",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/about.vue",
-    "chunkName": "pages/blog/about",
-    "_name": "_11b5a546"
+    "chunkName": "pages/blog/about"
   },
   {
     "name": "panel-login",
     "path": "/panel/login",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/login.vue",
-    "chunkName": "pages/panel/login",
-    "_name": "_112765b0"
+    "chunkName": "pages/panel/login"
   },
   {
     "name": "panel-model",
     "path": "/panel/model",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/model.vue",
-    "chunkName": "pages/panel/model",
-    "_name": "_33e30e30"
+    "chunkName": "pages/panel/model"
   },
   {
     "name": "panel-subcategory",
     "path": "/panel/subcategory",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/subcategory.vue",
-    "chunkName": "pages/panel/subcategory",
-    "_name": "_98d7e586"
+    "chunkName": "pages/panel/subcategory"
   },
   {
     "name": "blog-blog",
     "path": "/blog/:blog",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/_blog/index.vue",
-    "chunkName": "pages/blog/_blog/index",
-    "_name": "_30407986"
+    "chunkName": "pages/blog/_blog/index"
   },
   {
     "name": "categories-categorie",
     "path": "/categories/:categorie",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/_categorie/index.vue",
-    "chunkName": "pages/categories/_categorie/index",
-    "_name": "_bd228650"
+    "chunkName": "pages/categories/_categorie/index"
+  },
+  {
+    "name": "product-single",
+    "path": "/product/:single",
+    "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/product/_single/index.vue",
+    "chunkName": "pages/product/_single/index"
   },
   {
     "name": "products-product",
     "path": "/products/:product",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/_product/index.vue",
-    "chunkName": "pages/products/_product/index",
-    "_name": "_28485f70"
+    "chunkName": "pages/products/_product/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_cc7f2448"
+    "chunkName": "pages/index"
   }
 ]

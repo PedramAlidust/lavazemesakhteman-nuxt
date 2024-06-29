@@ -19,18 +19,6 @@
               {{ Product.acf.productname }}
             </h1>
             <div class="container-full">
-                  <!-- comments and star count -->
-                    <div class="d-flex justify-content-end">
-                          <!-- rating points -->
-                          <div class="d-flex">
-                              <i class="star bi bi-star-fill"></i>
-                              <i class="star bi bi-star-fill"></i>
-                              <i class="star bi bi-star-fill"></i>
-                              <i class="star bi bi-star-fill"></i>
-                              <i class="star bi bi-star-fill"></i>
-                              <p class="ps-lg-2 pe-lg-2">امتیاز</p>
-                          </div>
-                     </div>
                    <!-- product table -->  
                   <table dir="rtl" class="table equal-width-cols table-bordered table-striped mt-4 mb-4 text-center">
                     <thead v-if="Product.acf">
@@ -49,12 +37,20 @@
                     </thead>
                     <tbody v-if="Product.acf">
                       <tr v-for="info in Product.acf.productdetails" :key="info.id">
-                        <td class="align-middle" v-if="info.themodel">{{ info.themodel }}</td>
+                            <td class="align-middle" v-if="info.themodel">
+                                <nuxt-link  :to="`/product/single/?title=${info.themodel}&id=${PassedUrlId}`">
+                                  <p class="text-black">
+                                    {{ info.themodel }}        
+                                  </p>
+                                 </nuxt-link>
+                            </td>
                         <td class="align-middle" v-if="!info.themodel">-</td>
                         <td class="align-middle" v-if="info.size">{{ info.size }}</td>
                         <td class="align-middle" v-if="!info.size">-</td>
                         <td class="align-middle" v-if="info.modelpicture">
-                          <img class="w-100" :src="info.modelpicture" :alt="`تصویر یک  ${info.themodel}`">
+                            <nuxt-link  :to="`/product/${info.themodel}/?id=${PassedUrlId}`">
+                                <img class="w-100" :src="info.modelpicture" :alt="`تصویر یک  ${info.themodel}`">
+                            </nuxt-link>
                         </td>
                          <td class="align-middle" v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
@@ -87,15 +83,19 @@
 <!-- product details for tablet and mobile -->
 <div class="container px-5">
   <div class="row">
-        <table class="d-md-none d-lg-none table ">
+        <table class="mt-5 d-md-none d-lg-none table">
             <tbody v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id">
                 <!-- image -->
-                <tr>
-                    <th class="ProdTitle text-start py-4">{{TheProduct.themodel}}</th>
+                <tr class="text-center">
+                    <nuxt-link :to="`/product/?title=${TheProduct.themodel}/?id=${PassedUrlId}`">
+                      <th class="ProdTitle py-4">{{TheProduct.themodel}}</th>
+                    </nuxt-link>
                 </tr>
                 <tr>
                     <td class="text-center" v-if="TheProduct.modelpicture">
+                        <nuxt-link :to="`/product/?title=${TheProduct.themodel}/?id=${PassedUrlId}`">
                         <img class="Product_Img" :src="TheProduct.modelpicture" :alt="`تصویر یک  ${TheProduct.themodel}`">
+                        </nuxt-link>
                     </td>
                     <td v-if="!TheProduct.modelpicture">
                         <p>تصویر موجود نیست</p>
@@ -350,7 +350,7 @@ export default {
   },    
   data() {
     return {
-      ProductId: ''
+      PassedUrlId: ''
     }
   }, 
    computed: {
@@ -362,8 +362,11 @@ export default {
       this.SetCart({
         product: {name: name, price: price, id: Math.random().toString(36).substr(2, 10)}
       })
-      
     }
+  },
+
+  created() {
+    this.PassedUrlId = this.$route.query.id
   },
 
   asyncData(context) {
