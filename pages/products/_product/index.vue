@@ -87,13 +87,13 @@
             <tbody v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id">
                 <!-- image -->
                 <tr class="text-center">
-                    <nuxt-link :to="`/product/?title=${TheProduct.themodel}/?id=${PassedUrlId}`">
+                    <nuxt-link :to="`/product/single/?title=${TheProduct.themodel}/?id=${PassedUrlId}`">
                       <th class="ProdTitle py-4">{{TheProduct.themodel}}</th>
                     </nuxt-link>
                 </tr>
                 <tr>
                     <td class="text-center" v-if="TheProduct.modelpicture">
-                        <nuxt-link :to="`/product/?title=${TheProduct.themodel}/?id=${PassedUrlId}`">
+                        <nuxt-link :to="`/product/single/?title=${TheProduct.themodel}/?id=${PassedUrlId}`">
                         <img class="Product_Img" :src="TheProduct.modelpicture" :alt="`تصویر یک  ${TheProduct.themodel}`">
                         </nuxt-link>
                     </td>
@@ -312,7 +312,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <button @click="AddCart(TheProduct.themodel, TheProduct.price)" type="button" class="btn btn-sm btn-success">
-                                       افزودن        
+                                       افزودن به سبد خرید        
                                     </button>
                                 </div>
                                 <div class="col-6 text-start">

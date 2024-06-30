@@ -5,13 +5,27 @@
       <div class="row align-items-center">
         <div class="col-lg-3 mb-3 mb-lg-0">
           <div class="d-flex align-items-center justify-content-between">
-              <button @click="showdDownloadPopup" type="button" class="DownloadBtn btn text-white">
-                دانلود اپلیکیشن
-              </button>
-            <img src="~/assets/svg/Line.svg" alt="devider" class="d-none d-lg-block">
+            <button
+              @click="showdDownloadPopup"
+              type="button"
+              class="DownloadBtn btn text-white"
+            >
+              دانلود اپلیکیشن
+            </button>
+            <img
+              src="~/assets/svg/Line.svg"
+              alt="devider"
+              class="d-none d-lg-block"
+            />
             <div class="image-container">
-              <img @click="showPopup" src="~/assets/svg/buycart.svg" alt="buycart">
-              <span v-if="DspCart.length !== 0" class="ms-1 cart-number">{{DspCart.length}}</span>
+              <img
+                @click="showPopup"
+                src="~/assets/svg/buycart.svg"
+                alt="buycart"
+              />
+              <span v-if="DspCart.length !== 0" class="ms-1 cart-number">{{
+                DspCart.length
+              }}</span>
             </div>
           </div>
         </div>
@@ -26,7 +40,7 @@
             <nuxt-link to="/productspdf">
               <p class="MenuStyle">لیست قیمت</p>
             </nuxt-link>
-              <nuxt-link to="/cataloguepdf">
+            <nuxt-link to="/cataloguepdf">
               <p class="MenuStyle">کاتالوگ</p>
             </nuxt-link>
             <nuxt-link to="/">
@@ -36,7 +50,11 @@
         </div>
         <div class="col-lg-2 mt-lg-1 text-start d-none d-lg-block">
           <nuxt-link to="/">
-            <img src="~/assets/pictures/logo.png" alt="lavazemesakhtemanlogo" class="logo img-fluid">
+            <img
+              src="~/assets/pictures/logo.png"
+              alt="lavazemesakhtemanlogo"
+              class="logo img-fluid"
+            />
           </nuxt-link>
         </div>
       </div>
@@ -46,8 +64,8 @@
       <table dir="rtl" class="table">
         <thead>
           <tr>
-            <th>نام</th>
-            <th>قیمت</th>
+            <th>نام محصول</th>
+            <th>قیمت محصول به تومان</th>
             <th></th>
           </tr>
         </thead>
@@ -56,33 +74,43 @@
             <td>{{ product.name }}</td>
             <td>{{ product.price }}</td>
             <td>
-            <button @click="deleteCart(product.id)" class="mx-2">حذف </button>
+              <button @click="deleteCart(product.id)" class="mx-2">حذف</button>
             </td>
           </tr>
         </tbody>
       </table>
       <div class="d-flex justify-content-between px-2">
-        <p>{{ totalPrice }}</p>
-        <p>مجموع</p>
+        <p dir="rtl">{{ totalPrice }} تومان</p>
+        <p>مجموع قیمت</p>
       </div>
       <nuxt-link to="/order">
-        <button class="btn btn-danger btn-sm mx-2">خرید</button>
+        <button class="btn btn-danger btn-sm mx-2">تکمیل خرید</button>
       </nuxt-link>
-      <button @click="hidePopup" class="btn btn-success btn-sm mx-2">بستن سبد خرید</button>
-      <button @click="emptyCard" class="btn btn-success btn-sm mx-2">خالی کردن سبد خرید</button>
+      <button @click="hidePopup" class="btn btn-success btn-sm mx-2">
+        بستن سبد خرید
+      </button>
+      <button @click="emptyCard" class="btn btn-success btn-sm mx-2">
+        خالی کردن سبد خرید
+      </button>
     </div>
     <!-- dowload app toast -->
     <div class="popup" v-if="isDownloadVisible">
       <!--android -->
-      <div class="container ">
+      <div class="container">
         <div class="row text-start align-items-center justify-content-center">
           <div class="col-10 px-0">
-            <p class="android-txt mt-3">.جهت دانلود نسخه اندروید روی آیکن سمت راست بزنید</p>
+            <p class="android-txt mt-3">
+              .جهت دانلود نسخه اندروید روی آیکن سمت راست بزنید
+            </p>
           </div>
           <div class="col-2">
-              <a href="/2022/apk/lavazem.apk">
-                <img class="w-100" src="~/assets/pictures/android.png" alt="android">
-              </a>
+            <a href="/2022/apk/lavazem.apk">
+              <img
+                class="w-100"
+                src="~/assets/pictures/android.png"
+                alt="android"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -93,33 +121,42 @@
             <p dir="rtl" class="android-txt mt-3">
               جهت نصب نسخه ios روی آیکن
               <span>
-                <img class="ios_icon" src="~/assets/pictures/iosshare.png" alt="download-ios">
+                <img
+                  class="ios_icon"
+                  src="~/assets/pictures/iosshare.png"
+                  alt="download-ios"
+                />
               </span>
-           و سپس گزینه Add to HomeScreen بزنید.
+              و سپس گزینه Add to HomeScreen بزنید.
             </p>
           </div>
           <div class="col-2">
-            <img class="w-100" src="~/assets/pictures/apple.png" alt="android">
+            <img
+              class="w-100"
+              src="~/assets/pictures/apple.png"
+              alt="android"
+            />
           </div>
         </div>
       </div>
-      <button @click="hideDownloadPopup" class="btn btn-danger btn-sm mx-2">بستن</button>
+      <button @click="hideDownloadPopup" class="btn btn-danger btn-sm mx-2">
+        بستن
+      </button>
     </div>
   </section>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-        isPopupVisible: false, 
-        isDownloadVisible: false
-    }
-  }, 
+      isPopupVisible: false,
+      isDownloadVisible: false,
+    };
+  },
   methods: {
-
     ...mapActions(["EmptyCart", "DeleteCart"]),
 
     showPopup() {
@@ -127,31 +164,57 @@ export default {
     },
     hidePopup() {
       this.isPopupVisible = false;
-    }, 
+    },
     showdDownloadPopup() {
-      this.isDownloadVisible = true
-    }, 
+      this.isDownloadVisible = true;
+    },
     hideDownloadPopup() {
-      this.isDownloadVisible = false
+      this.isDownloadVisible = false;
     },
     emptyCard() {
-      this.EmptyCart()
-    }, 
+      this.EmptyCart();
+    },
     deleteCart(id) {
       this.DeleteCart({
-        id: id
-      })
-    }
-  },  
-   computed: {
-    ...mapGetters(["DspCart"]), 
+        id: id,
+      });
+    },
+  },
+  computed: {
+    ...mapGetters(["DspCart"]),
     totalPrice() {
-       return this.DspCart
-      .map(item => ({ ...item, price: parseInt(item.price.replace(/[^0-9]/g, '')) }))
-      .reduce((sum, item) => sum + item.price, 0)
-      .toLocaleString();
-    }
-  }, 
+      const persianNumbers = {
+        "۰": "0",
+        "۱": "1",
+        "۲": "2",
+        "۳": "3",
+        "۴": "4",
+        "۵": "5",
+        "۶": "6",
+        "۷": "7",
+        "۸": "8",
+        "۹": "9",
+      };
+
+      function convertToArabicNumerals(str) {
+        return str.replace(/[۰-۹]/g, (w) => persianNumbers[w]);
+      }
+
+      return this.DspCart.map((item) => {
+        console.log(`Original price: ${item.price}`); // Debugging line
+        const cleanedPrice = item.price.replace(/[^0-9۰-۹]/g, ""); // Remove non-digit characters
+        console.log(`Cleaned price: ${cleanedPrice}`); // Debugging line
+        const numericPrice = parseInt(
+          convertToArabicNumerals(cleanedPrice),
+          10
+        );
+        console.log(`Numeric price: ${numericPrice}`); // Debugging line
+        return isNaN(numericPrice) ? 0 : numericPrice;
+      })
+        .reduce((sum, price) => sum + price, 0)
+        .toLocaleString("en-US");
+    },
+  },
   name: "TheHeader",
   props: ["menu_data"],
 };
@@ -160,6 +223,9 @@ export default {
 
 <style scoped>
 
+.table th {
+  text-align: right;
+}
 
 .logo {
   width: 80px;
@@ -178,39 +244,36 @@ export default {
 }
 
 .MenuStyle:hover {
-  color: #0E3746;
+  color: #0e3746;
 }
 
 .DownloadBtn {
   border-radius: 5px;
   padding: 10px 20px;
-  background-color: #0E3746;
+  background-color: #0e3746;
   box-shadow: none;
   font-size: 14px;
 }
 
 .popup {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0;
   background-color: white;
   padding: 20px;
   border: 1px solid black;
   z-index: 100;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
 }
 
 .cart-number {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-50%, -50%);    
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  width:  1.5rem;
+  width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
   background-color: red;
@@ -227,18 +290,15 @@ export default {
   .Headerstyle {
     padding: 0 50px;
   }
-  
+
   .MenuStyle {
     font-size: 16px;
   }
-  
+
   .DownloadBtn {
     font-size: 16px;
   }
-  
-  .popup {
-    width: 60%;
-  }
+
 }
 
 .android-txt {

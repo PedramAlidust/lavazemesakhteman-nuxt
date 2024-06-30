@@ -28,50 +28,42 @@
                          <th scope="col">مدل</th>
                          <th scope="col">سایز</th>
                          <th scope="col" style="width: 280px;">عکس</th>
-                         <th scope="col">قیمت</th>
+                         <th scope="col">قیمت به تومان</th>
                          <th scope="col">رنگ</th>
                          <th scope="col">جنس</th>
-                         <th scope="col">PN</th>
-                         <th scope="col">DN</th>
-                         <th scope="col">طول</th>
+                         <th v-if="Product.acf.productdetails[0].pn" scope="col">PN</th>
+                         <th v-if="Product.acf.productdetails[0].debi" scope="col">DN</th>
+                         <th v-if="Product.acf.productdetails[0].tul" scope="col">طول</th>
                          <th scope="col">خرید</th>
                       </tr>
                     </thead>
                     <tbody v-if="Product.acf">
                       <tr v-for="info in Product.acf.productdetails.filter(item => item.themodel.trim() === productTitle.trim())" :key="info.id">
                             <td class="align-middle" v-if="info.themodel">
-                                <nuxt-link :to="`/product/${info.themodel}/?id=${PassedUrlId}`">
                                   <p class="text-black">
                                     {{ info.themodel }}        
                                   </p>
-                                 </nuxt-link>
                             </td>
                         <td class="align-middle" v-if="!info.themodel">-</td>
                         <td class="align-middle" v-if="info.size">{{ info.size }}</td>
                         <td class="align-middle" v-if="!info.size">-</td>
                         <td class="align-middle" v-if="info.modelpicture">
-                            <nuxt-link  :to="`/product/${info.themodel}/?id=${PassedUrlId}`">
                                 <img class="w-100" :src="info.modelpicture" :alt="`تصویر یک  ${info.themodel}`">
-                            </nuxt-link>
                         </td>
                          <td class="align-middle" v-if="!info.modelpicture">
                            <p>تصویر موجود نیست</p>
                         </td>
                         <td class="align-middle" v-if="info.price">{{ info.price }} تومان</td>
-                        <td class="align-middle" v-if="!info.price">-</td>
                         <td class="align-middle" v-if="info.color">{{ info.color }}</td>
                         <td class="align-middle" v-if="!info.color">-</td>
                         <td class="align-middle" v-if="info.material">{{ info.material }}</td>
                         <td class="align-middle" v-if="!info.material">-</td>
                         <td class="align-middle" v-if="info.pn">{{ info.pn }}</td>
-                        <td class="align-middle" v-if="!info.pn">-</td>
                         <td class="align-middle" v-if="info.debi">{{ info.debi }}</td>
-                        <td class="align-middle" v-if="!info.debi">-</td>
                         <td class="align-middle" v-if="info.tul">{{ info.tul }}</td>
-                        <td class="align-middle" v-if="!info.tul">-</td>
                         <td class="align-middle">
                           <button @click="AddCart(info.themodel, info.price)" type="button" class="btn btn-sm btn-success">
-                            افزودن
+                           افزودن به سبد خرید 
                           </button>
                         </td>
                       </tr>
@@ -89,15 +81,11 @@
             <tbody v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id">
                 <!-- image -->
                 <tr class="text-center">
-                    <nuxt-link :to="`/product/${TheProduct.themodel}/?id=${PassedUrlId}`">
                       <th class="ProdTitle py-4">{{TheProduct.themodel}}</th>
-                    </nuxt-link>
                 </tr>
                 <tr>
                     <td class="text-center" v-if="TheProduct.modelpicture">
-                        <nuxt-link :to="`/product/${TheProduct.themodel}/?id=${PassedUrlId}`">
                         <img class="Product_Img" :src="TheProduct.modelpicture" :alt="`تصویر یک  ${TheProduct.themodel}`">
-                        </nuxt-link>
                     </td>
                     <td v-if="!TheProduct.modelpicture">
                         <p>تصویر موجود نیست</p>
@@ -411,7 +399,11 @@ export default {
 
 <style scoped>
 
-    /* Add custom styles if needed */
+.table th {
+    text-align: center;
+}
+
+/* Add custom styles if needed */
     .equal-width-cols {
       table-layout: fixed;
       width: 100%;
