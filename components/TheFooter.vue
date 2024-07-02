@@ -62,16 +62,64 @@
         </div>
       </div>
     </div>
+
+    <!-- call button -->
+    <div v-if="showCallButton" class="text-start CallBtn">
+      <img @click="toggleCallButton" class="CloseBtn" width="25" height="25" src="~/assets/pictures/phone-ringing.png" alt="phone-ringing">
+    </div>
+
+    <div v-else class="text-start CallBtn">
+      <img @click="toggleCallButton" class="CloseBtn" width="25" height="25" src="~/assets/pictures/close-button.png" alt="close">
+      <div class="fw-bold">مشاوره رایگان</div>
+      <a href="tel:09122339423">
+         <div class="fw-bold num-font mt-1">09122339423</div>
+      </a>
+      <div class="fw-bold num-font">02155580447</div>
+    </div>
+
   </footer>
 </template>
 
 <script>
 export default {
   props: ["footer_data"],
+  data() {
+    return {
+      showCallButton: false
+    };
+  },
+  methods: {
+    toggleCallButton() {
+      this.showCallButton = !this.showCallButton;
+    }
+  }
 };
 </script>
 
 <style scoped>
+.CloseBtn {
+  margin-right: 90%;
+  cursor: pointer;
+}
+
+.num-font {
+  color: white;
+  font-size: 12pt;
+  letter-spacing: 3px;
+}
+
+.CallBtn {
+  border-radius: 10px;
+  padding: 10px;
+  color: #fff;
+  background-color: #BE2623;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
 .footer-margin {
   margin-left: auto;
 }
@@ -91,5 +139,4 @@ export default {
     width: 50%;
   }
 }
-
 </style>

@@ -16,8 +16,8 @@
 
 <!-- product datails for desktop -->
 <div class="d-none d-md-block d-lg-block container px-0 mt-4">
-    <div class="row">
-            <h1 v-if="productTitle" class="product_title text-start">
+    <div  class="row">
+            <h1 dir="rtl" v-if="productTitle" class="product_title text-start">
               {{ productTitle }}
             </h1>
             <div class="container-full">
