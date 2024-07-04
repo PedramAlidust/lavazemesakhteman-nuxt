@@ -1,6 +1,6 @@
 <template>
 <section>
-<TheHeader />
+<TheHeader :cartUpdated="isCartUpdated" />
 <div class="wrapper">
 
 <!-- single product broad crumb -->
@@ -78,7 +78,7 @@
 <div class="container px-5">
   <div class="row">
         <table class="mt-5 d-md-none d-lg-none table">
-            <tbody v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id">
+            <tbody v-for="TheProduct in Product.acf.productdetails.filter(item => item.themodel.trim() === productTitle.trim())" :key="TheProduct.id">
                 <!-- image -->
                 <tr class="text-center">
                       <th class="ProdTitle py-4">{{TheProduct.themodel}}</th>
@@ -341,7 +341,8 @@ export default {
   data() {
     return {
       PassedUrlId: '', 
-      productTitle: ''
+      productTitle: '', 
+      isCartUpdated: false
     }
   }, 
    computed: {
@@ -353,6 +354,7 @@ export default {
       this.SetCart({
         product: {name: name, price: price, id: Math.random().toString(36).substr(2, 10)}
       })
+      this.isCartUpdated = `${Date.now()}_${Math.random()}`
     }
   },
 

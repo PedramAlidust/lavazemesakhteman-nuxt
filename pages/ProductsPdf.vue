@@ -33,51 +33,32 @@
         </div>
         <!-- Loading -->
       </div>
-      <!-- Latest Products -->
-      <section>
-        <div class="container pt-5 pb-4">
-          <div class="d-flex align-items-center justify-content-end">
-            <p class="CatTxt">آخرین محصولات</p>
-          </div>
-        </div>
-      </section>
-      <!-- products section -->
-      <section>
-        <div class="container py-5 text-center">
-          <div class="row">
-            <div
-              v-for="subcategory in zirdaste"
-              :key="subcategory.id"
-              class="col-lg-3"
-            >
-              <div class="CardLook">
-                <nuxt-link
-                  :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`"
-                >
-                  <img
-                    width="300"
-                    height="250"
-                    class="w-100"
-                    v-if="subcategory.acf.subcatpic"
-                    :src="subcategory.acf.subcatpic"
-                    alt="CatJpg"
-                  />
-                  <img
-                    class="w-100"
-                    v-if="!subcategory.acf.subcatpic"
-                    src="~/assets/pictures/notavalable.png"
-                    alt="CatJpg"
-                  />
-                  <p class="ProductTitle mt-3">
-                    {{ subcategory.title.rendered }}
-                  </p>
-                </nuxt-link>
+          <!-- Latest Products -->
+          <section>
+              <div class="container mt-3 pt-5 pb-4">
+                <div class="d-flex align-items-center justify-content-end">
+                  <p class="CatTxt">آخرین محصولات</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="py-5">
+            </section>
+             <!-- products section -->
+            <section>
+                <div class="container py-5 text-center">
+                  <div class="row">
+                      <div v-for="subcategory in zirdaste" :key="subcategory.id" class="col-lg-3">
+                        <div class="CardLook mb-5">
+                            <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
+                              <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
+                              <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                              <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
+                            </nuxt-link>                  
+                        </div>
+                      </div>
+                  </div>    
+                </div>
+            </section>    
+       <!-- see all -->     
+      <section class="pb-5">
                   <div class="container">
                     <div class="d-flex align-items-center justify-content-between">
                       <button role="button" class="CatBtn">مشاهده همه</button>
@@ -88,7 +69,7 @@
       <!-- weblog posts section -->
       <section>
         <div class="container pb-5">
-          <div class="row">
+          <div dir="rtl" class="row">
             <div class="col-lg-12">
               <div class="container-full">
                 <div class="row gx-3">

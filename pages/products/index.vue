@@ -16,7 +16,7 @@
         تمامی محصولات ساختمانی و صنعتی
       </h1>
       <!-- search in products -->
-      <div class="container bg-white Content mt-5 rounded py-4">
+      <div class="container bg-white Content my-5 rounded py-4">
         <div dir="rtl" class="row px-4 content">
           <input
             @input="search"

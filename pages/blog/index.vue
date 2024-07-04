@@ -29,12 +29,11 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="container-full">
-                <div class="row gx-3">
+                <div dir="rtl" class="row gx-3">
                   <div
                     v-for="post in Posts"
                     :key="post.id"
-                    class="col-lg-4 px-4 px-lg-4"
-                  >
+                    class="col-lg-4 px-4 px-lg-4">
                     <!-- post item one -->
                     <div class="p-lg-0 text-center">
                       <img

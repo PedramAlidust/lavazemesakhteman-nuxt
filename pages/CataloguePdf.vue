@@ -28,7 +28,7 @@
                   </div>
               <!-- Latest Products -->
               <section>
-              <div class="container pt-5 pb-4">
+              <div class="container mt-3 pt-5 pb-4">
                 <div class="d-flex align-items-center justify-content-end">
                   <p class="CatTxt">آخرین محصولات</p>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="container py-5 text-center">
                   <div class="row">
                       <div v-for="subcategory in zirdaste" :key="subcategory.id" class="col-lg-3">
-                        <div class="CardLook">
+                        <div class="CardLook mb-5">
                             <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
                               <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
                               <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
@@ -51,10 +51,12 @@
                 </div>
             </section>        
                   <!-- weblog title section -->
-                  <section class="py-5">
+                  <section class="pb-5">
                     <div class="container">
                       <div class="d-flex align-items-center justify-content-between">
+                        <nuxt-link to="/blog">
                         <button role="button" class="CatBtn">مشاهده همه</button>
+                        </nuxt-link>
                         <p class="BlogTxt">مطالب وبلاگ</p>
                       </div>
                     </div>
@@ -63,37 +65,23 @@
                   <section>
                       <div class="container pb-5">
                         <div class="row">
-                          <div class="col-lg-8">
+                          <div class="col-lg-12">
                             <div class="container-full">
-                              <div class="row gx-3">
-                                  <div v-for="post in Posts" :key="post.id" class="col-lg-4">
+                              <div dir="rtl" class="row gx-3">
+                                  <div v-for="post in Posts" :key="post.id" class="col-lg-4 px-4 px-lg-4">
                                       <!-- post item one -->
-                                        <div class="bg-image">
-                                          <img v-if="post.acf.postpic" :src="post.acf.postpic" class="bgbanerimg w-100" alt="bgbaner"/>
+                                        <div class="p-lg-0 text-center">
+                                          <img style="height: 300px;" v-if="post.acf.postpic" :src="post.acf.postpic" class="w-100 bgbanerimg" alt="bgbaner"/>
                                           <img class="w-100" v-if="!post.acf.postpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                                          <div class="mask" style="border-radius: 12px; background: linear-gradient(359.73deg, #000000 -30.17%, rgba(217, 217, 217, 0) 12.75%);"></div>
                                         </div>
-                                         <nuxt-link :to="`/blog/${post.title.rendered}/?id=${post.id}`">
+                                      <nuxt-link :to="`/blog/${post.title.rendered}/?id=${post.id}`">
                                         <p class="PostItemTitle text-start pt-2 my-2">{{post.title.rendered}}</p>
-                                        <div class="PostItemDesc text-start" v-html="post.excerpt.rendered" />
-                                        </nuxt-link>
+                                        <div class="PostItemDesc text-start text-white" v-html="post.excerpt.rendered" />
+                                      </nuxt-link>
                                   </div>
                               </div>
                             </div>
                           </div>
-                              <!-- big image weblog -->
-                              <div class="col-lg-4 ">
-                                  <div class="bg-image">
-                                    <img src="~/assets/pictures/bgbaner.jpg" class="bgbanerimg w-100" alt="bgbaner"/>
-                                    <div class="mask" style="border-radius: 12px; background: linear-gradient(359.73deg, #000000 -30.17%, rgba(217, 217, 217, 0) 80.75%);">
-                                        <div class="d-flex flex-column text-start h-100">
-                                          <p style="margin-top: auto;" class="bigimgtxt text-white mb-0 pb-2 ps-4">وبلاگ ما</p>
-                                          <p dir="rtl" class="bigimgtxtdesc text-white mb-0 pb-5 ps-4">در قسمت وبلاگ مطالب مهم آموزشی و اخبار لوازم ساختمان را قرار داده ایم</p>
-                                        </div>                                    
-                                     </div>
-                                  </div>
-                              </div>
-                            <!-- end big image weblog -->
                         </div>
                       </div>
                   </section>

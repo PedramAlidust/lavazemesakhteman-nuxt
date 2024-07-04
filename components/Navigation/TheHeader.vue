@@ -1,84 +1,96 @@
-
 <template>
   <section>
-    <div class="container-fluid bg-white pt-3 py-lg-3 Headerstyle px-lg-5">
-      <div class="row align-items-center">
-        <div class="col-lg-3 mb-3 mb-lg-0">
-          <div class="d-flex align-items-center justify-content-between">
-            <button
-              @click="showdDownloadPopup"
-              type="button"
-              class="DownloadBtn btn text-white"
-            >
-              دانلود اپلیکیشن
-            </button>
-            <img
-              src="~/assets/svg/Line.svg"
-              alt="devider"
-              class="d-none d-lg-block"
-            />
-            <div class="image-container">
+    <!-- header -->
+    <div :class="['header-container', { 'sticky': isSticky }]">
+      <div class="container-fluid bg-white pt-3 py-lg-3 Headerstyle px-lg-5">
+        <div class="row align-items-center">
+          <div class="col-lg-3 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-between">
+              <button
+                @click="showdDownloadPopup"
+                type="button"
+                class="DownloadBtn btn text-white"
+              >
+                دانلود اپلیکیشن
+              </button>
               <img
-                @click="showPopup"
-                src="~/assets/svg/buycart.svg"
-                alt="buycart"
+                src="~/assets/svg/Line.svg"
+                alt="devider"
+                class="d-none d-lg-block"
               />
-              <span v-if="DspCart.length !== 0" class="ms-1 cart-number">{{
-                DspCart.length
-              }}</span>
+              <div class="image-container">
+                <img
+                  @click="showPopup"
+                  src="~/assets/svg/buycart.svg"
+                  alt="buycart"
+                />
+                <span v-if="DspCart.length !== 0" class="ms-1 cart-number">{{
+                  DspCart.length
+                }}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-7 text-center px-lg-5 mt-0 mt-lg-2">
-          <div class="d-flex align-items-center justify-content-between">
-            <nuxt-link to="/blog/about">
-              <p class="MenuStyle">درباره ما</p>
-            </nuxt-link>
-            <nuxt-link to="/blog">
-              <p class="MenuStyle">وبلاگ</p>
-            </nuxt-link>
-            <nuxt-link to="/productspdf">
-              <p class="MenuStyle">لیست قیمت</p>
-            </nuxt-link>
-            <nuxt-link to="/cataloguepdf">
-              <p class="MenuStyle">کاتالوگ</p>
-            </nuxt-link>
+          <div class="col-lg-7 text-center px-lg-5 mt-0 mt-lg-2">
+            <div class="d-flex align-items-center justify-content-between">
+              <nuxt-link to="/blog/about">
+                <p class="MenuStyle">درباره ما</p>
+              </nuxt-link>
+              <nuxt-link to="/blog">
+                <p class="MenuStyle">وبلاگ</p>
+              </nuxt-link>
+              <nuxt-link to="/productspdf">
+                <p class="MenuStyle">لیست قیمت</p>
+              </nuxt-link>
+              <nuxt-link to="/cataloguepdf">
+                <p class="MenuStyle">کاتالوگ</p>
+              </nuxt-link>
+              <nuxt-link to="/">
+                <p class="MenuStyle">صفحه اصلی</p>
+              </nuxt-link>
+            </div>
+          </div>
+          <div class="col-lg-2 mt-lg-1 text-start d-none d-lg-block">
             <nuxt-link to="/">
-              <p class="MenuStyle">صفحه اصلی</p>
+              <img
+                src="~/assets/pictures/logo.png"
+                alt="lavazemesakhtemanlogo"
+                class="logo img-fluid"
+              />
             </nuxt-link>
           </div>
-        </div>
-        <div class="col-lg-2 mt-lg-1 text-start d-none d-lg-block">
-          <nuxt-link to="/">
-            <img
-              src="~/assets/pictures/logo.png"
-              alt="lavazemesakhtemanlogo"
-              class="logo img-fluid"
-            />
-          </nuxt-link>
         </div>
       </div>
     </div>
     <!-- carts toast -->
     <div class="popup" v-if="isPopupVisible">
-      <table dir="rtl" class="table">
-        <thead>
-          <tr>
-            <th>نام محصول</th>
-            <th>قیمت محصول به تومان</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="product in DspCart" :key="product.id">
-            <td>{{ product.name }}</td>
-            <td>{{ product.price }}</td>
-            <td>
-              <button @click="deleteCart(product.id)" class="mx-2">حذف</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <button @click="hidePopup" class="btn btn-danger btn-sm mx-2">
+        <div class="d-flex">
+            <div class="fw-bold me-2">بستن</div>
+            <div>
+              <img width="19" height="19" src="~/assets/pictures/close-button.png" alt="close-btn">
+            </div>
+        </div>
+      </button>
+        <div class="table-container">
+            <table dir="rtl" class="table">
+              <thead>
+                <tr>
+                  <th>نام محصول</th>
+                  <th>قیمت محصول به تومان</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="product in DspCart" :key="product.id">
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.price }}</td>
+                  <td>
+                    <button @click="deleteCart(product.id)" class="mx-2">حذف</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
       <div class="d-flex justify-content-between px-2">
         <p dir="rtl">{{ totalPrice }} تومان</p>
         <p>مجموع قیمت</p>
@@ -86,9 +98,6 @@
       <nuxt-link to="/order">
         <button class="btn btn-danger btn-sm mx-2">تکمیل خرید</button>
       </nuxt-link>
-      <button @click="hidePopup" class="btn btn-success btn-sm mx-2">
-        بستن سبد خرید
-      </button>
       <button @click="emptyCard" class="btn btn-success btn-sm mx-2">
         خالی کردن سبد خرید
       </button>
@@ -154,11 +163,11 @@ export default {
     return {
       isPopupVisible: false,
       isDownloadVisible: false,
+      isSticky: false,
     };
   },
   methods: {
     ...mapActions(["EmptyCart", "DeleteCart"]),
-
     showPopup() {
       this.isPopupVisible = true;
     },
@@ -178,6 +187,9 @@ export default {
       this.DeleteCart({
         id: id,
       });
+    },
+    handleScroll() {
+      this.isSticky = window.scrollY > 0;
     },
   },
   computed: {
@@ -201,27 +213,41 @@ export default {
       }
 
       return this.DspCart.map((item) => {
-        console.log(`Original price: ${item.price}`); // Debugging line
-        const cleanedPrice = item.price.replace(/[^0-9۰-۹]/g, ""); // Remove non-digit characters
-        console.log(`Cleaned price: ${cleanedPrice}`); // Debugging line
+        const cleanedPrice = item.price.replace(/[^0-9۰-۹]/g, "");
         const numericPrice = parseInt(
           convertToArabicNumerals(cleanedPrice),
           10
         );
-        console.log(`Numeric price: ${numericPrice}`); // Debugging line
         return isNaN(numericPrice) ? 0 : numericPrice;
       })
         .reduce((sum, price) => sum + price, 0)
         .toLocaleString("en-US");
     },
   },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   name: "TheHeader",
-  props: ["menu_data"],
+  props: ["menu_data", "cartUpdated"],
+  watch: {
+    cartUpdated(value) {
+      if(value) {
+        this.isPopupVisible = true
+      }
+    }
+  }
 };
 </script>
 
-
 <style scoped>
+.table-container {
+  max-height: 150px; /* Set the desired height */
+  overflow-y: auto;
+}
+
 
 .table th {
   text-align: right;
@@ -233,8 +259,22 @@ export default {
 }
 
 /* header */
-.Headerstyle {
+.header-container {
+  width: 100%;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-container.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.095);
+}
+
+.Headerstyle {
   padding: 0 15px;
 }
 
@@ -298,7 +338,6 @@ export default {
   .DownloadBtn {
     font-size: 16px;
   }
-
 }
 
 .android-txt {

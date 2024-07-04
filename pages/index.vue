@@ -61,7 +61,7 @@
      <section>
         <div class="container py-5 text-center">
           <div class="row">
-            <VueSlickCarousel v-if="products[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
+            <VueSlickCarousel v-if="products[0]" :arrows="false" :dots="true" :responsive="slickResponsive">
               <div v-for="subcategory in products" :key="subcategory.id" class="col-lg-3">
                 <div class="CardLook mb-5 mb-5 mx-2">
                   <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
@@ -91,7 +91,7 @@
      <section>
         <div class="container py-5 text-center">
             <div class="row">
-              <VueSlickCarousel v-if="categories[0]" :arrows="true" :dots="true" :responsive="slickResponsive">
+              <VueSlickCarousel v-if="categories[0]" :arrows="false" :dots="true" :responsive="slickResponsive">
                   <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
                     <div class="SubCatCardLook mb-5 mx-2">
                       <img class="ImgDimention" if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
@@ -174,7 +174,7 @@
      <!-- testimonial description section -->
      <section class="pb-5">
         <div class="container">
-            <VueSlickCarousel :arrows="true" :dots="true" :responsive="CommentResponsive">
+            <VueSlickCarousel :arrows="false" :dots="true" :responsive="CommentResponsive">
            <div class="CardLook testimosialBorder mx-3">
             <img class="TesimonialImg" src="~/assets/pictures/PersonFour.jpg" alt="CatJpg">
              <!-- testimonial details -->
@@ -236,7 +236,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="container-full">
-                  <div class="row gx-3">
+                  <div dir="rtl" class="row gx-3">
                       <div v-for="post in Posts" :key="post.id" class="col-lg-4 px-4 px-lg-4">
                           <!-- post item one -->
                             <div class="p-lg-0 text-center">
@@ -720,10 +720,25 @@ border-radius: 12px;
   font-size: 38px;
 }
 
+
+/* Mobile Slider Title */
+@media (max-width: 767px) {
+  .SliderTitle {
+    font-size: 18pt; /* Adjust font size for mobile */
+  }
+}
+
 .SlideTitle {
   color: #0E3746;
   font-weight: 900;
   font-size: 38px;
+}
+
+/* Mobile SlideTitle */
+@media (max-width: 767px) {
+  .SlideTitle {
+    font-size: 18pt; /* Adjust font size for mobile */
+  }
 }
 
 .sliderDesc {
