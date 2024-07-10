@@ -50,9 +50,12 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6 col-lg-6">
-                <a href="https://idpay.ir/">
-                  <button class="btn btn-success btn-sm">پرداخت</button>
-                </a>
+                <nuxt-link v-if="DspCart.length" :to="`/order/getinfo`">
+                  <button class="btn btn-danger btn-sm fw-bold">ادامه خرید</button>
+                </nuxt-link>
+                <nuxt-link v-if="!DspCart.length" :to="`/products/all`">
+                  <button class="btn btn-danger btn-sm fw-bold">مشاهده محصولات</button>
+                </nuxt-link>
               </div>
               <div class="text-start col-md-6 col-lg-6">
                 <p>مجموع: {{ CartTotalPrice }} تومان</p>

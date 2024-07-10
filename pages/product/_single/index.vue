@@ -63,7 +63,7 @@
                         <td class="align-middle" v-if="info.tul">{{ info.tul }}</td>
                         <td class="align-middle">
                           <button @click="AddCart(info.themodel, info.price)" type="button" class="btn btn-sm btn-success">
-                           افزودن به سبد خرید 
+                            خرید محصول
                           </button>
                         </td>
                       </tr>

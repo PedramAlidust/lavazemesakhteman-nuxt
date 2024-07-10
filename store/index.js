@@ -22,6 +22,7 @@ const createStore = () => {
       PostPanelModelRes: null,
       PanelModelsRes: null,
       LoginRes: {},
+      OrderInCrmRes: {}
     },
     mutations: {
       /* priceList */
@@ -201,6 +202,35 @@ const createStore = () => {
         state.FltProduct = {}
       },
 
+      /* Order In Crm */
+      async OrderInCrm(state, payload) {
+
+        const formData = new FormData()
+        formData.append('company', payload.company)
+        formData.append('phonenumber', payload.phonenumber)
+        formData.append('city', payload.city)
+        formData.append('vat', payload.theProduct)
+
+        var ReqConfig = {
+          method: "post", 
+          url: `https://lavazemesakhtemani.ir/api/customers/`,
+          headers: { 
+            'authtoken': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYXBpIiwibmFtZSI6Im1hc291ZCIsIkFQSV9USU1FIjoxNzA5MzcxMzg1fQ.ZGM6E3lwBpoJBzxpWGr6TAjKMhB_PoVEoTup1jOiGT8'          },
+          data: formData, 
+        }
+
+        /* request section */
+        await this.$axios(ReqConfig)
+          .then((response) => {
+            state.OrderInCrmRes = response.data;
+          })
+          .catch((error) => {
+            state.OrderInCrmRes = error.response
+          });
+
+      },
+
+
       async PanelPostCategory(state, payload) {
 
         const formData = new FormData()
@@ -215,8 +245,9 @@ const createStore = () => {
             Authorization: "Bearer " + payload.token,
             'Content-Type': 'multipart/form-data',
           }
-        }
+        } 
 
+         
         /* request section */
         await this.$axios(ReqConfig)
           .then((response) => {
@@ -551,6 +582,11 @@ const createStore = () => {
       SetPostPanelModel({ commit }, payload) {
         commit("PostPanelModel", payload)
       },
+
+      /* setOrderInCrm */
+      setOrderInCrm({commit}, payload) {
+        commit("OrderInCrm", payload)
+      }
     },
     getters: {
       /* Dsp priceList */
@@ -628,6 +664,9 @@ const createStore = () => {
       }, 
       DspPanelModels(state) {
         return state.PanelModelsRes
+      }, 
+      DspOrderInCrmRes(state) {
+        return state.OrderInCrmRes
       }
     }
   });
