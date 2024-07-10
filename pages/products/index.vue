@@ -11,8 +11,7 @@
       </h1>
       <h1
         v-if="!$route.query.title"
-        class="PrdPrcTitle text-center pt-5 fw-bold"
-      >
+        class="PrdPrcTitle text-center pt-5 fw-bold">
         تمامی محصولات ساختمانی و صنعتی
       </h1>
       <!-- search in products -->
@@ -121,9 +120,6 @@
         </div>
       </section>
     </main>
-    <div dir="ltr">
-      {{ DspProducts }}
-    </div>
     <TheFooter />
   </section>
 </template>
