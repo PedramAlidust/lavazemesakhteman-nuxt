@@ -81,11 +81,13 @@
         <table v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id" class="mt-3 table">
             <tbody>
                 <!-- image -->
-                <!-- <tr>
-                    <nuxt-link :to="`/product/single/?title=${TheProduct.themodel}&id=${PassedUrlId}`">
-                      <th class="text-start ProdTitle py-4">{{TheProduct.themodel}}</th>
-                    </nuxt-link>
-                </tr> -->
+                <tr>
+                    <td v-if="TheProduct.modelpicture">
+                        <nuxt-link :to="`/product/single/?title=${TheProduct.themodel}&id=${PassedUrlId}`">
+                             <th class="text-start ProdTitle py-4">{{TheProduct.themodel}}</th>
+                        </nuxt-link>
+                    </td>
+                </tr>
                 <tr>
                     <td class="text-center" v-if="TheProduct.modelpicture">
                         <nuxt-link :to="`/product/single/?title=${TheProduct.themodel}&id=${PassedUrlId}`">
