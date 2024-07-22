@@ -76,7 +76,7 @@
 </div>
 
 <!-- product details for tablet and mobile -->
-<div class="container d-md-none d-lg-none px-5 pt-5">
+<div v-if="Product.acf" class="container d-md-none d-lg-none px-5 pt-5">
   <div class="row">
         <table v-for="TheProduct in Product.acf.productdetails" :key="TheProduct.id" class="mt-3 table">
             <tbody>
