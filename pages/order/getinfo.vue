@@ -32,9 +32,14 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6 col-lg-6 mt-2">
-                  <button @click="registerOrder" class="btn btn-danger btn-sm fw-bold">
+                  <button v-if="this.DspCart[0]" @click="registerOrder" class="btn btn-danger btn-sm fw-bold">
                     ثبت سفارش                 
                  </button>
+                 <nuxt-link v-if="!this.DspCart[0]" :to="`/products/all`">
+                    <button class="btn btn-danger btn-sm fw-bold">
+                      مشاهده محصولات                 
+                  </button>
+                 </nuxt-link>
               </div>
             </div>
           </div>
@@ -75,13 +80,18 @@ export default {
       "setOrderInCrm",
     ]), 
     registerOrder() {
-      this.setOrderInCrm({
-        company: this.name,
-        phonenumber: this.number,
-        city: this.town,
-        address: this.address,
-        theProduct: this.DspCart[0].name
-      });
+      if(this.name && this.number && this.town && this.address) {
+            this.setOrderInCrm({
+            company: this.name,
+            phonenumber: this.number,
+            city: this.town,
+            address: this.address,
+            theProduct: this.DspCart[0].name
+          });
+      } else {
+        alert('همه فیلد ها را وارد کنید')
+      }
+      
     }
   },
 };

@@ -202,22 +202,25 @@ const createStore = () => {
         state.FltProduct = {}
       },
 
+
       /* Order In Crm */
       async OrderInCrm(state, payload) {
-
-        const formData = new FormData()
-        formData.append('company', payload.company)
-        formData.append('phonenumber', payload.phonenumber)
-        formData.append('city', payload.city)
-        formData.append('vat', payload.theProduct)
+        const jsonData = {
+          "name": payload.company,
+          "number": payload.phonenumber,
+          "town": payload.city,
+          "address": payload.address,
+          "product": payload.theProduct
+        };
 
         var ReqConfig = {
-          method: "post", 
-          url: `https://lavazemesakhtemani.ir/api/customers/`,
-          headers: { 
-            'authtoken': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYXBpIiwibmFtZSI6Im1hc291ZCIsIkFQSV9USU1FIjoxNzA5MzcxMzg1fQ.ZGM6E3lwBpoJBzxpWGr6TAjKMhB_PoVEoTup1jOiGT8'          },
-          data: formData, 
-        }
+          method: "post",
+          url: `https://api.lavazemesakhteman.com/orders`,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data: JSON.stringify(jsonData)
+        };
 
         /* request section */
         await this.$axios(ReqConfig)
@@ -225,9 +228,8 @@ const createStore = () => {
             state.OrderInCrmRes = response.data;
           })
           .catch((error) => {
-            state.OrderInCrmRes = error.response
+            state.OrderInCrmRes = error.response;
           });
-
       },
 
 
@@ -245,9 +247,9 @@ const createStore = () => {
             Authorization: "Bearer " + payload.token,
             'Content-Type': 'multipart/form-data',
           }
-        } 
+        }
 
-         
+
         /* request section */
         await this.$axios(ReqConfig)
           .then((response) => {
@@ -566,8 +568,8 @@ const createStore = () => {
       /* GetPanelModels */
       GetPanelModels({ commit }, payload) {
         commit("PanelModels", payload)
-      }, 
-      
+      },
+
       /* EditPanelSubCategories */
       SetEditPanelFormDataPic({ commit }, payload) {
         commit("EditPanelFormDataPic", payload)
@@ -584,7 +586,7 @@ const createStore = () => {
       },
 
       /* setOrderInCrm */
-      setOrderInCrm({commit}, payload) {
+      setOrderInCrm({ commit }, payload) {
         commit("OrderInCrm", payload)
       }
     },
@@ -658,13 +660,13 @@ const createStore = () => {
       },
       DspEditPanelFormDataTextFieldRes(state) {
         return state.EditPanelFormDataTextFieldRes
-      }, 
+      },
       DspPostPanelModel(state) {
         return state.PostPanelModelRes
-      }, 
+      },
       DspPanelModels(state) {
         return state.PanelModelsRes
-      }, 
+      },
       DspOrderInCrmRes(state) {
         return state.OrderInCrmRes
       }
