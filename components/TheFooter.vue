@@ -71,6 +71,7 @@
     <div v-else class="text-start CallBtn">
       <img @click="toggleCallButton" class="CloseBtn" width="25" height="25" src="~/assets/pictures/close-button.png" alt="close">
       <div class="fw-bold">مشاوره رایگان</div>
+      <div class="fw-bold">حتی ایام تعطیل</div>
       <a href="tel:09122339423">
          <div class="fw-bold num-font mt-1">09122339423</div>
       </a>
