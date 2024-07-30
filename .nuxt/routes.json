@@ -3,108 +3,126 @@
     "name": "blog",
     "path": "/blog",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/index.vue",
-    "chunkName": "pages/blog/index"
+    "chunkName": "pages/blog/index",
+    "_name": "_316d800b"
   },
   {
     "name": "CataloguePdf",
     "path": "/CataloguePdf",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/CataloguePdf.vue",
-    "chunkName": "pages/CataloguePdf"
+    "chunkName": "pages/CataloguePdf",
+    "_name": "_74c43b62"
   },
   {
     "name": "categories",
     "path": "/categories",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/index.vue",
-    "chunkName": "pages/categories/index"
+    "chunkName": "pages/categories/index",
+    "_name": "_246fb385"
   },
   {
     "name": "order",
     "path": "/order",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/order/index.vue",
-    "chunkName": "pages/order/index"
+    "chunkName": "pages/order/index",
+    "_name": "_003cda4a"
   },
   {
     "name": "panel",
     "path": "/panel",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/index.vue",
-    "chunkName": "pages/panel/index"
+    "chunkName": "pages/panel/index",
+    "_name": "_2dc4aa11"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/index.vue",
-    "chunkName": "pages/products/index"
+    "chunkName": "pages/products/index",
+    "_name": "_573ec04d"
   },
   {
     "name": "ProductsPdf",
     "path": "/ProductsPdf",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/ProductsPdf.vue",
-    "chunkName": "pages/ProductsPdf"
+    "chunkName": "pages/ProductsPdf",
+    "_name": "_15002350"
   },
   {
     "name": "blog-about",
     "path": "/blog/about",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/about.vue",
-    "chunkName": "pages/blog/about"
+    "chunkName": "pages/blog/about",
+    "_name": "_11b5a546"
   },
   {
     "name": "order-getinfo",
     "path": "/order/getinfo",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/order/getinfo.vue",
-    "chunkName": "pages/order/getinfo"
+    "chunkName": "pages/order/getinfo",
+    "_name": "_0177fc66"
   },
   {
     "name": "panel-login",
     "path": "/panel/login",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/login.vue",
-    "chunkName": "pages/panel/login"
+    "chunkName": "pages/panel/login",
+    "_name": "_112765b0"
   },
   {
     "name": "panel-model",
     "path": "/panel/model",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/model.vue",
-    "chunkName": "pages/panel/model"
+    "chunkName": "pages/panel/model",
+    "_name": "_33e30e30"
   },
   {
     "name": "panel-subcategory",
     "path": "/panel/subcategory",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/panel/subcategory.vue",
-    "chunkName": "pages/panel/subcategory"
+    "chunkName": "pages/panel/subcategory",
+    "_name": "_98d7e586"
   },
   {
     "name": "products-all",
     "path": "/products/all",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/all.vue",
-    "chunkName": "pages/products/all"
+    "chunkName": "pages/products/all",
+    "_name": "_10f3a348"
   },
   {
     "name": "blog-blog",
     "path": "/blog/:blog",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/blog/_blog/index.vue",
-    "chunkName": "pages/blog/_blog/index"
+    "chunkName": "pages/blog/_blog/index",
+    "_name": "_30407986"
   },
   {
     "name": "categories-categorie",
     "path": "/categories/:categorie",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/categories/_categorie/index.vue",
-    "chunkName": "pages/categories/_categorie/index"
+    "chunkName": "pages/categories/_categorie/index",
+    "_name": "_bd228650"
   },
   {
     "name": "product-single",
     "path": "/product/:single",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/product/_single/index.vue",
-    "chunkName": "pages/product/_single/index"
+    "chunkName": "pages/product/_single/index",
+    "_name": "_5fb6ce14"
   },
   {
     "name": "products-product",
     "path": "/products/:product",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/products/_product/index.vue",
-    "chunkName": "pages/products/_product/index"
+    "chunkName": "pages/products/_product/index",
+    "_name": "_28485f70"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/home/pedram/Projects/lavazemesakhteman_v2/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_cc7f2448"
   }
 ]
