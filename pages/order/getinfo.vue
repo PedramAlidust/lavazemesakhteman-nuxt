@@ -46,29 +46,45 @@
         </div>
       </section>
     </main>
+
     <TheFooter />
+
+
+    <!-- response message -->
+    <Message ref="messageRef" />
   </section>
 </template>
   
-  <script>
+<script>
 import { mapGetters, mapActions } from "vuex";
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheFooter from "@/components/TheFooter";
+import Message from "@/components/panel/Message.vue";
 import VueSlickCarousel from "vue-slick-carousel";
+
 export default {
   components: {
     TheHeader,
     TheFooter,
     VueSlickCarousel,
+    Message
   },
   data() {
     return {
       name: "",
       number: "",
       town: "", 
-      address: ""
+      address: "", 
     };
   },
+  watch: {
+    DspOrderInCrmRes(newValue) {
+      if (newValue.id) {
+        this.$refs.messageRef.showMessage({data: {message: "سفارش شما ثبت شد کارشناسان ما تا دقایقی دیگر با شما تماس خواهند گرفت"}});
+        this.$refs.messageRef.theLoading(false);
+      }
+    },
+  }, 
   computed: {
     ...mapGetters([
       "DspOrderInCrmRes",
@@ -88,6 +104,14 @@ export default {
             address: this.address,
             theProduct: this.DspCart[0].name
           });
+
+          this.$refs.messageRef.theLoading(true);
+
+          // Redirect to /products/all after registering the order
+          setTimeout(() => {
+            this.$router.push('/products/all');
+          }, 10000); // 10000 milliseconds = 10 seconds
+
       } else {
         alert('همه فیلد ها را وارد کنید')
       }

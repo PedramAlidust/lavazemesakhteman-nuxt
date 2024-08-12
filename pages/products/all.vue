@@ -138,6 +138,8 @@ export default {
           });
         });
 
+        
+
         return {
           Products: productsResponse.data, // Optionally include original products data
           AllProductDetails: allProductDetails,
