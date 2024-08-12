@@ -82,6 +82,45 @@ export default {
       if (newValue.id) {
         this.$refs.messageRef.showMessage({data: {message: "سفارش شما ثبت شد کارشناسان ما تا دقایقی دیگر با شما تماس خواهند گرفت"}});
         this.$refs.messageRef.theLoading(false);
+
+        // Construct the SMS message for internal notification
+        const internalMessage = `مشتری با مشخصات زیر ثبت سفارش کرد:\nنام: ${this.name}\nشماره تماس: ${this.number}\nشهر: ${this.town}\nآدرس: ${this.address}\nمحصول: ${this.DspCart[0].name}`;
+
+        // Construct the SMS message for the customer
+        const customerMessage = `مشتری گرامی سفارش شما با مشخصات زیر ثبت شد:\n\nنام: ${this.name}\nشماره تماس: ${this.number}\nشهر: ${this.town}\nآدرس: ${this.address}\nمحصول: ${this.DspCart[0].name}\n\nمجموعه پخش امینی یکتا\nlavazemesakhteman.com\n02155580447`;
+
+        // List of phone numbers for internal notifications
+        const phoneNumbers = [
+          '09392250576',
+          '09122339423',
+          '09192702180'
+        ];
+
+        // Send internal notification SMS to each phone number
+        phoneNumbers.forEach(number => {
+          const requestUrl = `https://api.payamak-panel.com/post/Send.asmx/SendSimpleSMS?username=989122339423&password=$NPT5&to=${number}&from=50002710039423&text=${encodeURIComponent(internalMessage)}&isflash=false`;
+
+          fetch(requestUrl)
+            .then(response => response.json())
+            .then(responseData => {
+              console.log(`Internal GET request successful for ${number}, data:`, responseData);
+            })
+            .catch(error => {
+              console.error(`Error making internal GET request for ${number}:`, error);
+            });
+        });
+
+        // Send customer SMS
+        const customerRequestUrl = `https://api.payamak-panel.com/post/Send.asmx/SendSimpleSMS?username=989122339423&password=$NPT5&to=${this.number}&from=50002710039423&text=${encodeURIComponent(customerMessage)}&isflash=false`;
+
+        fetch(customerRequestUrl)
+          .then(response => response.json())
+          .then(responseData => {
+            console.log('Customer GET request successful, data:', responseData);
+          })
+          .catch(error => {
+            console.error('Error making customer GET request:', error);
+          });
       }
     },
   }, 
