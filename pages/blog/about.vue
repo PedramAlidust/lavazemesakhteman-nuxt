@@ -25,7 +25,7 @@
         </div>
       </div>
       <!-- weblog title section -->
-      <section class="py-5">
+      <section class="pt-5">
         <div class="container">
           <div class="d-flex align-items-center justify-content-between">
             <nuxt-link to="/blog/">
@@ -35,43 +35,42 @@
           </div>
         </div>
       </section>
-      <!-- weblog posts section -->
-      <section>
-        <div class="container pt-4">
+           <!-- weblog posts section -->
+           <section>
+        <div class="container pt-5">
           <div class="row">
             <div class="col-lg-12">
               <div class="container-full">
                 <div dir="rtl" class="row gx-3">
                   <div
-                    v-for="post in Posts"
-                    :key="post.id"
-                    class="col-lg-4 px-4 px-lg-4"
-                  >
+                    v-for="post in Posts.data"
+                    :key="post.ArticleId"
+                    class="col-lg-4 px-4 px-lg-4">
                     <!-- post item one -->
                     <div class="p-lg-0 text-center">
                       <img
                         style="height: 300px"
-                        v-if="post.acf.postpic"
-                        :src="post.acf.postpic"
+                        v-if="post.ArticleImage"
+                        :src="`https://api.lavazemesakhteman.com${post.ArticleImage.url}`"
                         class="w-100 bgbanerimg"
                         alt="bgbaner"
                       />
                       <img
                         class="w-100"
-                        v-if="!post.acf.postpic"
+                        v-if="!post.ArticleImage"
                         src="~/assets/pictures/notavalable.png"
                         alt="CatJpg"
                       />
                     </div>
                     <nuxt-link
-                      :to="`/blog/${post.title.rendered}/?id=${post.id}`"
+                      :to="`/blog/${post.ArticleTitle}/?id=${post.ArticleId}`"
                     >
                       <p class="PostItemTitle text-start pt-2 my-2">
-                        {{ post.title.rendered }}
+                        {{ post.ArticleTitle }}
                       </p>
                       <div
                         class="PostItemDesc text-start text-white"
-                        v-html="post.excerpt.rendered"
+                        v-html="post.ArticleExcerpt"
                       />
                     </nuxt-link>
                   </div>
@@ -99,21 +98,16 @@ export default {
   },
 
   asyncData(context) {
-    const zirdaste = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/zirdaste/?per_page=4`
-    );
     const Posts = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=15`
+      `https://api.lavazemesakhteman.com/api/articles?populate=*&pagination[page]=1&pagination[pageSize]=15&sort=id:desc`
     );
     return axios
-      .all([zirdaste, Posts])
+      .all([Posts])
       .then(
         axios.spread((...responses) => {
-          const zirdaste = responses[0];
-          const Posts = responses[1];
+          const Posts = responses[0];
 
           return {
-            zirdaste: zirdaste.data,
             Posts: Posts.data,
           };
         })

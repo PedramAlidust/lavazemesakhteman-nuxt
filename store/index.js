@@ -215,7 +215,7 @@ const createStore = () => {
 
         var ReqConfig = {
           method: "post",
-          url: `https://api.lavazemesakhteman.com/orders`,
+          url: `https://api.lavazemesakhteman.com/api/orders`,
           headers: {
             'Content-Type': 'application/json'
           },

@@ -61,13 +61,13 @@
      <section>
         <div class="container py-5 text-center">
           <div class="row">
-            <VueSlickCarousel v-if="products[0]" :arrows="false" :dots="true" :responsive="slickResponsive">
-              <div v-for="subcategory in products" :key="subcategory.id" class="col-lg-3">
+            <VueSlickCarousel v-if="products.data" :arrows="false" :dots="true" :responsive="slickResponsive">
+              <div v-for="subcategory in products.data" :key="subcategory.CategoryId" class="col-lg-3">
                 <div class="CardLook mb-5 mb-5 mx-2">
-                  <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
-                  <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                     <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
-                     <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
+                  <img width="300" height="250" class="w-100" v-if="subcategory.CategoryPicture" :src="`https://api.lavazemesakhteman.com${subcategory.CategoryPicture.url}`" alt="CatJpg">
+                  <img class="w-100" v-if="!subcategory.CategoryPicture" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                     <nuxt-link :to="`/products/?subcategoryid=${subcategory.CategoryId}&title=${subcategory.CategoryTitle}`">
+                     <p class="ProductTitle mt-3">{{subcategory.CategoryTitle}}</p>
                      <button role="button" class="ProductBtn  mt-3">مشاهده</button>
                    </nuxt-link>                  
                  </div>
@@ -91,13 +91,13 @@
      <section>
         <div class="container py-5 text-center">
             <div class="row">
-              <VueSlickCarousel v-if="categories[0]" :arrows="false" :dots="true" :responsive="slickResponsive">
-                  <div v-for="categorie in categories" :key="categorie.id"  class="col-lg-3">
+              <VueSlickCarousel v-if="categories.data" :arrows="false" :dots="true" :responsive="slickResponsive">
+                  <div v-for="categorie in categories.data" :key="categorie.CategoryId"  class="col-lg-3">
                     <div class="SubCatCardLook mb-5 mx-2">
-                      <img class="ImgDimention" if="categorie.acf.catpic" :src="categorie.acf.catpic" alt="CatJpg">
-                      <img class="w-100" v-if="!categorie.acf.catpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                      <nuxt-link :to="`/products/?categoryid=${categorie.id}&title=${categorie.title.rendered}`">
-                      <p class="ProdTitle text-center me-2 py-3">{{ categorie.title.rendered }}</p>
+                      <img class="ImgDimention" v-if="categorie.categoryPicture" :src="`https://api.lavazemesakhteman.com${categorie.categoryPicture.url}`" alt="CatJpg">
+                      <img class="w-100" v-if="!categorie.categoryPicture" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                      <nuxt-link :to="`/products/?categoryid=${categorie.CategoryId}&title=${categorie.CategoryTitle}`">
+                      <p class="ProdTitle text-center me-2 py-3">{{ categorie.CategoryTitle }}</p>
                       </nuxt-link>
                     </div>
                   </div>
@@ -237,15 +237,15 @@
               <div class="col-lg-12">
                 <div class="container-full">
                   <div dir="rtl" class="row gx-3">
-                      <div v-for="post in Posts" :key="post.id" class="col-lg-4 px-4 px-lg-4">
+                      <div v-for="post in Posts.data" :key="post.ArticleId" class="col-lg-4 px-4 px-lg-4">
                           <!-- post item one -->
                             <div class="p-lg-0 text-center">
-                              <img style="height: 300px;" v-if="post.acf.postpic" :src="post.acf.postpic" class="w-100 bgbanerimg" alt="bgbaner"/>
-                              <img class="w-100" v-if="!post.acf.postpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                              <img style="height: 300px;" v-if="post.ArticleImage" :src="`https://api.lavazemesakhteman.com${post.ArticleImage.url}`" class="w-100 bgbanerimg" alt="bgbaner"/>
+                              <img class="w-100" v-if="!post.ArticleImage" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                             </div>
-                          <nuxt-link :to="`/blog/${post.title.rendered}/?id=${post.id}`">
-                            <p class="PostItemTitle text-start pt-2 my-2">{{post.title.rendered}}</p>
-                            <div class="PostItemDesc text-start text-muted" v-html="post.excerpt.rendered" />
+                          <nuxt-link :to="`/blog/${post.ArticleTitle}/?id=${post.ArticleId}`">
+                            <p class="PostItemTitle text-start pt-2 my-2">{{post.ArticleTitle}}</p>
+                            <div class="PostItemDesc text-start text-muted" v-html="post.ArticleExcerpt" />
                           </nuxt-link>
                       </div>
                   </div>
@@ -323,16 +323,32 @@ export default {
     VueSlickCarousel
   },
 
+  methods: {
+  truncateByWordCount(html, maxWords) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    const textContent = tempDiv.innerText || tempDiv.textContent; // Get the plain text
+
+    const words = textContent.split(/\s+/); // Split by whitespace to get words
+    if (words.length <= maxWords) {
+      return html; // Return original HTML if within limit
+    }
+
+    // Construct the truncated version with the specified max number of words
+    const truncatedWords = words.slice(0, maxWords).join(' ');
+    return truncatedWords + '...'; // Add ellipsis if truncated
+  }
+},
 
   asyncData(context) {
     const categories = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/daste/?per_page=100`
+      `https://api.lavazemesakhteman.com/api/old-category-type2-Categories?populate=*&sort=id:desc`
     );
     const products = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/zirdaste/?per_page=100`
+      `https://api.lavazemesakhteman.com/api/Old-category-type3-Sub-Categories?populate=*&sort=id:desc`
     );
     const Posts = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=100`
+      `https://api.lavazemesakhteman.com/api/articles?populate=*&pagination[page]=1&pagination[pageSize]=15&sort=id:desc`
     );
     return axios
       .all([

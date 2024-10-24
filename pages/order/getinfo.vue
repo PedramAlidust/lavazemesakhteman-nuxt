@@ -77,6 +77,9 @@ export default {
       address: "", 
     };
   },
+  methods: {
+    ...mapActions(["EmptyCart"]),
+  },
   watch: {
     DspOrderInCrmRes(newValue) {
       if (newValue.id) {
@@ -92,8 +95,7 @@ export default {
         // List of phone numbers for internal notifications
         const phoneNumbers = [
           '09392250576',
-          '09122339423',
-          '09192702180'
+          '09365833005',
         ];
 
         // Send internal notification SMS to each phone number
@@ -133,7 +135,11 @@ export default {
   methods: {
     ...mapActions([
       "setOrderInCrm",
+      "EmptyCart"
     ]), 
+    emptyCard() {
+      this.EmptyCart();
+    },
     registerOrder() {
       if(this.name && this.number && this.town && this.address) {
             this.setOrderInCrm({
@@ -145,11 +151,13 @@ export default {
           });
 
           this.$refs.messageRef.theLoading(true);
+          this.emptyCard()
+
 
           // Redirect to /products/all after registering the order
           setTimeout(() => {
-            this.$router.push('/products/all');
-          }, 10000); // 10000 milliseconds = 10 seconds
+            this.$router.push('/products/');
+          }, 5000); // 5000 milliseconds = 5 seconds
 
       } else {
         alert('همه فیلد ها را وارد کنید')

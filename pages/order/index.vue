@@ -53,7 +53,7 @@
                 <nuxt-link v-if="DspCart.length" :to="`/order/getinfo`">
                   <button class="btn btn-danger btn-sm fw-bold">ادامه خرید</button>
                 </nuxt-link>
-                <nuxt-link v-if="!DspCart.length" :to="`/products/all`">
+                <nuxt-link v-if="!DspCart.length" :to="`/products/`">
                   <button class="btn btn-danger btn-sm fw-bold">مشاهده محصولات</button>
                 </nuxt-link>
               </div>

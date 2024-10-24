@@ -5,16 +5,16 @@
                 <main class="pb-5 mb-5">
                   <h1 class="PrdPrcTitle text-center pt-5 fw-bold">کاتالوگ محصولات</h1>
                   <div class="container Content mt-5 rounded py-5">
-                    <div v-if="catalogues" class="row px-4">
-                        <div v-for="catalogue in catalogues" :key="catalogue.id" class="col-lg-3 py-3">
+                    <div v-if="catalogues.data" class="row px-4">
+                        <div v-for="catalogue in catalogues.data" :key="catalogue.id" class="col-lg-3 py-3">
                             <!-- pdf card -->
                             <div class="ListCardLook text-center">
                               <div>
-                                  <img class="w-100" :src="catalogue.acf.catalouge_image" alt="CatJpg">
+                                  <img class="w-100" :src="`https://api.lavazemesakhteman.com/${catalogue.CatalogueImage.url}`" alt="CatJpg">
                               </div>
                               <div class="py-3">
-                                 <p class="PdfTitle fw-bold text-center me-2">{{ catalogue.acf.catalouge_title }}</p>
-                                  <a target="_blank" :href="catalogue.acf.thecatalouge">
+                                 <p class="PdfTitle fw-bold text-center me-2">{{ catalogue.CatalogueTitle }}</p>
+                                  <a target="_blank" :href="`https://api.lavazemesakhteman.com/${catalogue.TheCatalouge.url}`">
                                       <button type="button" class="DownloadBtn btn-sm btn text-white">
                                         دانلود کاتالوگ
                                       </button>
@@ -38,12 +38,12 @@
             <section>
                 <div class="container py-5 text-center">
                   <div class="row">
-                      <div v-for="subcategory in zirdaste" :key="subcategory.id" class="col-lg-3">
+                      <div v-for="subcategory in zirdaste.data" :key="subcategory.CategoryId" class="col-lg-3">
                         <div class="CardLook mb-5">
-                            <nuxt-link :to="`/products/?subcategoryid=${subcategory.id}&title=${subcategory.title.rendered}`">
-                              <img width="300" height="250" class="w-100" v-if="subcategory.acf.subcatpic" :src="subcategory.acf.subcatpic" alt="CatJpg">
-                              <img class="w-100" v-if="!subcategory.acf.subcatpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
-                              <p class="ProductTitle mt-3">{{subcategory.title.rendered}}</p>
+                            <nuxt-link :to="`/products/?subcategoryid=${subcategory.CategoryId}&title=${subcategory.CategoryTitle}`">
+                              <img width="300" height="250" class="w-100" v-if="subcategory.CategoryPicture" :src="`https://api.lavazemesakhteman.com/${subcategory.CategoryPicture.url}`" alt="CatJpg">
+                              <img class="w-100" v-if="!subcategory.CategoryPicture" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                              <p class="ProductTitle mt-3">{{subcategory.CategoryTitle}}</p>
                             </nuxt-link>                  
                         </div>
                       </div>
@@ -68,15 +68,15 @@
                           <div class="col-lg-12">
                             <div class="container-full">
                               <div dir="rtl" class="row gx-3">
-                                  <div v-for="post in Posts" :key="post.id" class="col-lg-4 px-4 px-lg-4">
+                                  <div v-for="post in Posts.data" :key="post.ArticleId" class="col-lg-4 px-4 px-lg-4">
                                       <!-- post item one -->
                                         <div class="p-lg-0 text-center">
-                                          <img style="height: 300px;" v-if="post.acf.postpic" :src="post.acf.postpic" class="w-100 bgbanerimg" alt="bgbaner"/>
-                                          <img class="w-100" v-if="!post.acf.postpic" src="~/assets/pictures/notavalable.png" alt="CatJpg">
+                                          <img style="height: 300px;" v-if="post.ArticleImage" :src="`https://api.lavazemesakhteman.com/${post.ArticleImage.url}`" class="w-100 bgbanerimg" alt="bgbaner"/>
+                                          <img class="w-100" v-if="!post.ArticleImage" src="~/assets/pictures/notavalable.png" alt="CatJpg">
                                         </div>
-                                      <nuxt-link :to="`/blog/${post.title.rendered}/?id=${post.id}`">
-                                        <p class="PostItemTitle text-start pt-2 my-2">{{post.title.rendered}}</p>
-                                        <div class="PostItemDesc text-start text-white" v-html="post.excerpt.rendered" />
+                                      <nuxt-link :to="`/blog/${post.ArticleTitle}/?id=${post.ArticleId}`">
+                                        <p class="PostItemTitle text-start pt-2 my-2">{{post.ArticleTitle}}</p>
+                                        <div class="PostItemDesc text-start text-white" v-html="post.ArticleExcerpt" />
                                       </nuxt-link>
                                   </div>
                               </div>
@@ -101,13 +101,13 @@ export default {
   },
   asyncData(context) {
     const catalogues = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/catalogue/?per_page=100`
+      `https://api.lavazemesakhteman.com/api/catalogues?populate=*&sort=id:desc`
     );
     const zirdaste = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/zirdaste/?per_page=4`
+      `https://api.lavazemesakhteman.com/api/Old-category-type3-Sub-Categories?populate=*&pagination[page]=1&pagination[pageSize]=4&sort=id:desc`
     );
     const Posts = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/posts/?per_page=100`
+      `https://api.lavazemesakhteman.com/api/articles?populate=*&pagination[page]=1&pagination[pageSize]=15&sort=id:desc`
     );
     return axios
       .all([

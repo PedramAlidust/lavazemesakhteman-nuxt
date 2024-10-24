@@ -8,7 +8,7 @@
     <div dir="rtl" class="d-flex align-items-center justify-content-start">
         <img src="~/assets/svg/home.svg" alt="home">
         <img class="px-2" src="~/assets/svg/leftarrow.svg" alt="arrow">
-        <p v-if="Product.acf" class="text-success">{{Product.acf.productname}}</p>
+        <p v-if="CatTitle.data" class="text-success">{{CatTitle.data[0].ProductTitle}}</p>
         <img class="px-2" src="~/assets/svg/leftarrow.svg" alt="arrow">
         <p v-if="productTitle" class="text-success">{{productTitle}}</p>
     </div>
@@ -23,7 +23,7 @@
             <div class="container-full">
                    <!-- product table -->  
                   <table dir="rtl" class="table equal-width-cols table-bordered table-striped mt-4 mb-4 text-center">
-                    <thead v-if="Product.acf">
+                    <thead v-if="Product.data">
                       <tr>
                          <th scope="col">مدل</th>
                          <th scope="col">سایز</th>
@@ -31,38 +31,32 @@
                          <th scope="col">قیمت به تومان</th>
                          <th scope="col">رنگ</th>
                          <th scope="col">جنس</th>
-                         <th v-if="Product.acf.productdetails[0].pn" scope="col">PN</th>
-                         <th v-if="Product.acf.productdetails[0].debi" scope="col">DN</th>
-                         <th v-if="Product.acf.productdetails[0].tul" scope="col">طول</th>
                          <th scope="col">خرید</th>
                       </tr>
                     </thead>
-                    <tbody v-if="Product.acf">
-                      <tr v-for="info in Product.acf.productdetails.filter(item => item.themodel.trim() === productTitle.trim())" :key="info.id">
-                            <td class="align-middle" v-if="info.themodel">
+                    <tbody v-if="Product.data">
+                      <tr v-for="info in Product.data.filter(item => item.Model.trim() === productTitle.trim())" :key="info.id">
+                            <td class="align-middle" v-if="info.Model">
                                   <p class="text-black">
-                                    {{ info.themodel }}        
+                                    {{ info.Model }}        
                                   </p>
                             </td>
-                        <td class="align-middle" v-if="!info.themodel">-</td>
-                        <td class="align-middle" v-if="info.size">{{ info.size }}</td>
-                        <td class="align-middle" v-if="!info.size">-</td>
-                        <td class="align-middle" v-if="info.modelpicture">
-                                <img class="w-100" :src="info.modelpicture" :alt="`تصویر یک  ${info.themodel}`">
+                        <td class="align-middle" v-if="!info.Model">-</td>
+                        <td class="align-middle" v-if="info.Size">{{ info.Size }}</td>
+                        <td class="align-middle" v-if="!info.Size">-</td>
+                        <td class="align-middle" v-if="info.Picture">
+                                <img class="w-100" :src="`https://api.lavazemesakhteman.com${info.Picture.url}`" :alt="`تصویر یک  ${info.Model}`">
                         </td>
-                         <td class="align-middle" v-if="!info.modelpicture">
+                         <td class="align-middle" v-if="!info.Picture">
                            <p>تصویر موجود نیست</p>
                         </td>
-                        <td class="align-middle" v-if="info.price">{{ info.price }} تومان</td>
-                        <td class="align-middle" v-if="info.color">{{ info.color }}</td>
-                        <td class="align-middle" v-if="!info.color">-</td>
-                        <td class="align-middle" v-if="info.material">{{ info.material }}</td>
-                        <td class="align-middle" v-if="!info.material">-</td>
-                        <td class="align-middle" v-if="info.pn">{{ info.pn }}</td>
-                        <td class="align-middle" v-if="info.debi">{{ info.debi }}</td>
-                        <td class="align-middle" v-if="info.tul">{{ info.tul }}</td>
+                        <td class="align-middle" v-if="info.Price">{{ info.Price }} تومان</td>
+                        <td class="align-middle" v-if="info.Color">{{ info.Color }}</td>
+                        <td class="align-middle" v-if="!info.Color">-</td>
+                        <td class="align-middle" v-if="info.Material">{{ info.Material }}</td>
+                        <td class="align-middle" v-if="!info.Material">-</td>
                         <td class="align-middle">
-                          <button @click="AddCart(info.themodel, info.price)" type="button" class="btn btn-sm btn-success">
+                          <button @click="AddCart(info.Model, info.Price)" type="button" class="btn btn-sm btn-success">
                             خرید محصول
                           </button>
                         </td>
@@ -78,26 +72,26 @@
 <div class="container px-5">
   <div class="row">
         <table class="mt-5 d-md-none d-lg-none table">
-            <tbody v-for="TheProduct in Product.acf.productdetails.filter(item => item.themodel.trim() === productTitle.trim())" :key="TheProduct.id">
+            <tbody v-for="TheProduct in Product.data.filter(item => item.Model.trim() === productTitle.trim())" :key="TheProduct.id">
                 <!-- image -->
                 <tr class="text-center">
-                      <th class="ProdTitle py-4">{{TheProduct.themodel}}</th>
+                      <th class="ProdTitle py-4">{{TheProduct.Model}}</th>
                 </tr>
                 <tr>
-                    <td class="text-center" v-if="TheProduct.modelpicture">
-                        <img class="Product_Img" :src="TheProduct.modelpicture" :alt="`تصویر یک  ${TheProduct.themodel}`">
+                    <td class="text-center" v-if="TheProduct.Picture">
+                        <img class="Product_Img" :src="`https://api.lavazemesakhteman.com/${TheProduct.Picture.url}`" :alt="`تصویر یک  ${TheProduct.Model}`">
                     </td>
-                    <td v-if="!TheProduct.modelpicture">
+                    <td v-if="!TheProduct.Picture">
                         <p>تصویر موجود نیست</p>
                     </td>
                 </tr>
                 <!-- price -->
                   <tr>
-                    <td v-if="TheProduct.price">
+                    <td v-if="TheProduct.Price">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
-                                    <p class="text-dark fs-6" dir="rtl">{{ TheProduct.price }} تومان</p>
+                                    <p class="text-dark fs-6" dir="rtl">{{ TheProduct.Price }} تومان</p>
                                 </div>
                                 <div class="col-6 text-start">
                                     <p class="price fw-bold fs-6">:قیمت</p>
@@ -106,7 +100,7 @@
                         </div>
                     </td>
                   <!-- if there is no price -->
-                    <td v-if="!TheProduct.price">
+                    <td v-if="!TheProduct.Price">
                          <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
@@ -121,11 +115,11 @@
                 </tr>
                 <!-- size -->
                   <tr>
-                    <td v-if="TheProduct.size">
+                    <td v-if="TheProduct.Size">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
-                                    <p class="price-number" dir="rtl">{{ TheProduct.size }}</p>
+                                    <p class="price-number" dir="rtl">{{ TheProduct.Size }}</p>
                                 </div>
                                 <div class="col-6 text-start">
                                     <p class="text-dark fw-bold fs-6">:سایز</p>
@@ -134,7 +128,7 @@
                         </div>
                     </td>
                 <!-- if there is no size -->
-                    <td v-if="!TheProduct.size">
+                    <td v-if="!TheProduct.Size">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
@@ -149,11 +143,11 @@
                 </tr>
                   <!-- color -->
                   <tr>
-                    <td v-if="TheProduct.color">
+                    <td v-if="TheProduct.Color">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
-                                    <p class="text-dark fs-6" dir="rtl">{{ TheProduct.color }}</p>
+                                    <p class="text-dark fs-6" dir="rtl">{{ TheProduct.Color }}</p>
                                 </div>
                                 <div class="col-6 text-start">
                                     <p class="price fw-bold fs-6">:رنگ</p>
@@ -162,7 +156,7 @@
                         </div>
                     </td>
                 <!-- if there is no color -->
-                    <td v-if="!TheProduct.color">
+                    <td v-if="!TheProduct.Color">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
@@ -177,12 +171,12 @@
                 </tr>
                   <!-- material -->
                   <tr>
-                    <td v-if="TheProduct.material">
+                    <td v-if="TheProduct.Material">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6">
                                     <p class="text-end" dir="rtl">
-                                      {{ TheProduct.material }}
+                                      {{ TheProduct.Material }}
                                     </p>
                                 </div>
                                 <div class="col-6 text-start">
@@ -192,7 +186,7 @@
                         </div>
                     </td>
                 <!-- if there is no material -->
-                    <td v-if="!TheProduct.material">
+                    <td v-if="!TheProduct.Material">
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6 text-end">
@@ -200,96 +194,6 @@
                                 </div>
                                 <div class="col-6 text-start fw-bold fs-6">
                                     <p class="text-dark fw-bold fs-6">:جنس</p>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                  <!-- PN -->
-                  <tr>
-                    <td v-if="TheProduct.pn">
-                        <div class="container"> 
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="text-end" dir="rtl">
-                                      {{ TheProduct.pn }}
-                                    </p>
-                                </div>
-                                <div class="col-6 text-start">
-                                    <p class="text-dark fw-bold fs-6">:پی ان</p>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                <!-- If there is no PN -->
-                    <td v-if="!TheProduct.pn">
-                        <div class="container"> 
-                            <div class="row">
-                                <div class="col-6 text-end">
-                                    <p class="price-number" dir="rtl">-</p>
-                                </div>
-                                <div class="col-6 text-start fw-bold fs-6">
-                                    <p class="text-dark fw-bold fs-6">:پی ان</p>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                 <!-- DEBI -->
-                  <tr>
-                    <td v-if="TheProduct.debi">
-                        <div class="container"> 
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="text-end" dir="rtl">
-                                      {{ TheProduct.debi }}
-                                    </p>
-                                </div>
-                                <div class="col-6 text-start">
-                                    <p class="text-dark fw-bold fs-6">:دبی</p>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                <!-- If there is no DEBI -->
-                    <td v-if="!TheProduct.debi">
-                        <div class="container"> 
-                            <div class="row">
-                                <div class="col-6 text-end">
-                                    <p class="price-number" dir="rtl">-</p>
-                                </div>
-                                <div class="col-6 text-start fw-bold fs-6">
-                                    <p class="text-dark fw-bold fs-6">:دبی</p>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <!-- TUL -->
-                 <tr>
-                    <td v-if="TheProduct.tul">
-                        <div class="container"> 
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="text-end" dir="rtl">
-                                      {{ TheProduct.tul }}
-                                    </p>
-                                </div>
-                                <div class="col-6 text-start">
-                                    <p class="text-dark fw-bold fs-6">:طول</p>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                <!-- If there is no TUL -->
-                    <td v-if="!TheProduct.tul">
-                        <div class="container"> 
-                            <div class="row">
-                                <div class="col-6 text-end">
-                                    <p class="price-number" dir="rtl">-</p>
-                                </div>
-                                <div class="col-6 text-start fw-bold fs-6">
-                                    <p class="text-dark fw-bold fs-6">:طول</p>
                                 </div>
                             </div>
                         </div>
@@ -301,7 +205,7 @@
                         <div class="container"> 
                             <div class="row">
                                 <div class="col-6">
-                                    <button @click="AddCart(TheProduct.themodel, TheProduct.price)" type="button" class="btn btn-sm btn-success">
+                                    <button @click="AddCart(TheProduct.Model, TheProduct.Price)" type="button" class="btn btn-sm btn-success">
                                        افزودن        
                                     </button>
                                 </div>
@@ -316,12 +220,6 @@
         </table>
   </div>
 </div>
-
-<!-- product introduction -->
-<div class="container Content rounded pb-5 pt-3">
-    <div dir="rtl" class="row px-4 content" v-html="Product.acf.productcontent" />
-</div>
-
 
 <TheFooter />
 </section>
@@ -366,17 +264,23 @@ export default {
   asyncData(context) {
 
     const Product = axios.get(
-      `${process.env.UrlApi}/wp-json/wp/v2/products/${context.query.id}`
+      `https://api.lavazemesakhteman.com/api/products?filters[OldCategoryType1ProductId][$eq]=${context.query.id}&populate=*`
     );
+    const CatTitle = axios.get(
+        `https://api.lavazemesakhteman.com/api/Old-category-type1-products?filters[theProductId][$eq]=${context.query.id}`
+      );
     return axios
       .all([
-        Product
+        Product,
+        CatTitle
       ])
       .then(
         axios.spread((...responses) => {
           const Product = responses[0];
+          const CatTitle = responses[1]
           return {
-            Product: Product.data
+            Product: Product.data, 
+            CatTitle: CatTitle.data
           };
         })
       )
