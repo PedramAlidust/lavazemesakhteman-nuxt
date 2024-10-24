@@ -66,7 +66,7 @@ export default {
       `https://api.lavazemesakhteman.com/api/articles?filters[ArticleId][$eq]=${context.query.id}`, 
     );
     const Posts = axios.get(
-      `https://api.lavazemesakhteman.com/api/articles?populate=*&pagination[page]=1&pagination[pageSize]=15`
+      `https://api.lavazemesakhteman.com/api/articles?populate=*&pagination[page]=1&pagination[pageSize]=15&sort=id:desc`
     );
     return axios
       .all([
@@ -90,12 +90,12 @@ export default {
   },
     head() {
     return {
-      title: this.Post.data.ArticleMetaTitle,
+      title: this.Post.data[0].ArticleMetaTitle,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.Post.data.ArticleMetaDescription,
+          content: this.Post.data[0].ArticleMetaDescription,
         },
       ],
     };
