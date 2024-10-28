@@ -72,7 +72,7 @@
 <div class="container px-5">
   <div class="row">
         <table class="mt-5 d-md-none d-lg-none table">
-            <tbody v-for="TheProduct in Product.data.filter(item => item.Model.trim() === productTitle.trim())" :key="TheProduct.id">
+            <tbody v-for="TheProduct in Product.data" :key="TheProduct.id">
                 <!-- image -->
                 <tr class="text-center">
                       <th class="ProdTitle py-4">{{TheProduct.Model}}</th>
@@ -263,8 +263,12 @@ export default {
 
   asyncData(context) {
 
+    const productModel = context.query.title; // Extract title from the context
+    const encodedTitle = encodeURIComponent(productModel); // Encode the title
+
+
     const Product = axios.get(
-      `https://api.lavazemesakhteman.com/api/products?filters[OldCategoryType1ProductId][$eq]=${context.query.id}&populate=*`
+      `https://api.lavazemesakhteman.com/api/products?filters[Model][$contains]=${encodedTitle}&populate=*`
     );
     const CatTitle = axios.get(
         `https://api.lavazemesakhteman.com/api/Old-category-type1-products?filters[theProductId][$eq]=${context.query.id}`
